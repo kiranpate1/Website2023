@@ -62,8 +62,8 @@
       }
 
       .tile.active.modal-open {
-        width: 800px!important;
-        height: 800px!important;
+        width: 80%!important;
+        height: 80%!important;
         top: 50%!important;
         left: 50%!important;
         transform: translate(-50%,-50%)!important;
@@ -83,11 +83,16 @@
         height: 48px;
         border-radius: 50%;
         opacity: 0;
-        transition: .6s ease;
+        transition: .2s ease;
         pointer-events: none;
+        cursor: pointer;
       }
 
-      .tile.active .close-modal {
+      .close-modal:hover {
+        background: #E5E5E5;
+      }
+
+      .active .close-modal {
         opacity: 1;
         pointer-events: all;
       }
