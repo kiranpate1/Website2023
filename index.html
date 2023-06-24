@@ -335,7 +335,6 @@
       </div>
     </div>
     <script>
-      let selectedTestimonial = 0;
       const gridWrapper = document.querySelector("#grid-0");
       const gridItems = document.getElementsByClassName("grid-item");
       const tiles = document.getElementsByClassName("tile");
@@ -362,7 +361,6 @@
             gridItems[i].parentElement.setAttribute("hover", gridItems[i].id)
           }
         }
-        selectedTestimonial = indexToExpand;
       }
 
       //tile onclick
@@ -417,7 +415,6 @@
           tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
           tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
       	};
-
       }
     </script>
   </body>
