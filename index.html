@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      html {
+        background: #F6F6F6;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --short: 0.2s ease-in-out;
+        --medium: 0.6s ease;
+      }
+      .grid-item {
+        width: 100%;
+        height: 100%;
+        transition: var(--short);
+        grid-gap: 24px;
+      }
+      .tile, .placeholder-tile {
+        width: auto;
+        height: auto;
+        background: #fff;
+        box-shadow: 0px 0px 32px rgba(73,73,73,0.06);
+        border-radius: 24px;
+        transition: var(--medium);
+      }
+      .tile:hover {
+        box-shadow: 0px 0px 44px rgba(73,73,73,0.2);
+      }
+      .content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 24px;
+      }
+      .modal-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0);
+        pointer-events: none;
+        transition: 0.6s ease;
+      }
+      .modal-wrapper.active {
+        background: rgba(0,0,0,0.5);
+      }
+
+      .tile.active {
+        position: absolute;
+        z-index: 1;
+        pointer-events: all!important;
+      }
+      /* .tile.allow-hover {
+        width: 100%!important;
+        height: 100%!important;
+      } */
+
+      .tile.active.modal-open {
+        width: 800px!important;
+        height: 800px!important;
+        top: 50%!important;
+        left: 50%!important;
+        transform: translate(-50%,-50%)!important;
+      }
+
+
+      /* #modal {
+        position: absolute;
+        transform: translate(0%,0%);
+        background: #fff;
+        box-shadow: 0px 0px 32px rgba(73,73,73,0.06);
+        border-radius: 24px;
+        transition: 0.6s ease;
+      }
+      #modal.modal-open {
+        width: 800px!important;
+        height: 800px!important;
+        top: 50%!important;
+        left: 50%!important;
+        transform: translate(-50%,-50%)!important;
+      }
+      #modal-content {
+        opacity: 0;
+        transition: 0.6s ease;
+      }
+      .modal-open #modal-content {
+        opacity: 1;
+      } */
+      #close-modal {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+      }
+
+      /* #grid-0 div {
+        border: 1px solid red;
+      }
+      #grid-0 div div {
+        border: 1px solid magenta;
+      }
+      #grid-0 div div div {
+        border: 1px solid blue;
+      }
+      #grid-0 div div div div {
+        border: 1px solid lime;
+      }
+      #grid-0 div div div div div {
+        border: 1px solid yellow;
+      } */
+
+      #grid-0 {
+        display: grid;
+        grid-template-columns: 0.5fr 1fr;
+      }
+      #grid-0.allow-hover[hover="grid-0-0"] {
+        grid-template-columns: 0.6fr 1fr;
+      }
+      #grid-0.allow-hover[hover="grid-0-1"] {
+        grid-template-columns: 0.4fr 1fr;
+      }
+
+      #grid-0-0 {
+        display: grid;
+        grid-template-rows: 0.25fr 1fr;
+      }
+      #grid-0-0.allow-hover[hover="grid-0-0-0"] {
+        grid-template-rows: 0.15fr 1fr;
+      }
+      #grid-0-0.allow-hover[hover="grid-0-0-0"] {
+        grid-template-rows: 0.35fr 1fr;
+      }
+      #grid-0-1 {
+        display: grid;
+        grid-template-rows: 0.5fr 1fr;
+      }
+      #grid-0-1.allow-hover[hover="grid-0-1-0"] {
+        grid-template-rows: 0.6fr 1fr;
+      }
+      #grid-0-1.allow-hover[hover="grid-0-1-1"] {
+        grid-template-rows: 0.4fr 1fr;
+      }
+
+      #grid-0-0-0 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      #grid-0-0-0.allow-hover[hover="grid-0-0-0-0"] {
+        grid-template-columns: 1fr 0.8fr;
+      }
+      #grid-0-0-0.allow-hover[hover="grid-0-0-0-1"] {
+        grid-template-columns: 0.8fr 1fr;
+      }
+      #grid-0-0-1 {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+      }
+      #grid-0-0-1.allow-hover[hover="grid-0-0-1-0"] {
+        grid-template-rows: 1fr 0.8fr 0.8fr 0.8fr;
+      }
+      #grid-0-0-1.allow-hover[hover="grid-0-0-1-1"] {
+        grid-template-rows: 0.8fr 1fr 0.8fr 0.8fr;
+      }
+      #grid-0-0-1.allow-hover[hover="grid-0-0-1-2"] {
+        grid-template-rows: 0.8fr 0.8fr 1fr 0.8fr;
+      }
+      #grid-0-0-1.allow-hover[hover="grid-0-0-1-3"] {
+        grid-template-rows: 0.8fr 0.8fr 0.8fr 1fr;
+      }
+      #grid-0-1-0 {
+        display: grid;
+        grid-template-columns: 0.67fr 1fr;
+      }
+      #grid-0-1-0.allow-hover[hover="grid-0-1-0-0"] {
+        grid-template-columns: 0.77fr 1fr;
+      }
+      #grid-0-1-0.allow-hover[hover="grid-0-1-0-1"] {
+        grid-template-columns: 0.57fr 1fr;
+      }
+      #grid-0-1-1 {
+        display: grid;
+        grid-template-columns: 1fr 0.75fr;
+      }
+      #grid-0-1-1.allow-hover[hover="grid-0-1-1-0"] {
+        grid-template-columns: 1fr 0.65fr;
+      }
+      #grid-0-1-1.allow-hover[hover="grid-0-1-1-1"] {
+        grid-template-columns: 1fr 0.85fr;
+      }
+
+      #grid-0-1-0-1 {
+        display: grid;
+        grid-template-rows: 1fr 0.33fr;
+      }
+      #grid-0-1-0-1.allow-hover[hover="grid-0-1-0-1-0"] {
+        grid-template-rows: 1fr 0.23fr;
+      }
+      #grid-0-1-0-1.allow-hover[hover="grid-0-1-0-1-1"] {
+        grid-template-rows: 1fr 0.43fr;
+      }
+      #grid-0-1-1-0 {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+      }
+      #grid-0-1-1-0.allow-hover[hover="grid-0-1-1-0-0"] {
+        grid-template-rows: 1fr 0.8fr;
+      }
+      #grid-0-1-1-0.allow-hover[hover="grid-0-1-1-0-1"] {
+        grid-template-rows: 0.8fr 1fr;
+      }
+      #grid-0-1-1-1 {
+        display: grid;
+        grid-template-rows: 0.67fr 1fr;
+      }
+      #grid-0-1-1-1.allow-hover[hover="grid-0-1-1-1-0"] {
+        grid-template-rows: 0.77fr 1fr;
+      }
+      #grid-0-1-1-1.allow-hover[hover="grid-0-1-1-1-1"] {
+        grid-template-rows: 0.57fr 1fr;
+      }
+
+      #grid-0-1-0-1-0 {
+        display: grid;
+        grid-template-columns: 0.5fr 1fr;
+      }
+      #grid-0-1-0-1-0.allow-hover[hover="grid-0-1-0-1-0-0"] {
+        grid-template-columns: 0.6fr 1fr;
+      }
+      #grid-0-1-0-1-0.allow-hover[hover="grid-0-1-0-1-0-1"] {
+        grid-template-columns: 0.4fr 1fr;
+      }
+      #grid-0-1-1-0-1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      #grid-0-1-1-0-1.allow-hover[hover="grid-0-1-1-0-1-0"] {
+        grid-template-columns: 1fr 0.8fr;
+      }
+      #grid-0-1-1-0-1.allow-hover[hover="grid-0-1-1-0-1-1"] {
+        grid-template-columns: 0.8fr 1fr;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="grid-item" id="grid-0">
+        <div class="grid-item" id="grid-0-0">
+          <div class="grid-item" id="grid-0-0-0">
+            <div class="grid-item" id="grid-0-0-0-0">
+              f
+            </div>
+            <div class="grid-item" id="grid-0-0-0-1">
+              gdfg
+            </div>
+          </div>
+          <div class="grid-item" id="grid-0-0-1">
+            <div class="grid-item" id="grid-0-0-1-0">
+              sdfdsf
+            </div>
+            <div class="grid-item" id="grid-0-0-1-1">
+              fsdf
+            </div>
+            <div class="grid-item" id="grid-0-0-1-2">
+              salutations
+            </div>
+            <div class="grid-item" id="grid-0-0-1-3">
+              hiiiiii
+            </div>
+          </div>
+        </div>
+        <div class="grid-item" id="grid-0-1">
+          <div class="grid-item" id="grid-0-1-0">
+            <div class="grid-item" id="grid-0-1-0-0">
+              nihao
+            </div>
+            <div class="grid-item" id="grid-0-1-0-1">
+              <div class="grid-item" id="grid-0-1-0-1-0">
+                <div class="grid-item" id="grid-0-1-0-1-0-0">
+                  heya
+                </div>
+                <div class="grid-item" id="grid-0-1-0-1-0-1">
+                  hola
+                </div>
+              </div>
+              <div class="grid-item" id="grid-0-1-0-1-1">
+                yo
+              </div>
+            </div>
+          </div>
+          <div class="grid-item" id="grid-0-1-1">
+            <div class="grid-item" id="grid-0-1-1-0">
+              <div class="grid-item" id="grid-0-1-1-0-0">
+                arigato
+              </div>
+              <div class="grid-item" id="grid-0-1-1-0-1">
+                <div class="grid-item" id="grid-0-1-1-0-1-0">
+                  hey
+                </div>
+                <div class="grid-item" id="grid-0-1-1-0-1-1">
+                  bonjour
+                </div>
+              </div>
+            </div>
+            <div class="grid-item" id="grid-0-1-1-1">
+              <div class="grid-item" id="grid-0-1-1-1-0">
+                hello
+              </div>
+              <div class="grid-item" id="grid-0-1-1-1-1">
+                hi
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-wrapper">
+
+      </div>
+    </div>
+    <script>
+      let selectedTestimonial = 0;
+      const gridWrapper = document.querySelector("#grid-0");
+      const gridItems = document.getElementsByClassName("grid-item");
+      const tiles = document.getElementsByClassName("tile");
+      const modalWrapper = document.querySelector(".modal-wrapper")
+
+      //tile onmouseover
+
+      for (let i = 0; i < gridItems.length; i++) {
+        gridItems[i].classList.add('allow-hover')
+        if (gridItems[i].children.length == '0') {
+          gridItems[i].classList.add('tile')
+        }
+      	gridItems[i].onmouseover = function() {
+        	expandGridItem(i);
+      	};
+        gridItems[i].onmouseout = function() {
+          gridItems[i].parentElement.setAttribute("hover", "")
+      	};
+      }
+
+      function expandGridItem(indexToExpand) {
+      	for (let i = 0; i < gridItems.length; i++) {
+            if (i == indexToExpand) {
+              gridItems[i].parentElement.setAttribute("hover", gridItems[i].id)
+            }
+        }
+        selectedTestimonial = indexToExpand;
+      }
+
+      //tile onclick
+
+      for (let i = 0; i < tiles.length; i++) {
+        tiles[i].onclick = function() {
+          if (tiles[i].classList.contains('allow-hover')) {
+            	expandtile(i);
+          }
+        };
+      }
+
+      function expandtile(indexToExpand) {
+        modalWrapper.classList.add('active')
+        modalWrapper.style.pointerEvents = 'all'
+
+        const placeholderTile = document.createElement("div")
+        placeholderTile.classList.add('placeholder-tile')
+        tiles[indexToExpand].parentNode.insertBefore(placeholderTile, tiles[indexToExpand]);
+
+        tiles[indexToExpand].classList.add('active')
+        tiles[indexToExpand].style.width = placeholderTile.getBoundingClientRect().width + 'px'
+        tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
+        tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
+        tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
+        setTimeout(function() {tiles[indexToExpand].classList.add('modal-open')}, 10);
+        for (let i = 0; i < gridItems.length; i++) {
+          gridItems[i].classList.remove('allow-hover')
+        }
+
+        const closeModal = document.createElement("button")
+        closeModal.setAttribute("id", 'close-modal')
+        closeModal.onclick = function() {
+          modalWrapper.classList.remove('active')
+          setTimeout(function() {
+            modalWrapper.style.pointerEvents = 'none'
+            placeholderTile.remove()
+            tiles[indexToExpand].classList.remove('active')
+            tiles[indexToExpand].style.width = 'auto'
+            tiles[indexToExpand].style.height = 'auto'
+            tiles[indexToExpand].style.top = 'auto'
+            tiles[indexToExpand].style.left = 'auto'
+            for (let i = 0; i < gridItems.length; i++) {
+              gridItems[i].classList.add('allow-hover')
+            }
+          }, 600);
+          tiles[indexToExpand].classList.remove('modal-open')
+          tiles[indexToExpand].style.width = placeholderTile.getBoundingClientRect().width + 'px'
+          tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
+          tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
+          tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
+      	};
+        tiles[indexToExpand].appendChild(closeModal)
+
+        // const modal = document.createElement("div")
+        // modal.setAttribute("id", 'modal')
+        // setTimeout(function() {
+        //   modal.classList.add('modal-open')
+        // }, 10);
+        // modal.style.width = tiles[indexToExpand].getBoundingClientRect().width + 'px'
+        // modal.style.height = tiles[indexToExpand].getBoundingClientRect().height + 'px'
+        // modal.style.top = tiles[indexToExpand].getBoundingClientRect().top + 'px'
+        // modal.style.left = tiles[indexToExpand].getBoundingClientRect().left + 'px'
+        // modalWrapper.appendChild(modal)
+        //
+        // const modalContent = document.createElement("div")
+        // modalContent.setAttribute("id", 'modal-content')
+        // document.querySelector("#modal").appendChild(modalContent)
+        //
+        // const closeModal = document.createElement("button")
+        // closeModal.setAttribute("id", 'close-modal')
+        // closeModal.onclick = function() {
+        //   modalWrapper.classList.remove('active')
+        //   setTimeout(function() {
+        //     modalWrapper.style.pointerEvents = 'none'
+        //     modalWrapper.innerHTML = ''
+        //   }, 600);
+        //   modal.classList.remove('modal-open')
+        //   close(indexToExpand)
+      	// };
+        // document.querySelector("#modal-content").appendChild(closeModal)
+
+      }
+
+      //close tile
+
+      // function close(indexToCollapse) {
+      //   modal.style.width = tiles[indexToCollapse].getBoundingClientRect().width + 'px'
+      //   modal.style.height = tiles[indexToCollapse].getBoundingClientRect().height + 'px'
+      //   modal.style.top = tiles[indexToCollapse].getBoundingClientRect().top + 'px'
+      //   modal.style.left = tiles[indexToCollapse].getBoundingClientRect().left + 'px'
+      // }
+    </script>
+  </body>
+</html>
