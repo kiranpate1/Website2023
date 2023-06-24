@@ -24,6 +24,7 @@
         grid-gap: 24px;
       }
       .tile, .placeholder-tile {
+        position: relative;
         width: auto;
         height: auto;
         background: #fff;
@@ -59,10 +60,6 @@
         z-index: 1;
         pointer-events: all!important;
       }
-      /* .tile.allow-hover {
-        width: 100%!important;
-        height: 100%!important;
-      } */
 
       .tile.active.modal-open {
         width: 800px!important;
@@ -72,31 +69,9 @@
         transform: translate(-50%,-50%)!important;
       }
 
-
-      /* #modal {
+      .close-modal {
         position: absolute;
-        transform: translate(0%,0%);
-        background: #fff;
-        box-shadow: 0px 0px 32px rgba(73,73,73,0.06);
-        border-radius: 24px;
-        transition: 0.6s ease;
-      }
-      #modal.modal-open {
-        width: 800px!important;
-        height: 800px!important;
-        top: 50%!important;
-        left: 50%!important;
-        transform: translate(-50%,-50%)!important;
-      }
-      #modal-content {
-        opacity: 0;
-        transition: 0.6s ease;
-      }
-      .modal-open #modal-content {
-        opacity: 1;
-      } */
-      #close-modal {
-        position: absolute;
+        background: grey;
         top: 24px;
         right: 24px;
         width: 48px;
@@ -366,6 +341,9 @@
             	expandtile(i);
           }
         };
+        const tileClose = document.createElement("div")
+        tileClose.classList.add('close-modal')
+        tiles[i].appendChild(tileClose)
       }
 
       function expandtile(indexToExpand) {
@@ -386,9 +364,7 @@
           gridItems[i].classList.remove('allow-hover')
         }
 
-        const closeModal = document.createElement("button")
-        closeModal.setAttribute("id", 'close-modal')
-        closeModal.onclick = function() {
+        document.getElementsByClassName('close-modal')[indexToExpand].onclick = function() {
           modalWrapper.classList.remove('active')
           setTimeout(function() {
             modalWrapper.style.pointerEvents = 'none'
@@ -408,46 +384,8 @@
           tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
           tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
       	};
-        tiles[indexToExpand].appendChild(closeModal)
-
-        // const modal = document.createElement("div")
-        // modal.setAttribute("id", 'modal')
-        // setTimeout(function() {
-        //   modal.classList.add('modal-open')
-        // }, 10);
-        // modal.style.width = tiles[indexToExpand].getBoundingClientRect().width + 'px'
-        // modal.style.height = tiles[indexToExpand].getBoundingClientRect().height + 'px'
-        // modal.style.top = tiles[indexToExpand].getBoundingClientRect().top + 'px'
-        // modal.style.left = tiles[indexToExpand].getBoundingClientRect().left + 'px'
-        // modalWrapper.appendChild(modal)
-        //
-        // const modalContent = document.createElement("div")
-        // modalContent.setAttribute("id", 'modal-content')
-        // document.querySelector("#modal").appendChild(modalContent)
-        //
-        // const closeModal = document.createElement("button")
-        // closeModal.setAttribute("id", 'close-modal')
-        // closeModal.onclick = function() {
-        //   modalWrapper.classList.remove('active')
-        //   setTimeout(function() {
-        //     modalWrapper.style.pointerEvents = 'none'
-        //     modalWrapper.innerHTML = ''
-        //   }, 600);
-        //   modal.classList.remove('modal-open')
-        //   close(indexToExpand)
-      	// };
-        // document.querySelector("#modal-content").appendChild(closeModal)
 
       }
-
-      //close tile
-
-      // function close(indexToCollapse) {
-      //   modal.style.width = tiles[indexToCollapse].getBoundingClientRect().width + 'px'
-      //   modal.style.height = tiles[indexToCollapse].getBoundingClientRect().height + 'px'
-      //   modal.style.top = tiles[indexToCollapse].getBoundingClientRect().top + 'px'
-      //   modal.style.left = tiles[indexToCollapse].getBoundingClientRect().left + 'px'
-      // }
     </script>
   </body>
 </html>
