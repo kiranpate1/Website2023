@@ -71,7 +71,12 @@
 
       .close-modal {
         position: absolute;
-        background: grey;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border: 2px solid #E5E5E5;
+        /* box-shadow: 0px 0px 8px rgba(73,73,73,0.2); */
         top: 24px;
         right: 24px;
         width: 48px;
@@ -334,9 +339,9 @@
 
       function expandGridItem(indexToExpand) {
       	for (let i = 0; i < gridItems.length; i++) {
-            if (i == indexToExpand) {
-              gridItems[i].parentElement.setAttribute("hover", gridItems[i].id)
-            }
+          if (i == indexToExpand) {
+            gridItems[i].parentElement.setAttribute("hover", gridItems[i].id)
+          }
         }
         selectedTestimonial = indexToExpand;
       }
@@ -346,11 +351,12 @@
       for (let i = 0; i < tiles.length; i++) {
         tiles[i].onclick = function() {
           if (tiles[i].classList.contains('allow-hover')) {
-            	expandtile(i);
+            expandtile(i);
           }
         };
         const tileClose = document.createElement("div")
         tileClose.classList.add('close-modal')
+        tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
         tiles[i].appendChild(tileClose)
       }
 
