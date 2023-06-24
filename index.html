@@ -15,7 +15,7 @@
 
       :root {
         --short: 0.2s ease-in-out;
-        --medium: 0.6s ease;
+        --medium: 0.4s ease;
       }
       .grid-item {
         width: 100%;
@@ -57,7 +57,7 @@
         height: 100%;
         background: rgba(0,0,0,0);
         pointer-events: none;
-        transition: 0.6s ease;
+        transition: 0.4s ease;
       }
       .modal-wrapper.active {
         background: rgba(0,0,0,0.5);
@@ -410,7 +410,7 @@
             for (let i = 0; i < gridItems.length; i++) {
               gridItems[i].classList.add('allow-hover')
             }
-          }, 600);
+          }, 400);
           tiles[indexToExpand].classList.remove('modal-open')
           tiles[indexToExpand].style.width = placeholderTile.getBoundingClientRect().width + 'px'
           tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
