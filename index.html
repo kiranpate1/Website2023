@@ -38,7 +38,7 @@
         padding: 24px;
       }
       #grid- {height:100%;width:100%}
-      .grid, .grid div {
+      .grid-item {
         width: 100%;
         height: 100%;
         transition: var(--short);
@@ -445,6 +445,7 @@
 
       function appendTiles(parentName,parentDirection,parentTemplate,child0Name,child0Input,child1Name,child1Input) {
         const gridItem = document.createElement("div")
+        gridItem.classList.add('grid-item')
         gridItem.id = 'grid-'+parentName
         gridItem.style.display = 'grid'
         if ((parentDirection == 'row') && (window.innerWidth > window.innerHeight) || (parentDirection == 'column') && (window.innerWidth < window.innerHeight)) {
@@ -459,7 +460,7 @@
       //tile onmouseover
 
       const gridWrapper = document.querySelector("#grid-0");
-      const gridItems = document.querySelectorAll(".grid div");
+      const gridItems = document.getElementsByClassName("grid-item");
       const tiles = document.getElementsByClassName("tile");
       const modalWrapper = document.querySelector(".modal-wrapper")
 
@@ -479,7 +480,7 @@
         	expandGridItem(i);
       	};
         gridItems[i].onmouseout = function() {
-          gridItems[i].parentElement.classList.add("hover"+gridItems[i].id)
+          gridItems[i].parentElement.setAttribute("hover", "")
       	};
       }
 
