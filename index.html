@@ -435,13 +435,18 @@
 
       function appendTiles(parentName,parentDirection,parentTemplate,child0Name,child0Input,child1Name,child1Input) {
         console.log(parentName,parentDirection,parentTemplate,child0Name,child0Input,child1Name,child1Input)
-        console.log('grid-'+parentName.slice(0,-2))
+        const shit = "gridTemplate" + parentDirection.charAt(0).toUpperCase() + parentDirection.slice(1) + 's'
         const gridItem = document.createElement("div")
         gridItem.classList.add('grid-item')
         gridItem.id = 'grid-'+parentName
         gridItem.style.display = 'grid'
-
-        gridItem.style.gridTemplate + parentDirection.charAt(0).toUpperCase() + parentDirection.slice(1) + 's' == parentTemplate
+        if (parentDirection == 'column') {
+          gridItem.style.gridTemplateColumns = parentTemplate
+        }
+        if (parentDirection == 'row') {
+          gridItem.style.gridTemplateRow = parentTemplate
+        }
+//        gridItem.style.?[gridTemplate + parentDirection.charAt(0).toUpperCase() + parentDirection.slice(1) + 's'] == parentTemplate
         document.getElementById('grid-'+parentName.slice(0,-2)).appendChild(gridItem)
       }
 
