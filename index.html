@@ -441,10 +441,10 @@
         gridItem.id = 'grid-'+parentName
         gridItem.style.display = 'grid'
         if (parentDirection == 'column') {
-          gridItem.style.gridTemplateColumns = parentTemplate
+          gridItem.style.gridTemplateRows = parentTemplate
         }
         if (parentDirection == 'row') {
-          gridItem.style.gridTemplateRow = parentTemplate
+          gridItem.style.gridTemplateColumns = parentTemplate
         }
 //        gridItem.style.?[gridTemplate + parentDirection.charAt(0).toUpperCase() + parentDirection.slice(1) + 's'] == parentTemplate
         document.getElementById('grid-'+parentName.slice(0,-2)).appendChild(gridItem)
