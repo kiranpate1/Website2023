@@ -425,11 +425,11 @@
         const template1 = (Math.floor(Math.random() * 5) + 3)
         const template2 = 10 - template1
         if (child0Input > child1Input) {
-          appendTiles(parentName,parentDirection,Math.max(template1, template2)/10 + " " + Math.min(template1, template2)/10,child0Name,child0Input,child1Name,child1Input)
+          appendTiles(parentName,parentDirection,Math.max(template1, template2)/10 + "fr " + Math.min(template1, template2)/10 + "fr",child0Name,child0Input,child1Name,child1Input)
         } else if (child0Input < child1Input) {
-          appendTiles(parentName,parentDirection,Math.min(template1, template2)/10 + " " + Math.max(template1, template2)/10,child0Name,child0Input,child1Name,child1Input)
+          appendTiles(parentName,parentDirection,Math.min(template1, template2)/10 + "fr " + Math.max(template1, template2)/10 + "fr",child0Name,child0Input,child1Name,child1Input)
         } else if (child0Input == child1Input) {
-          appendTiles(parentName,parentDirection,template1/10 + " " + template2/10,child0Name,child0Input,child1Name,child1Input)
+          appendTiles(parentName,parentDirection,template1/10 + "fr " + template2/10 + "fr",child0Name,child0Input,child1Name,child1Input)
         }
       }
 
@@ -440,6 +440,7 @@
         gridItem.classList.add('grid-item')
         gridItem.id = 'grid-'+parentName
         gridItem.style.display = 'grid'
+
         gridItem.style.gridTemplate + parentDirection.charAt(0).toUpperCase() + parentDirection.slice(1) + 's' == parentTemplate
         document.getElementById('grid-'+parentName.slice(0,-2)).appendChild(gridItem)
       }
