@@ -146,10 +146,10 @@
       /*set following in js:*/
 
       #grid-0.hover-grid-0-0 {
-        grid-template: var(--hover-0-0)
+        grid-template: var(--hover-0-0)!important
       }
       #grid-0.hover-grid-0-1 {
-        grid-template: var(--hover-0-1)
+        grid-template: var(--hover-0-1)!important
       }
       #grid-0-0 {
         grid-template: var(--hover-)
@@ -324,14 +324,13 @@
       }
 
       function configureLayout(parentName,parentDirection,child0Name,child0Input,child1Name,child1Input) {
-        const template1 = (Math.floor(Math.random() * 5) + 3)
-        const template2 = 10
+        const template = (Math.floor(Math.random() * 5) + 3)
         if (child0Input > child1Input) {
-          appendTiles(parentName,parentDirection,Math.max(template1, template2)/10 + "fr " + Math.min(template1, template2)/10 + "fr",child0Name,child0Input,child1Name,child1Input)
+          appendTiles(parentName,parentDirection,"1.0fr " + (template/10) + "fr",child0Name,child0Input,child1Name,child1Input)
         } else if (child0Input < child1Input) {
-          appendTiles(parentName,parentDirection,Math.min(template1, template2)/10 + "fr " + Math.max(template1, template2)/10 + "fr",child0Name,child0Input,child1Name,child1Input)
+          appendTiles(parentName,parentDirection,(template/10) + "fr " + "1.0fr",child0Name,child0Input,child1Name,child1Input)
         } else if (child0Input == child1Input) {
-          appendTiles(parentName,parentDirection,template1/10 + "fr " + template2/10 + "fr",child0Name,child0Input,child1Name,child1Input)
+          appendTiles(parentName,parentDirection,(template/10) + "fr " + "1.0fr",child0Name,child0Input,child1Name,child1Input)
         }
         if (child0Input == 1) {
           appendTiles(child0Name,'','','','','','')
@@ -347,11 +346,14 @@
         gridItem.id = 'grid-'+parentName
         gridItem.style.display = 'grid'
         // document.documentElement.style.setProperty(['--'+parentName], parentTemplate)
-        document.documentElement.style.setProperty(['--hover-'+parentName], '1fr 1fr / 1fr 1fr')
         if ((parentDirection == 'row') && (window.innerWidth < window.innerHeight) || (parentDirection == 'column') && (window.innerWidth > window.innerHeight)) {
+          document.documentElement.style.setProperty('--hover-'+child0Name, '1fr / 1fr 1fr')
+          document.documentElement.style.setProperty('--hover-'+child1Name, '1fr / 1fr 1fr')
           gridItem.style.gridTemplate = "1fr /" + parentTemplate
         }
         if ((parentDirection == 'column') && (window.innerWidth < window.innerHeight) || (parentDirection == 'row') && (window.innerWidth > window.innerHeight)) {
+          document.documentElement.style.setProperty('--hover-'+child0Name, '1fr 1fr / 1fr')
+          document.documentElement.style.setProperty('--hover-'+child1Name, '1fr 1fr / 1fr')
           gridItem.style.gridTemplate =  parentTemplate + " / 1fr"
         }
         document.getElementById('grid-'+parentName.slice(0,-2)).appendChild(gridItem)
