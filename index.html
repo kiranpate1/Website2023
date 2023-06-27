@@ -472,25 +472,25 @@
         if (gridItems[i].children.length == '0') {
           gridItems[i].setAttribute("tile", "true")
           const content = document.createElement("div")
-          content.innerHTML = '<p>Project name</p>'
+          // content.innerHTML = '<p>Project name</p>'
           gridItems[i].appendChild(content)
         }
       	gridItems[i].onmouseover = function() {
         	expandGridItem(i);
       	};
         gridItems[i].onmouseout = function() {
-          gridItems[i].parentElement.setAttribute("hover", "")
+          gridItems[i].parentElement.classList.remove(gridItems[i].id)
       	};
       }
 
       function expandGridItem(indexToExpand) {
       	for (let i = 0; i < gridItems.length; i++) {
           if (i == indexToExpand) {
-            gridItems[i].parentElement.setAttribute("hover", gridItems[i].id)
+            gridItems[i].parentElement.classList.add(gridItems[i].id)
           }
         }
       }
-      
+
       const tiles = document.querySelectorAll('[tile="true"]');
 
       //tile onclick
