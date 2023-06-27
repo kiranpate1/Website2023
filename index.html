@@ -324,7 +324,7 @@
       }
 
       function configureLayout(parentName,parentDirection,child0Name,child0Input,child1Name,child1Input) {
-        const template = (Math.floor(Math.random() * 5) + 3)
+        const template = (Math.floor(Math.random() * 4) + 3)
         if (child0Input > child1Input) {
           appendTiles(parentName,parentDirection,"1.0fr " + (template/10) + "fr",child0Name,child0Input,child1Name,child1Input)
         } else if (child0Input < child1Input) {
