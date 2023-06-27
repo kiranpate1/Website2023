@@ -38,7 +38,7 @@
         padding: 24px;
       }
       #grid- {height:100%;width:100%}
-      .grid-item {
+      .grid, .grid div {
         width: 100%;
         height: 100%;
         transition: var(--short);
@@ -444,10 +444,7 @@
       }
 
       function appendTiles(parentName,parentDirection,parentTemplate,child0Name,child0Input,child1Name,child1Input) {
-        console.log(parentName,parentDirection,parentTemplate,child0Name,child0Input,child1Name,child1Input)
-        const shit = "gridTemplate" + parentDirection.charAt(0).toUpperCase() + parentDirection.slice(1) + 's'
         const gridItem = document.createElement("div")
-        gridItem.classList.add('grid-item')
         gridItem.id = 'grid-'+parentName
         gridItem.style.display = 'grid'
         if ((parentDirection == 'row') && (window.innerWidth > window.innerHeight) || (parentDirection == 'column') && (window.innerWidth < window.innerHeight)) {
@@ -456,19 +453,22 @@
         if ((parentDirection == 'column') && (window.innerWidth > window.innerHeight) || (parentDirection == 'row') && (window.innerWidth < window.innerHeight)) {
           gridItem.style.gridTemplateColumns = parentTemplate
         }
-        //gridItem.style.?[gridTemplate + parentDirection.charAt(0).toUpperCase() + parentDirection.slice(1) + 's'] == parentTemplate
         document.getElementById('grid-'+parentName.slice(0,-2)).appendChild(gridItem)
       }
 
       //tile onmouseover
 
       const gridWrapper = document.querySelector("#grid-0");
-      const gridItems = document.getElementsByClassName("grid-item");
+      const gridItems = document.querySelectorAll(".grid div");
       const tiles = document.getElementsByClassName("tile");
       const modalWrapper = document.querySelector(".modal-wrapper")
 
       for (let i = 0; i < gridItems.length; i++) {
+        
         gridItems[i].classList.add('allow-hover')
+        // console.log(gridItems[i].id.slice(0,-2))
+        // document.getElementById(gridItems[i].id.slice(0,-2)).style.gridTemplateColumns = window.getComputedStyle(gridItems[i], null).getPropertyValue("grid-template-columns")
+
         if (gridItems[i].children.length == '0') {
           gridItems[i].classList.add('tile')
           const content = document.createElement("div")
@@ -479,7 +479,7 @@
         	expandGridItem(i);
       	};
         gridItems[i].onmouseout = function() {
-          gridItems[i].parentElement.setAttribute("hover", "")
+          gridItems[i].parentElement.classList.add("hover"+gridItems[i].id)
       	};
       }
 
