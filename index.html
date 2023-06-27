@@ -145,10 +145,10 @@
  
       /*set following in js:*/
 
-      #grid-0.hover-0-0 {
+      #grid-0.hover-grid-0-0 {
         grid-template: var(--hover-0-0)
       }
-      #grid-0.hover-0-1 {
+      #grid-0.hover-grid-0-1 {
         grid-template: var(--hover-0-1)
       }
       #grid-0-0 {
@@ -347,7 +347,7 @@
         gridItem.id = 'grid-'+parentName
         gridItem.style.display = 'grid'
         // document.documentElement.style.setProperty(['--'+parentName], parentTemplate)
-        document.documentElement.style.setProperty(['--hover'+parentName], '1fr 1fr / 1fr 1fr')
+        document.documentElement.style.setProperty(['--hover-'+parentName], '1fr 1fr / 1fr 1fr')
         if ((parentDirection == 'row') && (window.innerWidth < window.innerHeight) || (parentDirection == 'column') && (window.innerWidth > window.innerHeight)) {
           gridItem.style.gridTemplate = "1fr /" + parentTemplate
         }
@@ -368,8 +368,6 @@
       for (let i = 0; i < gridItems.length; i++) {
         
         gridItems[i].classList.add('allow-hover')
-        // console.log(gridItems[i].id.slice(0,-2))
-        // document.getElementById(gridItems[i].id.slice(0,-2)).style.gridTemplateColumns = window.getComputedStyle(gridItems[i], null).getPropertyValue("grid-template-columns")
 
         if (gridItems[i].children.length == '0') {
           gridItems[i].setAttribute("tile", "true")
