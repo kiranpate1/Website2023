@@ -358,38 +358,42 @@
       const tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten","eleven","twelve","thirteen","fourteen","fifteen"]
       console.log("=================================================================================================================================")
 
-      const grid_0_0 = Math.floor(Math.random() * (tileItems.length - 8)) + 4
-      const grid_0_1 = tileItems.length - grid_0_0
-      configureLayout('0','column','0-0',grid_0_0,'0-1',grid_0_1)
+      generate()
 
-      const grid_0_0_0 = Math.floor(Math.random() * (grid_0_0 - 5)) + 3
-      const grid_0_0_1 = grid_0_0 - grid_0_0_0
-      configureLayout('0-0','row','0-0-0',grid_0_0_0,'0-0-1',grid_0_0_1)
+      function generate() {
+        const grid_0_0 = Math.floor(Math.random() * (tileItems.length - 8)) + 4
+        const grid_0_1 = tileItems.length - grid_0_0
+        configureLayout('0','column','0-0',grid_0_0,'0-1',grid_0_1)
 
-      if (grid_0_0_0 >= 3) {
-        configureTiles(grid_0_0_0,'0-0-0','column')
-      } else if (grid_0_0_0 == 2) {
-        configureLayout('0-0-0','column','0-0-0-0',1,'0-0-0-1',1)
-      }
-      if (grid_0_0_1 >= 3) {
-        configureTiles(grid_0_0_1,'0-0-1','column')
-      } else if (grid_0_0_1 == 2) {
-        configureLayout('0-0-1','column','0-0-1-0',1,'0-0-1-1',1)
-      }
+        const grid_0_0_0 = Math.floor(Math.random() * (grid_0_0 - 5)) + 3
+        const grid_0_0_1 = grid_0_0 - grid_0_0_0
+        configureLayout('0-0','row','0-0-0',grid_0_0_0,'0-0-1',grid_0_0_1)
 
-      const grid_0_1_0 = Math.floor(Math.random() * (grid_0_1 - 5)) + 3
-      const grid_0_1_1 = grid_0_1 - grid_0_1_0
-      configureLayout('0-1','row','0-1-0',grid_0_1_0,'0-1-1',grid_0_1_1)
+        if (grid_0_0_0 >= 3) {
+          configureTiles(grid_0_0_0,'0-0-0','column')
+        } else if (grid_0_0_0 == 2) {
+          configureLayout('0-0-0','column','0-0-0-0',1,'0-0-0-1',1)
+        }
+        if (grid_0_0_1 >= 3) {
+          configureTiles(grid_0_0_1,'0-0-1','column')
+        } else if (grid_0_0_1 == 2) {
+          configureLayout('0-0-1','column','0-0-1-0',1,'0-0-1-1',1)
+        }
 
-      if (grid_0_1_0 >= 3) {
-        configureTiles(grid_0_1_0,'0-1-0','column')
-      } else if (grid_0_1_0 == 2) {
-        configureLayout('0-1-0','column','0-1-0-0',1,'0-1-0-1',1)
-      }
-      if (grid_0_1_1 >= 3) {
-        configureTiles(grid_0_1_1,'0-1-1','column')
-      } else if (grid_0_1_1 == 2) {
-        configureLayout('0-1-1','column','0-1-1-0',1,'0-1-1-1',1)
+        const grid_0_1_0 = Math.floor(Math.random() * (grid_0_1 - 5)) + 3
+        const grid_0_1_1 = grid_0_1 - grid_0_1_0
+        configureLayout('0-1','row','0-1-0',grid_0_1_0,'0-1-1',grid_0_1_1)
+
+        if (grid_0_1_0 >= 3) {
+          configureTiles(grid_0_1_0,'0-1-0','column')
+        } else if (grid_0_1_0 == 2) {
+          configureLayout('0-1-0','column','0-1-0-0',1,'0-1-0-1',1)
+        }
+        if (grid_0_1_1 >= 3) {
+          configureTiles(grid_0_1_1,'0-1-1','column')
+        } else if (grid_0_1_1 == 2) {
+          configureLayout('0-1-1','column','0-1-1-0',1,'0-1-1-1',1)
+        }
       }
 
       function configureTiles(input,name,direction) {
@@ -427,6 +431,12 @@
           appendTiles(parentName,parentDirection,Math.min(template1, template2)/10 + "fr " + Math.max(template1, template2)/10 + "fr",child0Name,child0Input,child1Name,child1Input)
         } else if (child0Input == child1Input) {
           appendTiles(parentName,parentDirection,template1/10 + "fr " + template2/10 + "fr",child0Name,child0Input,child1Name,child1Input)
+        }
+        if (child0Input == 1) {
+          appendTiles(child0Name,'','','','','','')
+        }
+        if (child1Input == 1) {
+          appendTiles(child1Name,'','','','','','')
         }
       }
 
