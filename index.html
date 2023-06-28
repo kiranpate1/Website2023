@@ -432,12 +432,12 @@
         // document.documentElement.style.setProperty(['--'+parentName], parentTemplate)
         if ((parentDirection == 'row') && (window.innerWidth < window.innerHeight) || (parentDirection == 'column') && (window.innerWidth > window.innerHeight)) {
           document.documentElement.style.setProperty('--hover-'+child0Name, '1fr / 1fr ' + (parentTemplate[1]-0.1) + 'fr')
-          document.documentElement.style.setProperty('--hover-'+child1Name, '1fr / ' + (parentTemplate[1]-0.1) + 'fr 1fr')
+          document.documentElement.style.setProperty('--hover-'+child1Name, '1fr / ' + (parentTemplate[0]-0.1) + 'fr 1fr')
           gridItem.style.gridTemplate = "1fr / " + parentTemplate[0] + "fr " + parentTemplate[1] + "fr"
         }
         if ((parentDirection == 'column') && (window.innerWidth < window.innerHeight) || (parentDirection == 'row') && (window.innerWidth > window.innerHeight)) {
           document.documentElement.style.setProperty('--hover-'+child0Name, '1fr ' + (parentTemplate[1]-0.1) + 'fr / 1fr')
-          document.documentElement.style.setProperty('--hover-'+child1Name, (parentTemplate[1]-0.1) + 'fr 1fr / 1fr')
+          document.documentElement.style.setProperty('--hover-'+child1Name, (parentTemplate[0]-0.1) + 'fr 1fr / 1fr')
           gridItem.style.gridTemplate = parentTemplate[0] + "fr " + parentTemplate[1] + "fr" + " / 1fr"
         }
         document.getElementById('grid-'+parentName.slice(0,-2)).appendChild(gridItem)
