@@ -136,7 +136,7 @@ html {
 
   /*set following in js:*/
 
-  #grid-0.hover-grid-0-0.allow-hover {
+  /* #grid-0.hover-grid-0-0.allow-hover {
     grid-template: var(--hover-0-0)!important
   }
   #grid-0.hover-grid-0-1.allow-hover {
@@ -899,4 +899,4 @@ html {
   }
   #grid-0-1-1-1-1-1-1.hover-grid-0-1-1-1-1-1-1-1.allow-hover {
     grid-template: var(--hover-0-1-1-1-1-1-1-1)!important
-  }
+  } */
