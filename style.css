@@ -268,6 +268,12 @@ html {
   #grid-0-0-1-1-0.hover-grid-0-0-1-1-0-1.allow-hover {
     grid-template: var(--hover-0-0-1-1-0-1)!important
   }
+  #grid-0-0-1-1-1.hover-grid-0-0-1-1-1-0.allow-hover {
+    grid-template: var(--hover-0-0-1-1-1-0)!important
+  }
+  #grid-0-0-1-1-1.hover-grid-0-0-1-1-1-1.allow-hover {
+    grid-template: var(--hover-0-0-1-1-1-1)!important
+  }
   #grid-0-1-0-0-0.hover-grid-0-1-0-0-0-0.allow-hover {
     grid-template: var(--hover-0-1-0-0-0-0)!important
   }
@@ -358,6 +364,12 @@ html {
   #grid-0-0-0-1-1-0.hover-grid-0-0-0-1-1-0-1.allow-hover {
     grid-template: var(--hover-0-0-0-1-1-0-1)!important
   }
+  #grid-0-0-0-1-1-1.hover-grid-0-0-0-1-1-1-0.allow-hover {
+    grid-template: var(--hover-0-0-0-1-1-1-0)!important
+  }
+  #grid-0-0-0-1-1-1.hover-grid-0-0-0-1-1-1-1.allow-hover {
+    grid-template: var(--hover-0-0-0-1-1-1-1)!important
+  }
   #grid-0-0-1-0-0-0.hover-grid-0-0-1-0-0-0-0.allow-hover {
     grid-template: var(--hover-0-0-1-0-0-0-0)!important
   }
@@ -447,6 +459,12 @@ html {
   }
   #grid-0-1-0-1-1-0.hover-grid-0-1-0-1-1-0-1.allow-hover {
     grid-template: var(--hover-0-1-0-1-1-0-1)!important
+  }
+  #grid-0-1-0-1-1-1.hover-grid-0-1-0-1-1-1-0.allow-hover {
+    grid-template: var(--hover-0-1-0-1-1-1-0)!important
+  }
+  #grid-0-1-0-1-1-1.hover-grid-0-1-0-1-1-1-1.allow-hover {
+    grid-template: var(--hover-0-1-0-1-1-1-1)!important
   }
   #grid-0-1-1-0-0-0.hover-grid-0-1-1-0-0-0-0.allow-hover {
     grid-template: var(--hover-0-1-1-0-0-0-0)!important
