@@ -431,14 +431,15 @@
         gridItem.style.display = 'grid'
         // document.documentElement.style.setProperty(['--'+parentName], parentTemplate)
         if ((parentDirection == 'row') && (window.innerWidth < window.innerHeight) || (parentDirection == 'column') && (window.innerWidth > window.innerHeight)) {
-          document.documentElement.style.setProperty('--hover-'+child0Name, '1fr / ' + (parentTemplate[0]+.1) + 'fr ' + parentTemplate[1] + 'fr')
-          document.documentElement.style.setProperty('--hover-'+child1Name, '1fr / ' + (parentTemplate[0]-.1) + 'fr ' + parentTemplate[1] + 'fr')
+          document.documentElement.style.setProperty('--hover-'+child0Name, '1fr / ' + [Number(parentTemplate[0])+Number(0.1)] + 'fr ' + parentTemplate[1] + 'fr')
+          document.documentElement.style.setProperty('--hover-'+child1Name, '1fr / ' + [Number(parentTemplate[0])-Number(0.1)] + 'fr ' + parentTemplate[1] + 'fr')
           // console.log(parentName + " ACTUAL | 1fr / " + parentTemplate[0] + "fr " + parentTemplate[1] + "fr    " + child0Name + " HOVER | " + '1fr / ' + (parentTemplate[0]+.1) + 'fr ' + parentTemplate[1] + 'fr')
           // console.log(parentName + " ACTUAL | 1fr / " + parentTemplate[0] + "fr " + parentTemplate[1] + "fr    " + child1Name + " HOVER | " + '1fr / ' + (parentTemplate[0]-.1) + 'fr ' + parentTemplate[1] + 'fr')
           gridItem.style.gridTemplate = "1fr / " + parentTemplate[0] + "fr " + parentTemplate[1] + "fr"
-        } else if ((parentDirection == 'column') && (window.innerWidth < window.innerHeight) || (parentDirection == 'row') && (window.innerWidth > window.innerHeight)) {
-          document.documentElement.style.setProperty('--hover-'+child0Name, (parentTemplate[0]+.1) + 'fr ' + parentTemplate[1] + 'fr / 1fr')
-          document.documentElement.style.setProperty('--hover-'+child1Name, (parentTemplate[0]-.1) + 'fr ' + parentTemplate[1] + 'fr / 1fr')
+        }
+        if ((parentDirection == 'column') && (window.innerWidth < window.innerHeight) || (parentDirection == 'row') && (window.innerWidth > window.innerHeight)) {
+          document.documentElement.style.setProperty('--hover-'+child0Name, [Number(parentTemplate[0])+Number(0.1)] + 'fr ' + parentTemplate[1] + 'fr / 1fr')
+          document.documentElement.style.setProperty('--hover-'+child1Name, [Number(parentTemplate[0])-Number(0.1)] + 'fr ' + parentTemplate[1] + 'fr / 1fr')
           // console.log(parentName + " ACTUAL | " + parentTemplate[0] + "fr " + parentTemplate[1] + "fr / 1fr    " + child0Name + " HOVER | " + (parentTemplate[0]+.1) + 'fr ' + parentTemplate[1] + 'fr / 1fr')
           // console.log(parentName + " ACTUAL | " + parentTemplate[0] + "fr " + parentTemplate[1] + "fr / 1fr    " + child1Name + " HOVER | " + (parentTemplate[0]-.1) + 'fr ' + parentTemplate[1] + 'fr / 1fr')
           gridItem.style.gridTemplate = parentTemplate[0] + "fr " + parentTemplate[1] + "fr" + " / 1fr"
