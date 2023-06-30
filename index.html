@@ -21,7 +21,7 @@
     <script>
       //grid generator 
     
-      const tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten"]
+      const tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
       console.log("=================================================================================================================================")
 
       generate()
@@ -128,7 +128,7 @@
 
       //tile onmouseover
 
-      const gridWrapper = document.querySelector("#grid-0");
+      const gridWrapper = document.querySelector("#grid-");
       const gridItems = document.querySelectorAll('[type="grid-item"]');
       const modalWrapper = document.querySelector(".modal-wrapper")
 
@@ -137,10 +137,9 @@
         gridItems[i].classList.add('allow-hover')
 
         if (gridItems[i].children.length == '0') {
-          gridItems[i].setAttribute("tile", "true")
+          gridItems[i].setAttribute("type", "tile")
           const content = document.createElement("div")
           content.classList.add('tile-content')
-          content.innerHTML = tileItems[i]
           gridItems[i].appendChild(content)
         }
       	gridItems[i].onmouseover = function() {
@@ -151,11 +150,13 @@
       	}
       }
 
-      const tiles = document.querySelectorAll('[tile="true"]');
-
       //tile onclick
 
+      const tiles = document.querySelectorAll('[type="tile"]');
+
       for (let i = 0; i < tiles.length; i++) {
+        tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
+        tiles[i].classList.add(tileItems[i])
         tiles[i].onclick = function() {
           if (tiles[i].classList.contains('allow-hover')) {
             expandtile(i);
@@ -206,6 +207,35 @@
           tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
       	};
       }
+
+      //tile randomize 
+
+      const randomize = document.querySelector('.randomize')
+
+      randomize.onclick = function() {
+        // for (let i = 0; i < gridItems.length; i++) {
+        //   gridItems[i].classList.remove('allow-hover')
+        // }
+        // for (let i = 0; i < tiles.length; i++) {
+        //   tiles[i].classList.remove('active')
+        //   tiles[i].style.width = 'auto'
+        //   tiles[i].style.height = 'auto'
+        //   tiles[i].style.top = 'auto'
+        //   tiles[i].style.left = 'auto'
+        //   tiles[i].classList.remove('modal-open')
+        //   tiles[i].classList.remove('allow-hover')
+        // }
+        // setTimeout(function() {
+        //   modalWrapper.classList.remove('active')
+        //   modalWrapper.style.pointerEvents = 'none'
+        //   for (let i = 0; i < gridItems.length; i++) {
+        //     gridItems[i].classList.add('allow-hover')
+        //   }
+        // }, 400);
+        gridWrapper.innerHTML = ''
+        generate()
+      }
+
     </script>
   </body>
 </html>
