@@ -132,40 +132,44 @@
       const gridItems = document.querySelectorAll('[type="grid-item"]');
       const modalWrapper = document.querySelector(".modal-wrapper")
 
-      for (let i = 0; i < gridItems.length; i++) {
-        
-        gridItems[i].classList.add('allow-hover')
-
-        if (gridItems[i].children.length == '0') {
-          gridItems[i].setAttribute("type", "tile")
-          const content = document.createElement("div")
-          content.classList.add('tile-content')
-          gridItems[i].appendChild(content)
+      tileMouseover()
+      function tileMouseover() {
+        for (let i = 0; i < gridItems.length; i++) {
+          gridItems[i].classList.add('allow-hover')
+          if (gridItems[i].children.length == '0') {
+            gridItems[i].setAttribute("type", "tile")
+            const content = document.createElement("div")
+            content.classList.add('tile-content')
+            gridItems[i].appendChild(content)
+          }
+          gridItems[i].onmouseover = function() {
+            gridItems[i].parentElement.classList.add('hover-'+gridItems[i].id)
+          }
+          gridItems[i].onmouseout = function() {
+            gridItems[i].parentElement.classList.remove('hover-'+gridItems[i].id)
+          }
         }
-      	gridItems[i].onmouseover = function() {
-          gridItems[i].parentElement.classList.add('hover-'+gridItems[i].id)
-      	}
-        gridItems[i].onmouseout = function() {
-          gridItems[i].parentElement.classList.remove('hover-'+gridItems[i].id)
-      	}
       }
 
       //tile onclick
 
       const tiles = document.querySelectorAll('[type="tile"]');
 
-      for (let i = 0; i < tiles.length; i++) {
-        tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
-        tiles[i].classList.add(tileItems[i])
-        tiles[i].onclick = function() {
-          if (tiles[i].classList.contains('allow-hover')) {
-            expandtile(i);
-          }
-        };
-        const tileClose = document.createElement("div")
-        tileClose.classList.add('close-modal')
-        tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
-        tiles[i].appendChild(tileClose)
+      tileClick()
+      function tileClick() {
+        for (let i = 0; i < tiles.length; i++) {
+          tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
+          tiles[i].classList.add(tileItems[i])
+          tiles[i].onclick = function() {
+            if (tiles[i].classList.contains('allow-hover')) {
+              expandtile(i);
+            }
+          };
+          const tileClose = document.createElement("div")
+          tileClose.classList.add('close-modal')
+          tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
+          tiles[i].appendChild(tileClose)
+        }
       }
 
       function expandtile(indexToExpand) {
@@ -234,6 +238,8 @@
         // }, 400);
         gridWrapper.innerHTML = ''
         generate()
+        tileMouseover()
+        tileClick()
       }
 
     </script>
