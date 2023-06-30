@@ -139,7 +139,8 @@
         if (gridItems[i].children.length == '0') {
           gridItems[i].setAttribute("tile", "true")
           const content = document.createElement("div")
-          content.innerHTML = '<p>' + tileItems[i] + '</p>'
+          content.classList.add('tile-content')
+          content.innerHTML = tileItems[i]
           gridItems[i].appendChild(content)
         }
       	gridItems[i].onmouseover = function() {
