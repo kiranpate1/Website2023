@@ -27,6 +27,7 @@
       generate()
 
       function generate() {
+        const tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
         const grid_0_0 = Math.floor(Math.random() * (tileItems.length - 6)) + 3
         const grid_0_1 = tileItems.length - grid_0_0
         configureLayout('0','column','0-0',grid_0_0,'0-1',grid_0_1)
@@ -99,11 +100,11 @@
         }
         if (child0Input == 1) {
           appendTiles(child0Name,'','','','','','')
-          console.log('append 0')
+          //console.log('append 0')
         }
         if (child1Input == 1) {
           appendTiles(child1Name,'','','','','','')
-          console.log('append 1')
+          //console.log('append 1')
         }
       }
 
@@ -123,7 +124,7 @@
           gridItem.style.gridTemplate = parentTemplate[0] + "fr " + parentTemplate[1] + "fr" + " / 1fr"
         }
         document.getElementById('grid-'+parentName.slice(0,-2)).appendChild(gridItem)
-        console.log('append '+parentName)
+        //console.log('append '+parentName)
       }
 
       //tile onmouseover
@@ -134,6 +135,7 @@
 
       tileMouseover()
       function tileMouseover() {
+        const gridItems = document.querySelectorAll('[type="grid-item"]');
         for (let i = 0; i < gridItems.length; i++) {
           gridItems[i].classList.add('allow-hover')
           if (gridItems[i].children.length == '0') {
@@ -157,6 +159,7 @@
 
       tileClick()
       function tileClick() {
+        const tiles = document.querySelectorAll('[type="tile"]');
         for (let i = 0; i < tiles.length; i++) {
           tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
           tiles[i].classList.add(tileItems[i])
@@ -217,25 +220,7 @@
       const randomize = document.querySelector('.randomize')
 
       randomize.onclick = function() {
-        // for (let i = 0; i < gridItems.length; i++) {
-        //   gridItems[i].classList.remove('allow-hover')
-        // }
-        // for (let i = 0; i < tiles.length; i++) {
-        //   tiles[i].classList.remove('active')
-        //   tiles[i].style.width = 'auto'
-        //   tiles[i].style.height = 'auto'
-        //   tiles[i].style.top = 'auto'
-        //   tiles[i].style.left = 'auto'
-        //   tiles[i].classList.remove('modal-open')
-        //   tiles[i].classList.remove('allow-hover')
-        // }
-        // setTimeout(function() {
-        //   modalWrapper.classList.remove('active')
-        //   modalWrapper.style.pointerEvents = 'none'
-        //   for (let i = 0; i < gridItems.length; i++) {
-        //     gridItems[i].classList.add('allow-hover')
-        //   }
-        // }, 400);
+        const randomize = document.querySelector('.randomize')
         gridWrapper.innerHTML = ''
         generate()
         tileMouseover()
