@@ -135,7 +135,7 @@
 
       tileMouseover()
       function tileMouseover() {
-        var gridItems = document.querySelectorAll('[type="grid-item"]');
+        var gridItems = document.querySelectorAll('[type="grid-item"]')
 
         for (let i = 0; i < gridItems.length; i++) {
           gridItems[i].classList.add('allow-hover')
@@ -185,6 +185,7 @@
       function expandtile(indexToExpand) {
         var tiles = document.querySelectorAll('[type="tile"]')
         var modalWrapper = document.querySelector(".modal-wrapper")
+
         modalWrapper.classList.add('active')
         modalWrapper.style.pointerEvents = 'all'
 
@@ -198,12 +199,13 @@
         tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
         tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
         setTimeout(function() {tiles[indexToExpand].classList.add('modal-open')}, 10);
-        for (let i = 0; i < gridItems.length; i++) {
-          gridItems[i].classList.remove('allow-hover')
+        for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
+          document.querySelectorAll('#grid- div')[i].classList.remove('allow-hover')
         }
 
         document.getElementsByClassName('close-modal')[indexToExpand].onclick = function() {
           modalWrapper.classList.remove('active')
+
           setTimeout(function() {
             modalWrapper.style.pointerEvents = 'none'
             placeholderTile.remove()
@@ -212,8 +214,8 @@
             tiles[indexToExpand].style.height = 'auto'
             tiles[indexToExpand].style.top = 'auto'
             tiles[indexToExpand].style.left = 'auto'
-            for (let i = 0; i < gridItems.length; i++) {
-              gridItems[i].classList.add('allow-hover')
+            for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
+              document.querySelectorAll('#grid- div')[i].classList.add('allow-hover')
             }
           }, 400);
           tiles[indexToExpand].classList.remove('modal-open')
