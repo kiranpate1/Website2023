@@ -153,6 +153,7 @@
             gridItems[i].parentElement.classList.remove('hover-'+gridItems[i].id)
           }
         }
+        document.querySelectorAll('[type="tile"]')[9].setAttribute("type", "randomize")
       }
 
       //tile onclick
@@ -164,7 +165,7 @@
         tiles = document.querySelectorAll('[type="tile"]');
         for (let i = 0; i < tiles.length; i++) {
           tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
-          tiles[i].classList.add(tileItems[i])
+          tiles[i].id = tileItems[i]
           tiles[i].onclick = function() {
             if (tiles[i].classList.contains('allow-hover')) {
               expandtile(i);
@@ -175,7 +176,6 @@
           tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
           tiles[i].appendChild(tileClose)
         }
-        document.querySelector('.randomize').setAttribute("type", "randomize")
       }
 
       function expandtile(indexToExpand) {
@@ -220,7 +220,7 @@
 
       //tile randomize 
 
-      document.querySelector('.randomize').onclick = function() {
+      document.querySelector('#randomize').onclick = function() {
         gridWrapper.innerHTML = ''
         generate()
         tileMouseover()
