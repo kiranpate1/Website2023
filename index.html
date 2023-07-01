@@ -113,14 +113,14 @@
           gridItem.setAttribute("type", "grid-item")
           gridItem.id = 'grid-'+parentName
           gridItem.style.display = 'grid'
-          if ((parentName.includes("0")) && (parentDirection == 'column')) {
+          if ((parentName.slice(-1) == "0") && (parentDirection == 'column')) {
             gridItem.style.gridArea = "1 / 1 / auto / auto"
-          } else if ((parentName.includes("0")) && (parentDirection == 'row')) {
+          } else if ((parentName.slice(-1) == "0") && (parentDirection == 'row')) {
             gridItem.style.gridArea = "1 / 1 / auto / auto"
           }
-          if ((parentName.includes("1")) && (parentDirection == 'column')) {
+          if ((parentName.slice(-1) == "1") && (parentDirection == 'column')) {
             gridItem.style.gridArea = "1 / 2 / auto / auto"
-          } else if ((parentName.includes("1")) && (parentDirection == 'row')) {
+          } else if ((parentName.slice(-1) == "1") && (parentDirection == 'row')) {
             gridItem.style.gridArea = "2 / 1 / auto / auto"
           }
           if ((parentDirection == 'row') && (window.innerWidth < window.innerHeight) || (parentDirection == 'column') && (window.innerWidth > window.innerHeight)) {
