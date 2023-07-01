@@ -145,7 +145,6 @@
             content.classList.add('tile-content')
             gridItems[i].appendChild(content)
           }
-          
           gridItems[i].onmouseover = function() {
             gridItems[i].parentElement.classList.add('hover-'+gridItems[i].id)
           }
@@ -161,8 +160,9 @@
 
       tileClick()
       function tileClick() {
+        tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
         tiles = document.querySelectorAll('[type="tile"]');
-        for (let i = 0; i < tiles.length; i++) {
+        for (let i = 0; i < tiles.length - 1; i++) {
           tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
           tiles[i].classList.add(tileItems[i])
           tiles[i].onclick = function() {
@@ -175,7 +175,7 @@
           tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
           tiles[i].appendChild(tileClose)
         }
-        document.querySelectorAll('[type="tile"]')[9].setAttribute("type", "randomize")
+        tiles[9].classList.add('randomize')
       }
 
       function expandtile(indexToExpand) {
@@ -215,14 +215,13 @@
           tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
           tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
           tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
-      	};
+      	}
       }
 
       //tile randomize 
 
       document.querySelector('.randomize').onclick = function() {
-        console.log('randomize')
-        document.querySelector("#grid-").innerHTML = ''
+        gridWrapper.innerHTML = ''
         generate()
         tileMouseover()
         tileClick()
