@@ -74,7 +74,7 @@ html {
     overflow: hidden;
   }
   
-  .modal-wrapper {
+  /* .modal-wrapper {
     position: absolute;
     top: 0;
     left: 0;
@@ -86,7 +86,7 @@ html {
   }
   .modal-wrapper.active {
     background: rgba(0,0,0,0.5);
-  }
+  } */
 
   div[type='tile'].active {
     position: absolute;
