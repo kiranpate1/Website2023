@@ -21,7 +21,7 @@
     <script>
       //grid generator 
     
-      var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
+      // var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
       console.log("=================================================================================================================================")
 
       generate()
@@ -135,7 +135,7 @@
 
       tileMouseover()
       function tileMouseover() {
-        gridItems = document.querySelectorAll('[type="grid-item"]');
+        var gridItems = document.querySelectorAll('[type="grid-item"]');
 
         for (let i = 0; i < gridItems.length; i++) {
           gridItems[i].classList.add('allow-hover')
@@ -160,9 +160,9 @@
 
       tileClick()
       function tileClick() {
-        tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
-        tiles = document.querySelectorAll('[type="tile"]');
-        for (let i = 0; i < tiles.length - 1; i++) {
+        var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
+        var tiles = document.querySelectorAll('[type="tile"]');
+        for (let i = 0; i < tiles.length; i++) {
           tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
           tiles[i].classList.add(tileItems[i])
           tiles[i].onclick = function() {
@@ -175,12 +175,18 @@
           tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
           tiles[i].appendChild(tileClose)
         }
-        tiles[9].classList.add('randomize')
+        tiles[tiles.length - 1].onclick = function() {
+          gridWrapper.innerHTML = ''
+          generate()
+          tileMouseover()
+          tileClick()
+        }
       }
 
       function expandtile(indexToExpand) {
         modalWrapper.classList.add('active')
         modalWrapper.style.pointerEvents = 'all'
+
 
         var placeholderTile = document.createElement("div")
         placeholderTile.classList.add('placeholder-tile')
@@ -219,13 +225,6 @@
       }
 
       //tile randomize 
-
-      document.querySelector('.randomize').onclick = function() {
-        gridWrapper.innerHTML = ''
-        generate()
-        tileMouseover()
-        tileClick()
-      }
 
     </script>
   </body>
