@@ -21,7 +21,7 @@
     <script>
       //grid generator 
     
-      // var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
+      var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
       console.log("=================================================================================================================================")
 
       generate()
@@ -160,12 +160,12 @@
 
       tileClick()
       function tileClick() {
-        var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
         var tiles = document.querySelectorAll('[type="tile"]');
         for (let i = 0; i < tiles.length; i++) {
           tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
           tiles[i].classList.add(tileItems[i])
           tiles[i].onclick = function() {
+            console.log('hdsgsf')
             if (tiles[i].classList.contains('allow-hover')) {
               expandtile(i);
             }
