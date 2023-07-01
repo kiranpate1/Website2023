@@ -21,19 +21,19 @@
     <script>
       //grid generator 
     
-      const tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
+      var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
       console.log("=================================================================================================================================")
 
       generate()
 
       function generate() {
-        const tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
-        const grid_0_0 = Math.floor(Math.random() * (tileItems.length - 6)) + 3
-        const grid_0_1 = tileItems.length - grid_0_0
+        var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","randomize"]
+        var grid_0_0 = Math.floor(Math.random() * (tileItems.length - 6)) + 3
+        var grid_0_1 = tileItems.length - grid_0_0
         configureLayout('0','column','0-0',grid_0_0,'0-1',grid_0_1)
 
-        const grid_0_0_0 = Math.floor(Math.random() * (grid_0_0 - 4)) + 2
-        const grid_0_0_1 = grid_0_0 - grid_0_0_0
+        var grid_0_0_0 = Math.floor(Math.random() * (grid_0_0 - 4)) + 2
+        var grid_0_0_1 = grid_0_0 - grid_0_0_0
         configureLayout('0-0','row','0-0-0',grid_0_0_0,'0-0-1',grid_0_0_1)
 
         if (grid_0_0_0 >= 3) {
@@ -47,8 +47,8 @@
           configureLayout('0-0-1','column','0-0-1-0',1,'0-0-1-1',1)
         }
 
-        const grid_0_1_0 = Math.floor(Math.random() * (grid_0_1 - 4)) + 2
-        const grid_0_1_1 = grid_0_1 - grid_0_1_0
+        var grid_0_1_0 = Math.floor(Math.random() * (grid_0_1 - 4)) + 2
+        var grid_0_1_1 = grid_0_1 - grid_0_1_0
         configureLayout('0-1','row','0-1-0',grid_0_1_0,'0-1-1',grid_0_1_1)
 
         if (grid_0_1_0 >= 3) {
@@ -64,8 +64,8 @@
       }
 
       function configureTiles(input,name,direction) {
-        const var1 = Math.floor(Math.random() * (input - 3)) + (Math.floor(Math.random() * 2) + 1)
-        const var2 = input - var1
+        var var1 = Math.floor(Math.random() * (input - 3)) + (Math.floor(Math.random() * 2) + 1)
+        var var2 = input - var1
         configureLayout(name,direction,name+'-0',var1,name+'-1',var2)
 
         if ((var1 >= 3) && (direction == 'column')) {
@@ -90,7 +90,7 @@
       }
 
       function configureLayout(parentName,parentDirection,child0Name,child0Input,child1Name,child1Input) {
-        const template = (Math.floor(Math.random() * 4) + 3)
+        var template = (Math.floor(Math.random() * 4) + 3)
         if (child0Input > child1Input) {
           appendTiles(parentName,parentDirection,["1", (template/10)],child0Name,child0Input,child1Name,child1Input)
         } else if (child0Input < child1Input) {
@@ -109,7 +109,7 @@
       }
 
       function appendTiles(parentName,parentDirection,parentTemplate,child0Name,child0Input,child1Name,child1Input) {
-        const gridItem = document.createElement("div")
+        var gridItem = document.createElement("div")
         gridItem.setAttribute("type", "grid-item")
         gridItem.id = 'grid-'+parentName
         gridItem.style.display = 'grid'
@@ -129,21 +129,23 @@
 
       //tile onmouseover
 
-      const gridWrapper = document.querySelector("#grid-");
-      const gridItems = document.querySelectorAll('[type="grid-item"]');
-      const modalWrapper = document.querySelector(".modal-wrapper")
+      var gridWrapper = document.querySelector("#grid-");
+      var gridItems = document.querySelectorAll('[type="grid-item"]');
+      var modalWrapper = document.querySelector(".modal-wrapper")
 
       tileMouseover()
       function tileMouseover() {
-        const gridItems = document.querySelectorAll('[type="grid-item"]');
+        gridItems = document.querySelectorAll('[type="grid-item"]');
+
         for (let i = 0; i < gridItems.length; i++) {
           gridItems[i].classList.add('allow-hover')
           if (gridItems[i].children.length == '0') {
             gridItems[i].setAttribute("type", "tile")
-            const content = document.createElement("div")
+            var content = document.createElement("div")
             content.classList.add('tile-content')
             gridItems[i].appendChild(content)
           }
+          
           gridItems[i].onmouseover = function() {
             gridItems[i].parentElement.classList.add('hover-'+gridItems[i].id)
           }
@@ -155,11 +157,11 @@
 
       //tile onclick
 
-      const tiles = document.querySelectorAll('[type="tile"]');
+      var tiles = document.querySelectorAll('[type="tile"]');
 
       tileClick()
       function tileClick() {
-        const tiles = document.querySelectorAll('[type="tile"]');
+        tiles = document.querySelectorAll('[type="tile"]');
         for (let i = 0; i < tiles.length; i++) {
           tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
           tiles[i].classList.add(tileItems[i])
@@ -167,19 +169,20 @@
             if (tiles[i].classList.contains('allow-hover')) {
               expandtile(i);
             }
-          };
-          const tileClose = document.createElement("div")
+          }
+          var tileClose = document.createElement("div")
           tileClose.classList.add('close-modal')
           tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
           tiles[i].appendChild(tileClose)
         }
+        document.querySelector('.randomize').setAttribute("type", "randomize")
       }
 
       function expandtile(indexToExpand) {
         modalWrapper.classList.add('active')
         modalWrapper.style.pointerEvents = 'all'
 
-        const placeholderTile = document.createElement("div")
+        var placeholderTile = document.createElement("div")
         placeholderTile.classList.add('placeholder-tile')
         tiles[indexToExpand].parentNode.insertBefore(placeholderTile, tiles[indexToExpand]);
 
@@ -217,10 +220,7 @@
 
       //tile randomize 
 
-      const randomize = document.querySelector('.randomize')
-
-      randomize.onclick = function() {
-        const randomize = document.querySelector('.randomize')
+      document.querySelector('.randomize').onclick = function() {
         gridWrapper.innerHTML = ''
         generate()
         tileMouseover()
