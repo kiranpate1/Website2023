@@ -113,9 +113,7 @@
           gridItem.setAttribute("type", "grid-item")
           gridItem.id = 'grid-'+parentName
           gridItem.style.display = 'grid'
-          if ((parentName.slice(-1) == "0") && (parentDirection == 'column')) {
-            gridItem.style.gridArea = "1 / 1 / auto / auto"
-          } else if ((parentName.slice(-1) == "0") && (parentDirection == 'row')) {
+          if (((parentName.slice(-1) == "0") && (parentDirection == 'column')) || ((parentName.slice(-1) == "0") && (parentDirection == 'row'))) {
             gridItem.style.gridArea = "1 / 1 / auto / auto"
           }
           if ((parentName.slice(-1) == "1") && (parentDirection == 'column')) {
@@ -135,7 +133,6 @@
           }
           document.getElementById('grid-'+parentName.slice(0,-2)).appendChild(gridItem)
         }
-        //if griditem has first child including "1", then reverse the order of the grid template
 
         //tile onmouseover
 
