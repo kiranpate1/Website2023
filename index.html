@@ -19,11 +19,12 @@
     </div>
     <script>
       //grid generator 
-    
-      kjdnfkjdsnf()
-      function kjdnfkjdsnf() {
 
-        var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten","eleven","twelve","thirteen","randomize"]
+      var tileItems = ["randomize","one", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten","eleven","twelve","thirteen"]
+    
+      setup()
+      function setup() {
+
         console.log("=================================================================================================================================")
 
         generate()
@@ -161,11 +162,18 @@
         //tile onclick
 
         var tiles = document.querySelectorAll('[type="tile"]');
+        var tileSize = []
 
         tileClick()
         function tileClick() {
-          for (let i = 0; i < tiles.length; i++) {
-            tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
+          tiles.forEach(function(tile, index) {
+            var size = tile.getBoundingClientRect().width * tile.getBoundingClientRect().height
+            tileSize.push({index, size})
+          })
+          var tileSizeOrdered = group(tileSize)
+
+          for (let i = 0; i < tileSizeOrdered.length; i++) {
+            // tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
             tiles[i].classList.add(tileItems[i])
             tiles[i].onclick = function() {
               if (tiles[i].classList.contains('allow-hover')) {
@@ -177,10 +185,25 @@
             tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
             tiles[i].appendChild(tileClose)
           }
-          tiles[tiles.length - 1].onclick = function() {
+          tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].querySelector('.tile-content').innerHTML = "randomize"
+          tiles[tileSizeOrdered[0].key].querySelector('.tile-content').innerHTML = "hello my name is kiran"
+          tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].onclick = function() {
             gridWrapper.innerHTML = ''
-            kjdnfkjdsnf()
+            setup()
           }
+        }
+
+        function group(type) {
+          var reducedArray = Object.values(type.reduce((hash, item) => {
+            if (!hash[item.index]) {
+                hash[item.index] = { key: item.index, size: 0 };
+            }
+            hash[item.index].size += item.size;
+            
+            return hash;
+          }, {}))
+          var results = reducedArray.sort((a,b) => b.size - a.size )
+          return results
         }
 
         function expandtile(indexToExpand) {
