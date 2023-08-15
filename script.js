@@ -132,12 +132,9 @@ function setup() {
                 gridItems[i].appendChild(content)
             }
             gridItems[i].onmouseover = function() {
-                gridWrapper.style.height = '95%'
-                // title.innerHTML = tileItems[i]
                 gridItems[i].parentElement.classList.add('hover-'+gridItems[i].id)
             }
             gridItems[i].onmouseout = function() {
-                gridWrapper.style.height = '100%'
                 gridItems[i].parentElement.classList.remove('hover-'+gridItems[i].id)
             }
         }
@@ -153,9 +150,9 @@ function setup() {
         tiles.forEach(function(tile, index) {
             var size = tile.getBoundingClientRect().width * tile.getBoundingClientRect().height
             tileSize.push({index, size})
-            tile.onmouseover = function() {
+            tile.addEventListener("mouseover", function(){
                 title.innerHTML = tileItems[index]
-            }
+            })
         })
         var tileSizeOrdered = group(tileSize)
 
