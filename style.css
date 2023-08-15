@@ -22,7 +22,7 @@ html {
 
   :root {
     --short: 0.2s ease-in-out;
-    --medium: 0.4s cubic-bezier(0.4,0,0.6,1);
+    --medium: 0.4s cubic-bezier(0.5,0,0.5,1);
   }
   
   .content {
