@@ -119,23 +119,26 @@ function setup() {
     var gridWrapper = document.querySelector("#grid-")
     var gridItems = document.querySelectorAll('[type="grid-item"]')
     var modalWrapper = document.querySelector(".modal-wrapper")
+    var title = document.querySelector(".title")
 
     tileMouseover()
     function tileMouseover() {
-        
         for (let i = 0; i < gridItems.length; i++) {
             gridItems[i].classList.add('allow-hover')
             if (gridItems[i].children.length == '0') {
-            gridItems[i].setAttribute("type", "tile")
-            var content = document.createElement("div")
-            content.classList.add('tile-content')
-            gridItems[i].appendChild(content)
+                gridItems[i].setAttribute("type", "tile")
+                var content = document.createElement("div")
+                content.classList.add('tile-content')
+                gridItems[i].appendChild(content)
             }
             gridItems[i].onmouseover = function() {
-            gridItems[i].parentElement.classList.add('hover-'+gridItems[i].id)
+                gridWrapper.style.height = '95%'
+                // title.innerHTML = tileItems[i]
+                gridItems[i].parentElement.classList.add('hover-'+gridItems[i].id)
             }
             gridItems[i].onmouseout = function() {
-            gridItems[i].parentElement.classList.remove('hover-'+gridItems[i].id)
+                gridWrapper.style.height = '100%'
+                gridItems[i].parentElement.classList.remove('hover-'+gridItems[i].id)
             }
         }
     }
@@ -150,6 +153,9 @@ function setup() {
         tiles.forEach(function(tile, index) {
             var size = tile.getBoundingClientRect().width * tile.getBoundingClientRect().height
             tileSize.push({index, size})
+            tile.onmouseover = function() {
+                title.innerHTML = tileItems[index]
+            }
         })
         var tileSizeOrdered = group(tileSize)
 
@@ -157,9 +163,9 @@ function setup() {
             // tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
             tiles[i].classList.add(tileItems[i])
             tiles[i].onclick = function() {
-            if (tiles[i].classList.contains('allow-hover')) {
-                expandtile(i)
-            }
+                if (tiles[i].classList.contains('allow-hover')) {
+                    expandtile(i)
+                }
             }
             var tileClose = document.createElement("div")
             tileClose.classList.add('close-modal')
@@ -176,12 +182,12 @@ function setup() {
 
     function group(type) {
         var reducedArray = Object.values(type.reduce((hash, item) => {
-        if (!hash[item.index]) {
-            hash[item.index] = { key: item.index, size: 0 };
-        }
-        hash[item.index].size += item.size;
-        
-        return hash;
+            if (!hash[item.index]) {
+                hash[item.index] = { key: item.index, size: 0 };
+            }
+            hash[item.index].size += item.size;
+            
+            return hash;
         }, {}))
         var results = reducedArray.sort((a,b) => b.size - a.size )
         return results
