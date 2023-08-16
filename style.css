@@ -28,15 +28,20 @@ html {
   .content {
     position: absolute;
     width: 100%;
-    height: 95%;
+    height: calc(100% - 60px);
     padding: 12px;
     overflow: hidden;
   }
+  .bottom-bar {
+    width:100%;
+    position: absolute;
+    bottom: 20px;
+  }
   .title {
     position: absolute;
+    top:50%;
     left: 50%;
-    transform: translate(-50%);
-    bottom: 16px;
+    transform: translate(-50%,-50%);
   }
   #grid- {
     height:100%;
@@ -85,7 +90,7 @@ html {
     overflow: hidden;
   }
   
-  .modal-wrapper {
+  #modal-wrapper {
     position: absolute;
     top: 0;
     left: 0;
@@ -95,7 +100,7 @@ html {
     pointer-events: none;
     transition: 0.4s ease;
   }
-  .modal-wrapper.active {
+  #modal-wrapper.active {
     background: rgba(0,0,0,0.5);
   }
 

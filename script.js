@@ -118,7 +118,7 @@ function setup() {
 
     var gridWrapper = document.querySelector("#grid-")
     var gridItems = document.querySelectorAll('[type="grid-item"]')
-    var modalWrapper = document.querySelector(".modal-wrapper")
+    var modalWrapper = document.querySelector("#modal-wrapper")
     var title = document.querySelector(".title")
 
     tileMouseover()
@@ -153,6 +153,12 @@ function setup() {
             tile.addEventListener("mouseover", function(){
                 title.innerHTML = tileItems[index]
             })
+            
+            tile.addEventListener("mouseout", function(){
+                if (!modalWrapper.classList.contains('active')) {
+                    title.innerHTML = ''
+                }
+            })
         })
         var tileSizeOrdered = group(tileSize)
 
@@ -169,11 +175,12 @@ function setup() {
             tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
             tiles[i].appendChild(tileClose)
         }
-        tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].querySelector('.tile-content').innerHTML = "randomize"
+        tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].querySelector('.tile-content').innerHTML = "(party mode)"
+        tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].addEventListener("mouseover", function(){ title.innerHTML = "???" })
         tiles[tileSizeOrdered[0].key].querySelector('.tile-content').innerHTML = "hello my name is kiran"
+        tiles[tileSizeOrdered[0].key].addEventListener("mouseover", function(){ title.innerHTML = "about me" })
         tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].onclick = function() {
-            gridWrapper.innerHTML = ''
-            setup()
+            
         }
     }
 
@@ -229,6 +236,14 @@ function setup() {
             tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
             tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
         }
-    }        
+    }      
+
+    //randomize 
+    
+    var randomize = document.querySelector(".randomize")  
+    randomize.onclick = function() {
+        gridWrapper.innerHTML = ''
+        setup()
+    }
 }
 
