@@ -36,6 +36,7 @@ html {
     width:100%;
     position: absolute;
     bottom: 20px;
+    padding: 0 12px;
   }
   .title {
     position: absolute;
