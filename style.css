@@ -153,8 +153,9 @@ html {
     pointer-events: all;
   }
 
-  .hidden {
-    display: none;
+  .inactive {
+    opacity: 0;
+    pointer-events: none;
   }
 
   /* #grid-0 div {

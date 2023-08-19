@@ -200,7 +200,7 @@ function setup() {
 
     function expandtile(indexToExpand) {
 
-        randomize.classList.add('hidden')
+        randomize.classList.add('inactive')
         modalWrapper.classList.add('active')
         modalWrapper.style.pointerEvents = 'all'
 
@@ -219,7 +219,7 @@ function setup() {
         }
 
         document.getElementsByClassName('close-modal')[indexToExpand].onclick = function() {
-            randomize.classList.remove('hidden')
+            randomize.classList.remove('inactive')
             modalWrapper.classList.remove('active')
 
             setTimeout(function() {
