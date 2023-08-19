@@ -1,6 +1,6 @@
 //grid generator 
 
-var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten","eleven","twelve","thirteen"]
+var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten"]
 
 setup()
 function setup() {
@@ -144,6 +144,7 @@ function setup() {
 
     var tiles = document.querySelectorAll('[type="tile"]');
     var tileSize = []
+    var randomize = document.querySelector(".randomize")  
 
     tileClick()
     function tileClick() {
@@ -198,6 +199,8 @@ function setup() {
     }
 
     function expandtile(indexToExpand) {
+
+        randomize.classList.add('hidden')
         modalWrapper.classList.add('active')
         modalWrapper.style.pointerEvents = 'all'
 
@@ -216,6 +219,7 @@ function setup() {
         }
 
         document.getElementsByClassName('close-modal')[indexToExpand].onclick = function() {
+            randomize.classList.remove('hidden')
             modalWrapper.classList.remove('active')
 
             setTimeout(function() {
@@ -240,7 +244,6 @@ function setup() {
 
     //randomize 
     
-    var randomize = document.querySelector(".randomize")  
     randomize.onclick = function() {
         gridWrapper.innerHTML = ''
         setup()

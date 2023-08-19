@@ -153,6 +153,10 @@ html {
     pointer-events: all;
   }
 
+  .hidden {
+    display: none;
+  }
+
   /* #grid-0 div {
     border: 1px solid red;
   }
