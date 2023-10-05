@@ -1,6 +1,6 @@
 //grid generator 
 
-var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten"]
+var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 
 setup()
 function setup() {
@@ -176,13 +176,20 @@ function setup() {
             tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
             tiles[i].appendChild(tileClose)
         }
+
+        //party mode
         tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].querySelector('.tile-content').innerHTML = "(party mode)"
         tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].addEventListener("mouseover", function(){ title.innerHTML = "???" })
+        tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].onclick = function() {
+          tiles.forEach(function(tile, index) {
+            tile.classList.toggle('party')
+          })
+        }
+
+        //about me
         tiles[tileSizeOrdered[0].key].querySelector('.tile-content').innerHTML = "hello my name is kiran"
         tiles[tileSizeOrdered[0].key].addEventListener("mouseover", function(){ title.innerHTML = "about me" })
-        tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].onclick = function() {
-            
-        }
+        
     }
 
     function group(type) {
