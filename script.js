@@ -1,6 +1,6 @@
 //grid generator 
 
-var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten"]
 
 setup()
 function setup() {
@@ -142,7 +142,7 @@ function setup() {
 
   //tile onclick
 
-  var tiles = document.querySelectorAll('[type="tile"]');
+  var tiles = document.querySelectorAll('[type="tile"]')
   var tileSize = []
   var randomize = document.querySelector(".randomize")  
 
@@ -181,13 +181,20 @@ function setup() {
     tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].querySelector('.tile-content').innerHTML = "what's this?"
     tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].addEventListener("mouseover", function(){ title.innerHTML = "???" })
     tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].onclick = function() {
-      toggleParty()
-      setTimeout(function() {toggleParty()}, 2000);
-      function toggleParty() {
-        tiles.forEach(function(tile, index) {
-          setTimeout(function() {tile.classList.toggle('party')}, index * 200);
-        })
-      }
+      toggleParty('on')
+      setTimeout(function() {toggleParty('off')}, 2000)
+    }
+    function toggleParty(toggle) {
+      tiles.forEach(function(tile, index) {
+        setTimeout(function() {
+          // tile.classList.toggle('party')
+          if (toggle == 'on') {
+            tile.style.backgroundColor = `rgba(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`
+          } else if (toggle == 'off') {
+            tile.style.backgroundColor = ''
+          }
+        }, index * 200)
+      })
     }
 
     //about me
@@ -199,15 +206,17 @@ function setup() {
   function group(type) {
     var reducedArray = Object.values(type.reduce((hash, item) => {
       if (!hash[item.index]) {
-        hash[item.index] = { key: item.index, size: 0 };
+        hash[item.index] = { key: item.index, size: 0 }
       }
-      hash[item.index].size += item.size;
+      hash[item.index].size += item.size
       
-      return hash;
+      return hash
     }, {}))
     var results = reducedArray.sort((a,b) => b.size - a.size )
     return results
   }
+
+  //tile open
 
   function expandtile(indexToExpand) {
 
@@ -224,7 +233,7 @@ function setup() {
     tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
     tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
     tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
-    setTimeout(function() {tiles[indexToExpand].classList.add('modal-open')}, 10);
+    setTimeout(function() {tiles[indexToExpand].classList.add('modal-open')}, 10)
     for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
       document.querySelectorAll('#grid- div')[i].classList.remove('allow-hover')
     }
