@@ -187,7 +187,6 @@ function setup() {
     function toggleParty(toggle) {
       tiles.forEach(function(tile, index) {
         setTimeout(function() {
-          // tile.classList.toggle('party')
           if (toggle == 'on') {
             tile.style.backgroundColor = `rgba(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`
           } else if (toggle == 'off') {

@@ -158,10 +158,6 @@ div[type='tile'].active.modal-open {
   pointer-events: none;
 }
 
-.party {
-  background: red!important;
-}
-
 /* #grid-0 div {
   border: 1px solid red;
 }
