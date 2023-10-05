@@ -5,87 +5,87 @@ var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight",
 setup()
 function setup() {
 
-  console.log("=================================================================================================================================")
+  // console.log("=================================================================================================================================")
 
   generate()
 
   function generate() {
-      var grid_0_0 = Math.floor(Math.random() * (tileItems.length - 6)) + 3
-      var grid_0_1 = tileItems.length - grid_0_0
-      configureLayout('0','column','0-0',grid_0_0,'0-1',grid_0_1)
+    var grid_0_0 = Math.floor(Math.random() * (tileItems.length - 6)) + 3
+    var grid_0_1 = tileItems.length - grid_0_0
+    configureLayout('0','column','0-0',grid_0_0,'0-1',grid_0_1)
 
-      var grid_0_0_0 = Math.floor(Math.random() * (grid_0_0 - 4)) + 2
-      var grid_0_0_1 = grid_0_0 - grid_0_0_0
-      configureLayout('0-0','row','0-0-0',grid_0_0_0,'0-0-1',grid_0_0_1)
+    var grid_0_0_0 = Math.floor(Math.random() * (grid_0_0 - 4)) + 2
+    var grid_0_0_1 = grid_0_0 - grid_0_0_0
+    configureLayout('0-0','row','0-0-0',grid_0_0_0,'0-0-1',grid_0_0_1)
 
-      if (grid_0_0_0 >= 3) {
-          configureTiles(grid_0_0_0,'0-0-0','column')
-      } else if (grid_0_0_0 == 2) {
-          configureLayout('0-0-0','column','0-0-0-0',1,'0-0-0-1',1)
-      }
-      if (grid_0_0_1 >= 3) {
-          configureTiles(grid_0_0_1,'0-0-1','column')
-      } else if (grid_0_0_1 == 2) {
-          configureLayout('0-0-1','column','0-0-1-0',1,'0-0-1-1',1)
-      }
+    if (grid_0_0_0 >= 3) {
+      configureTiles(grid_0_0_0,'0-0-0','column')
+    } else if (grid_0_0_0 == 2) {
+      configureLayout('0-0-0','column','0-0-0-0',1,'0-0-0-1',1)
+    }
+    if (grid_0_0_1 >= 3) {
+      configureTiles(grid_0_0_1,'0-0-1','column')
+    } else if (grid_0_0_1 == 2) {
+      configureLayout('0-0-1','column','0-0-1-0',1,'0-0-1-1',1)
+    }
 
-      var grid_0_1_0 = Math.floor(Math.random() * (grid_0_1 - 4)) + 2
-      var grid_0_1_1 = grid_0_1 - grid_0_1_0
-      configureLayout('0-1','row','0-1-0',grid_0_1_0,'0-1-1',grid_0_1_1)
+    var grid_0_1_0 = Math.floor(Math.random() * (grid_0_1 - 4)) + 2
+    var grid_0_1_1 = grid_0_1 - grid_0_1_0
+    configureLayout('0-1','row','0-1-0',grid_0_1_0,'0-1-1',grid_0_1_1)
 
-      if (grid_0_1_0 >= 3) {
-          configureTiles(grid_0_1_0,'0-1-0','column')
-      } else if (grid_0_1_0 == 2) {
-          configureLayout('0-1-0','column','0-1-0-0',1,'0-1-0-1',1)
-      }
-      if (grid_0_1_1 >= 3) {
-          configureTiles(grid_0_1_1,'0-1-1','column')
-      } else if (grid_0_1_1 == 2) {
-          configureLayout('0-1-1','column','0-1-1-0',1,'0-1-1-1',1)
-      }
+    if (grid_0_1_0 >= 3) {
+      configureTiles(grid_0_1_0,'0-1-0','column')
+    } else if (grid_0_1_0 == 2) {
+      configureLayout('0-1-0','column','0-1-0-0',1,'0-1-0-1',1)
+    }
+    if (grid_0_1_1 >= 3) {
+      configureTiles(grid_0_1_1,'0-1-1','column')
+    } else if (grid_0_1_1 == 2) {
+      configureLayout('0-1-1','column','0-1-1-0',1,'0-1-1-1',1)
+    }
   }
 
   function configureTiles(input,name,direction) {
-      var var1 = Math.floor(Math.random() * (input - 3)) + (Math.floor(Math.random() * 2) + 1)
-      var var2 = input - var1
-      configureLayout(name,direction,name+'-0',var1,name+'-1',var2)
+    var var1 = Math.floor(Math.random() * (input - 3)) + (Math.floor(Math.random() * 2) + 1)
+    var var2 = input - var1
+    configureLayout(name,direction,name+'-0',var1,name+'-1',var2)
 
-      if ((var1 >= 3) && (direction == 'column')) {
-          configureTiles(var1,name+'-0','row')
-      } else if ((var1 >= 3) && (direction == 'row')) {
-          configureTiles(var1,name+'-0','column')
-      } else if ((var1 == 2) && (direction == 'column')) {
-          configureLayout(name+'-0','row',name+'-0-0',1,name+'-0-1',1)
-      } else if ((var1 == 2) && (direction == 'row')) {
-          configureLayout(name+'-0','column',name+'-0-0',1,name+'-0-1',1)
-      }
-      
-      if ((var2 >= 3) && (direction == 'column')) {
-          configureTiles(var2,name+'-1','row')
-      } else if ((var2 >= 3) && (direction == 'row')) {
-          configureTiles(var2,name+'-1','column')
-      } else if ((var2 == 2) && (direction == 'column')) {
-          configureLayout(name+'-1','row',name+'-1-0',1,name+'-1-1',1)
-      } else if ((var2 == 2) && (direction == 'row')) {
-          configureLayout(name+'-1','column',name+'-1-0',1,name+'-1-1',1)
-      }
+    if ((var1 >= 3) && (direction == 'column')) {
+      configureTiles(var1,name+'-0','row')
+    } else if ((var1 >= 3) && (direction == 'row')) {
+      configureTiles(var1,name+'-0','column')
+    } else if ((var1 == 2) && (direction == 'column')) {
+      configureLayout(name+'-0','row',name+'-0-0',1,name+'-0-1',1)
+    } else if ((var1 == 2) && (direction == 'row')) {
+      configureLayout(name+'-0','column',name+'-0-0',1,name+'-0-1',1)
+    }
+    
+    if ((var2 >= 3) && (direction == 'column')) {
+      configureTiles(var2,name+'-1','row')
+    } else if ((var2 >= 3) && (direction == 'row')) {
+      configureTiles(var2,name+'-1','column')
+    } else if ((var2 == 2) && (direction == 'column')) {
+      configureLayout(name+'-1','row',name+'-1-0',1,name+'-1-1',1)
+    } else if ((var2 == 2) && (direction == 'row')) {
+      configureLayout(name+'-1','column',name+'-1-0',1,name+'-1-1',1)
+    }
   }
 
   function configureLayout(parentName,parentDirection,child0Name,child0Input,child1Name,child1Input) {
-      var template = (Math.floor(Math.random() * 4) + 3)
-      if (child0Input > child1Input) {
-          appendTiles(parentName,parentDirection,["1", (template/10)],child0Name,child0Input,child1Name,child1Input)
-      } else if (child0Input < child1Input) {
-          appendTiles(parentName,parentDirection,[(template/10), "1"],child0Name,child0Input,child1Name,child1Input)
-      } else if (child0Input == child1Input) {
-          appendTiles(parentName,parentDirection,[(template/10), "1"],child0Name,child0Input,child1Name,child1Input)
-      }
-      if (child0Input == 1) {
-          appendTiles(child0Name,'','','','','','')
-      }
-      if (child1Input == 1) {
-          appendTiles(child1Name,'','','','','','')
-      }
+    var template = (Math.floor(Math.random() * 4) + 3)
+    if (child0Input > child1Input) {
+      appendTiles(parentName,parentDirection,["1", (template/10)],child0Name,child0Input,child1Name,child1Input)
+    } else if (child0Input < child1Input) {
+      appendTiles(parentName,parentDirection,[(template/10), "1"],child0Name,child0Input,child1Name,child1Input)
+    } else if (child0Input == child1Input) {
+      appendTiles(parentName,parentDirection,[(template/10), "1"],child0Name,child0Input,child1Name,child1Input)
+    }
+    if (child0Input == 1) {
+      appendTiles(child0Name,'','','','','','')
+    }
+    if (child1Input == 1) {
+      appendTiles(child1Name,'','','','','','')
+    }
   }
 
   function appendTiles(parentName,parentDirection,parentTemplate,child0Name,child0Input,child1Name,child1Input) {
@@ -152,13 +152,13 @@ function setup() {
       var size = tile.getBoundingClientRect().width * tile.getBoundingClientRect().height
       tileSize.push({index, size})
       tile.addEventListener("mouseover", function(){
-          title.innerHTML = tileItems[index]
+        title.innerHTML = tileItems[index]
       })
       
       tile.addEventListener("mouseout", function(){
-          if (!modalWrapper.classList.contains('active')) {
-              title.innerHTML = ''
-          }
+        if (!modalWrapper.classList.contains('active')) {
+          title.innerHTML = ''
+        }
       })
     })
     var tileSizeOrdered = group(tileSize)
@@ -167,9 +167,9 @@ function setup() {
       // tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
       tiles[i].classList.add(tileItems[i])
       tiles[i].onclick = function() {
-          if (tiles[i].classList.contains('allow-hover')) {
-              expandtile(i)
-          }
+        if (tiles[i].classList.contains('allow-hover')) {
+          expandtile(i)
+        }
       }
       var tileClose = document.createElement("div")
       tileClose.classList.add('close-modal')
@@ -197,67 +197,67 @@ function setup() {
   }
 
   function group(type) {
-      var reducedArray = Object.values(type.reduce((hash, item) => {
-          if (!hash[item.index]) {
-              hash[item.index] = { key: item.index, size: 0 };
-          }
-          hash[item.index].size += item.size;
-          
-          return hash;
-      }, {}))
-      var results = reducedArray.sort((a,b) => b.size - a.size )
-      return results
+    var reducedArray = Object.values(type.reduce((hash, item) => {
+      if (!hash[item.index]) {
+        hash[item.index] = { key: item.index, size: 0 };
+      }
+      hash[item.index].size += item.size;
+      
+      return hash;
+    }, {}))
+    var results = reducedArray.sort((a,b) => b.size - a.size )
+    return results
   }
 
   function expandtile(indexToExpand) {
 
-      randomize.classList.add('inactive')
-      modalWrapper.classList.add('active')
-      modalWrapper.style.pointerEvents = 'all'
+    randomize.classList.add('inactive')
+    modalWrapper.classList.add('active')
+    modalWrapper.style.pointerEvents = 'all'
 
-      var placeholderTile = document.createElement("div")
-      placeholderTile.classList.add('placeholder-tile')
-      tiles[indexToExpand].parentNode.insertBefore(placeholderTile, tiles[indexToExpand]);
+    var placeholderTile = document.createElement("div")
+    placeholderTile.classList.add('placeholder-tile')
+    tiles[indexToExpand].parentNode.insertBefore(placeholderTile, tiles[indexToExpand]);
 
-      tiles[indexToExpand].classList.add('active')
+    tiles[indexToExpand].classList.add('active')
+    tiles[indexToExpand].style.width = placeholderTile.getBoundingClientRect().width + 'px'
+    tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
+    tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
+    tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
+    setTimeout(function() {tiles[indexToExpand].classList.add('modal-open')}, 10);
+    for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
+      document.querySelectorAll('#grid- div')[i].classList.remove('allow-hover')
+    }
+
+    document.getElementsByClassName('close-modal')[indexToExpand].onclick = function() {
+      randomize.classList.remove('inactive')
+      modalWrapper.classList.remove('active')
+
+      setTimeout(function() {
+      modalWrapper.style.pointerEvents = 'none'
+      placeholderTile.remove()
+      tiles[indexToExpand].classList.remove('active')
+      tiles[indexToExpand].style.width = 'auto'
+      tiles[indexToExpand].style.height = 'auto'
+      tiles[indexToExpand].style.top = 'auto'
+      tiles[indexToExpand].style.left = 'auto'
+      for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
+        document.querySelectorAll('#grid- div')[i].classList.add('allow-hover')
+      }
+      }, 400);
+      tiles[indexToExpand].classList.remove('modal-open')
       tiles[indexToExpand].style.width = placeholderTile.getBoundingClientRect().width + 'px'
       tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
       tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
       tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
-      setTimeout(function() {tiles[indexToExpand].classList.add('modal-open')}, 10);
-      for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
-          document.querySelectorAll('#grid- div')[i].classList.remove('allow-hover')
-      }
-
-      document.getElementsByClassName('close-modal')[indexToExpand].onclick = function() {
-          randomize.classList.remove('inactive')
-          modalWrapper.classList.remove('active')
-
-          setTimeout(function() {
-          modalWrapper.style.pointerEvents = 'none'
-          placeholderTile.remove()
-          tiles[indexToExpand].classList.remove('active')
-          tiles[indexToExpand].style.width = 'auto'
-          tiles[indexToExpand].style.height = 'auto'
-          tiles[indexToExpand].style.top = 'auto'
-          tiles[indexToExpand].style.left = 'auto'
-          for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
-              document.querySelectorAll('#grid- div')[i].classList.add('allow-hover')
-          }
-          }, 400);
-          tiles[indexToExpand].classList.remove('modal-open')
-          tiles[indexToExpand].style.width = placeholderTile.getBoundingClientRect().width + 'px'
-          tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
-          tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
-          tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
-      }
+    }
   }      
 
   //randomize 
   
   randomize.onclick = function() {
-      gridWrapper.innerHTML = ''
-      setup()
+    gridWrapper.innerHTML = ''
+    setup()
   }
 }
 
