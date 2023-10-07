@@ -226,7 +226,7 @@ function setup() {
 
     var placeholderTile = document.createElement("div")
     placeholderTile.classList.add('placeholder-tile')
-    tiles[indexToExpand].parentNode.insertBefore(placeholderTile, tiles[indexToExpand]);
+    tiles[indexToExpand].parentNode.insertBefore(placeholderTile, tiles[indexToExpand])
 
     tiles[indexToExpand].classList.add('active')
     tiles[indexToExpand].style.width = placeholderTile.getBoundingClientRect().width + 'px'
