@@ -120,6 +120,7 @@ function setup() {
   var gridItems = document.querySelectorAll('[type="grid-item"]')
   var modalWrapper = document.querySelector("#modal-wrapper")
   var title = document.querySelector(".title")
+  var backgroundBlur = document.querySelector(".background-blur")
 
   tileMouseover()
   function tileMouseover() {
@@ -148,7 +149,32 @@ function setup() {
     setTimeout(function() {
       tile.style.opacity = '1'
     }, index * 50)
+    tile.addEventListener("mouseover", function(){
+      setTimeout(function() {
+        translateBlur(index)
+      }, 200)
+    })
+    tile.addEventListener("mouseout", function(){
+      setTimeout(function() {
+        backgroundBlur.style.opacity = '0'
+      }, 200)
+      // backgroundBlur.style.top = 'auto'
+      // backgroundBlur.style.left = 'auto'
+      // backgroundBlur.style.width = 'auto'
+      // backgroundBlur.style.height = 'auto'
+    })
   })
+
+  function translateBlur(i) {
+    if (tiles[i].classList.contains('allow-hover')) {
+      backgroundBlur.style.opacity = '1'
+    }
+    var tileRect = tiles[i].getBoundingClientRect()
+    backgroundBlur.style.top = tileRect.top + 'px'
+    backgroundBlur.style.left = tileRect.left + 'px'
+    backgroundBlur.style.width = tileRect.width + 'px'
+    backgroundBlur.style.height = tileRect.height + 'px'
+  }
 
   //tile onclick
 
