@@ -283,7 +283,7 @@ function setup() {
     setTimeout(() => {
       gridWrapper.innerHTML = ''
       setup()
-    }, tiles.length * 50);
+    }, tiles.length * 50 + 200);
   }
 }
 
