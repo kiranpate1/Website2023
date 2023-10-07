@@ -140,9 +140,18 @@ function setup() {
     }
   }
 
-  //tile onclick
+  //tile load in
 
   var tiles = document.querySelectorAll('[type="tile"]')
+
+  tiles.forEach(function(tile, index) {
+    setTimeout(function() {
+      tile.style.opacity = '1'
+    }, index * 50)
+  })
+
+  //tile onclick
+
   var tileSize = []
   var randomize = document.querySelector(".randomize")  
 
@@ -266,8 +275,15 @@ function setup() {
   //randomize 
   
   randomize.onclick = function() {
-    gridWrapper.innerHTML = ''
-    setup()
+    tiles.forEach(function(tile, index) {
+      setTimeout(function() {
+        tile.style.opacity = '0'
+      }, index * 50)
+    })
+    setTimeout(() => {
+      gridWrapper.innerHTML = ''
+      setup()
+    }, tiles.length * 50);
   }
 }
 
