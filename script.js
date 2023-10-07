@@ -152,12 +152,13 @@ function setup() {
       var size = tile.getBoundingClientRect().width * tile.getBoundingClientRect().height
       tileSize.push({index, size})
       tile.addEventListener("mouseover", function(){
+        title.style.opacity = '1'
         title.innerHTML = tileItems[index]
       })
       
       tile.addEventListener("mouseout", function(){
         if (!modalWrapper.classList.contains('active')) {
-          title.innerHTML = ''
+          title.style.opacity = '0'
         }
       })
     })
