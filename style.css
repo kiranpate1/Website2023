@@ -182,6 +182,14 @@ div[type='tile'].active.modal-open {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
 }
+.background-blur img {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
 
 
 /*set following in js:*/
