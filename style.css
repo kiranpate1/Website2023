@@ -173,8 +173,8 @@ div[type='tile'].active.modal-open {
   position: absolute;
   border-radius: 24px;;
   opacity: 0;
-  filter: blur(40px);
-  background: rgba(255,255,255,0.04);
+  /* filter: blur(40px);
+  background: rgba(255,255,255,0.01); */
   z-index: -1;
   transition: 1.5s cubic-bezier(0,1.4,.5,1);
   -webkit-backface-visibility: hidden;
