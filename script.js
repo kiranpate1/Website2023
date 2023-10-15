@@ -213,10 +213,18 @@ function setup() {
       tiles[i].appendChild(tileClose)
     }
 
+    const smallestTile = tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key]
+    const largestTile = tiles[tileSizeOrdered[0].key]
+    console.log(tileSizeOrdered)
+    tileSizeOrdered.forEach(function(tile, index) {
+      //tiles[tile.key].style.zIndex = index
+      tiles[tile.key].querySelector('.tile-content').innerHTML = tileItems[index]
+    })
+
     //party mode
-    tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].querySelector('.tile-content').innerHTML = "what's this?"
-    tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].addEventListener("mouseover", function(){ title.innerHTML = "???" })
-    tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key].onclick = function() {
+    smallestTile.querySelector('.tile-content').innerHTML = "what's this?"
+    smallestTile.addEventListener("mouseover", function(){ title.innerHTML = "???" })
+    smallestTile.onclick = function() {
       toggleParty('on')
       setTimeout(function() {toggleParty('off')}, 2000)
     }
@@ -234,8 +242,8 @@ function setup() {
     }
 
     //about me
-    tiles[tileSizeOrdered[0].key].querySelector('.tile-content').innerHTML = "hello my name is kiran"
-    tiles[tileSizeOrdered[0].key].addEventListener("mouseover", function(){ title.innerHTML = "about me" })
+    largestTile.querySelector('.tile-content').innerHTML = "hello my name is kiran"
+    largestTile.addEventListener("mouseover", function(){ title.innerHTML = "about me" })
       
   }
 
