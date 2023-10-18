@@ -137,7 +137,7 @@ function setup() {
       }
       gridItems[i].onmouseout = function() {
         gridItems[i].parentElement.classList.remove('hover-'+gridItems[i].id)
-      }
+      } 
     }
   }
 
