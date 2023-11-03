@@ -203,9 +203,9 @@ function setup() {
       // tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
       tiles[i].classList.add(tileItems[i])
       tiles[i].onclick = function() {
+        expandtiles()
         if (tiles[i].classList.contains('allow-hover')) {
           expandtile(i)
-          expandtiles()
         }
       }
       
@@ -263,6 +263,8 @@ function setup() {
 
   //tile open
 
+  const sideMenuItems = document.querySelectorAll('.side-menu div')
+
   function expandtiles() {
 
     tiles.forEach(function(tile, index) {
@@ -277,12 +279,10 @@ function setup() {
       tiles[index].style.top = placeholderTile.getBoundingClientRect().top + 'px'
       tiles[index].style.left = placeholderTile.getBoundingClientRect().left + 'px'
 
-      // tile.style.width = tiles[index].getBoundingClientRect().width + 'px'
-      // tile.style.height = tiles[index].getBoundingClientRect().height + 'px'
-      // tile.style.top = tiles[index].getBoundingClientRect().top + 'px'
-      // tile.style.left = tiles[index].getBoundingClientRect().left + 'px'
-      // tile.classList.add('active')
-      //setTimeout(function() {tile.classList.add('active')}, 10)
+      setTimeout(function() {
+        tiles[index].style.top = sideMenuItems[index].getBoundingClientRect().top + 'px'
+        tiles[index].style.left = sideMenuItems[index].getBoundingClientRect().left + 'px'
+      }, 10)
     })
   }
 
