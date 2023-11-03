@@ -290,6 +290,8 @@ function setup() {
       setTimeout(function() {
         tiles[index].style.top = sideMenuItems[index].getBoundingClientRect().top + 'px'
         tiles[index].style.left = sideMenuItems[index].getBoundingClientRect().left + 'px'
+        tiles[index].style.width = sideMenuItems[index].getBoundingClientRect().width + 'px'
+        tiles[index].style.height = sideMenuItems[index].getBoundingClientRect().height + 'px'
       }, 10)
     })
   }
@@ -322,11 +324,11 @@ function setup() {
       setTimeout(function() {
       modalWrapper.style.pointerEvents = 'none'
       placeholderTile.remove()
-      tiles[indexToExpand].classList.remove('active')
-      tiles[indexToExpand].style.width = 'auto'
-      tiles[indexToExpand].style.height = 'auto'
-      tiles[indexToExpand].style.top = 'auto'
-      tiles[indexToExpand].style.left = 'auto'
+      //tiles[indexToExpand].classList.remove('active')
+      // tiles[indexToExpand].style.width = 'auto'
+      // tiles[indexToExpand].style.height = 'auto'
+      // tiles[indexToExpand].style.top = 'auto'
+      // tiles[indexToExpand].style.left = 'auto'
       for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
         document.querySelectorAll('#grid- div')[i].classList.add('allow-hover')
       }
