@@ -296,6 +296,7 @@ function setup() {
     })
   }
 
+  const caseSection = document.querySelector('.case-section')
 
   function expandtile(indexToExpand) {
 
@@ -312,7 +313,13 @@ function setup() {
     tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
     tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
     tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
-    setTimeout(function() {tiles[indexToExpand].classList.add('modal-open')}, 10)
+    setTimeout(function() {
+      //tiles[indexToExpand].classList.add('modal-open')
+      tiles[indexToExpand].style.top = caseSection.getBoundingClientRect().top + 'px'
+      tiles[indexToExpand].style.left = caseSection.getBoundingClientRect().left + 'px'
+      tiles[indexToExpand].style.width = caseSection.getBoundingClientRect().width + 'px'
+      tiles[indexToExpand].style.height = caseSection.getBoundingClientRect().height + 'px'
+    }, 10)
     for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
       document.querySelectorAll('#grid- div')[i].classList.remove('allow-hover')
     }
