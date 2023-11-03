@@ -205,6 +205,7 @@ function setup() {
       tiles[i].onclick = function() {
         if (tiles[i].classList.contains('allow-hover')) {
           expandtile(i)
+          expandtiles()
         }
       }
       
@@ -216,7 +217,6 @@ function setup() {
 
     const smallestTile = tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key]
     const largestTile = tiles[tileSizeOrdered[0].key]
-    console.log(tileSizeOrdered)
     tileSizeOrdered.forEach(function(tile, index) {
       //tiles[tile.key].style.zIndex = index
       tiles[tile.key].querySelector('.tile-content').innerHTML = tileItems[index]
@@ -262,6 +262,30 @@ function setup() {
   }
 
   //tile open
+
+  function expandtiles() {
+
+    tiles.forEach(function(tile, index) {
+
+      var placeholderTile = document.createElement("div")
+      placeholderTile.classList.add('placeholder-tile')
+      tiles[index].parentNode.insertBefore(placeholderTile, tiles[index])
+
+      tiles[index].classList.add('active')
+      tiles[index].style.width = placeholderTile.getBoundingClientRect().width + 'px'
+      tiles[index].style.height = placeholderTile.getBoundingClientRect().height + 'px'
+      tiles[index].style.top = placeholderTile.getBoundingClientRect().top + 'px'
+      tiles[index].style.left = placeholderTile.getBoundingClientRect().left + 'px'
+
+      // tile.style.width = tiles[index].getBoundingClientRect().width + 'px'
+      // tile.style.height = tiles[index].getBoundingClientRect().height + 'px'
+      // tile.style.top = tiles[index].getBoundingClientRect().top + 'px'
+      // tile.style.left = tiles[index].getBoundingClientRect().left + 'px'
+      // tile.classList.add('active')
+      //setTimeout(function() {tile.classList.add('active')}, 10)
+    })
+  }
+
 
   function expandtile(indexToExpand) {
 
