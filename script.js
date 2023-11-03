@@ -263,7 +263,15 @@ function setup() {
 
   //tile open
 
-  const sideMenuItems = document.querySelectorAll('.side-menu div')
+  const sideMenu = document.querySelector('.side-menu')
+
+  tileItems.forEach(function(tileItem, index) {
+    var sideMenuItem = document.createElement("div")
+    sideMenuItem.classList.add('side-menu-item')
+    sideMenu.appendChild(sideMenuItem)
+  })
+
+  const sideMenuItems = document.querySelectorAll('.side-menu-item')
 
   function expandtiles() {
 
