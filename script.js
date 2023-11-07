@@ -353,6 +353,7 @@ function setup() {
   function collapsetile() {
     document.body.classList.remove('project-open')
     
+    
   }
 
   //randomize 
