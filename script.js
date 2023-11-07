@@ -274,7 +274,6 @@ function setup() {
   const sideMenuItems = document.querySelectorAll('.side-menu-item')
 
   function expandtiles() {
-
     tiles.forEach(function(tile, index) {
 
       var placeholderTile = document.createElement("div")
@@ -300,7 +299,6 @@ function setup() {
   const caseSection = document.querySelector('.case-section')
 
   function expandtile(indexToExpand) {
-    console.log(indexToExpand)
 
     randomize.classList.add('inactive')
     modalWrapper.classList.add('active')
@@ -349,6 +347,14 @@ function setup() {
     //   tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
     // }
   }      
+
+  //tile close
+
+  const closeTiles = document.querySelector('.close-tiles')
+
+  function collapsetile() {
+
+  }
 
   //randomize 
   

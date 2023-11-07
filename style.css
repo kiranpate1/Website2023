@@ -111,8 +111,8 @@ div[type='tile']:hover {
   transition: 0.4s ease;
 }
 #modal-wrapper.active {
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(16px);
+  /*background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(16px);*/
 }
 
 .side-menu {
