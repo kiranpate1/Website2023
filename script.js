@@ -284,6 +284,7 @@ function setup() {
       tiles[index].classList.add('active')
       tiles[index].style.width = placeholderTile.getBoundingClientRect().width + 'px'
       tiles[index].style.height = placeholderTile.getBoundingClientRect().height + 'px'
+      //      tiles[index].style.transform = 'translate(`${placeholderTile.getBoundingClientRect().left}px,${placeholderTile.getBoundingClientRect().top}px`)'
       tiles[index].style.top = placeholderTile.getBoundingClientRect().top + 'px'
       tiles[index].style.left = placeholderTile.getBoundingClientRect().left + 'px'
 
