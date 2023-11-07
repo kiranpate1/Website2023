@@ -273,6 +273,10 @@ function setup() {
   const sideMenuItems = document.querySelectorAll('.side-menu-item')
 
   function expandtiles() {
+    const placeholderTiles = document.querySelectorAll('.placeholder-tile')
+    for (let i = 0; i < placeholderTiles.length; i++) {
+      placeholderTiles[i].remove()
+    }
     tiles.forEach(function(tile, index) {
 
       var placeholderTile = document.createElement("div")
@@ -298,19 +302,19 @@ function setup() {
   const caseSection = document.querySelector('.case-section')
 
   function expandtile(indexToExpand) {
-
+    const placeholderTiles = document.querySelectorAll('.placeholder-tile')
     randomize.classList.add('inactive')
     document.body.classList.add('project-open')
 
-    var placeholderTile = document.createElement("div")
-    placeholderTile.classList.add('placeholder-tile')
-    tiles[indexToExpand].parentNode.insertBefore(placeholderTile, tiles[indexToExpand])
+    //var placeholderTile = document.createElement("div")
+    //placeholderTile.classList.add('placeholder-tile')
+    //tiles[indexToExpand].parentNode.insertBefore(placeholderTiles[indexToExpand], tiles[indexToExpand])
 
     tiles[indexToExpand].classList.add('active')
-    tiles[indexToExpand].style.width = placeholderTile.getBoundingClientRect().width + 'px'
-    tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
-    tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
-    tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
+    tiles[indexToExpand].style.width = placeholderTiles[indexToExpand].getBoundingClientRect().width + 'px'
+    tiles[indexToExpand].style.height = placeholderTiles[indexToExpand].getBoundingClientRect().height + 'px'
+    tiles[indexToExpand].style.top = placeholderTiles[indexToExpand].getBoundingClientRect().top + 'px'
+    tiles[indexToExpand].style.left = placeholderTiles[indexToExpand].getBoundingClientRect().left + 'px'
     setTimeout(function() {
       //tiles[indexToExpand].classList.add('modal-open')
       tiles[indexToExpand].style.top = caseSection.getBoundingClientRect().top + 'px'
@@ -350,10 +354,28 @@ function setup() {
 
   const closeTiles = document.querySelector('.close')
 
-  function collapsetile() {
+  closeTiles.onclick = function() {
+    const placeholderTiles = document.querySelectorAll('.placeholder-tile')
+    randomize.classList.remove('inactive')
     document.body.classList.remove('project-open')
-    
-    
+
+    tiles.forEach(function(tile, index) {
+      setTimeout(function() {
+        placeholderTiles[index].remove()
+        tile.classList.remove('active')
+        tile.style.width = 'auto'
+        tile.style.height = 'auto'
+        tile.style.top = 'auto'
+        tile.style.left = 'auto'
+        for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
+          document.querySelectorAll('#grid- div')[i].classList.add('allow-hover')
+        }
+      }, 400);
+      tile.style.width = placeholderTiles[index].getBoundingClientRect().width + 'px'
+      tile.style.height = placeholderTiles[index].getBoundingClientRect().height + 'px'
+      tile.style.top = placeholderTiles[index].getBoundingClientRect().top + 'px'
+      tile.style.left = placeholderTiles[index].getBoundingClientRect().left + 'px'
+    })
   }
 
   //randomize 

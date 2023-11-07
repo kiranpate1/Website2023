@@ -108,7 +108,7 @@ div[type='tile']:hover {
   background: rgba(0,0,0,0);
   /*backdrop-filter: blur(0px);*/
   pointer-events: none;
-  padding: var(--padding);
+  padding: var(--top-gap) var(--padding) var(--padding) var(--padding);
   transition: 0.4s ease;
 }
 .project-open #modal-wrapper {
