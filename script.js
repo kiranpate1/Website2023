@@ -300,6 +300,7 @@ function setup() {
   const caseSection = document.querySelector('.case-section')
 
   function expandtile(indexToExpand) {
+    console.log(indexToExpand)
 
     randomize.classList.add('inactive')
     modalWrapper.classList.add('active')
@@ -321,32 +322,32 @@ function setup() {
       tiles[indexToExpand].style.width = caseSection.getBoundingClientRect().width + 'px'
       tiles[indexToExpand].style.height = caseSection.getBoundingClientRect().height + 'px'
     }, 10)
-    for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
-      document.querySelectorAll('#grid- div')[i].classList.remove('allow-hover')
-    }
+    //for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
+    //  document.querySelectorAll('#grid- div')[i].classList.remove('allow-hover')
+    //}
 
-    document.getElementsByClassName('close-modal')[indexToExpand].onclick = function() {
-      randomize.classList.remove('inactive')
-      modalWrapper.classList.remove('active')
+    // document.getElementsByClassName('close-modal')[indexToExpand].onclick = function() {
+    //   randomize.classList.remove('inactive')
+    //   modalWrapper.classList.remove('active')
 
-      setTimeout(function() {
-      modalWrapper.style.pointerEvents = 'none'
-      placeholderTile.remove()
-      //tiles[indexToExpand].classList.remove('active')
-      // tiles[indexToExpand].style.width = 'auto'
-      // tiles[indexToExpand].style.height = 'auto'
-      // tiles[indexToExpand].style.top = 'auto'
-      // tiles[indexToExpand].style.left = 'auto'
-      for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
-        document.querySelectorAll('#grid- div')[i].classList.add('allow-hover')
-      }
-      }, 400);
-      tiles[indexToExpand].classList.remove('modal-open')
-      tiles[indexToExpand].style.width = placeholderTile.getBoundingClientRect().width + 'px'
-      tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
-      tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
-      tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
-    }
+    //   setTimeout(function() {
+    //   modalWrapper.style.pointerEvents = 'none'
+    //   placeholderTile.remove()
+    //   //tiles[indexToExpand].classList.remove('active')
+    //   // tiles[indexToExpand].style.width = 'auto'
+    //   // tiles[indexToExpand].style.height = 'auto'
+    //   // tiles[indexToExpand].style.top = 'auto'
+    //   // tiles[indexToExpand].style.left = 'auto'
+    //   for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
+    //     document.querySelectorAll('#grid- div')[i].classList.add('allow-hover')
+    //   }
+    //   }, 400);
+    //   tiles[indexToExpand].classList.remove('modal-open')
+    //   tiles[indexToExpand].style.width = placeholderTile.getBoundingClientRect().width + 'px'
+    //   tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
+    //   tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
+    //   tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
+    // }
   }      
 
   //randomize 
