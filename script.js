@@ -348,7 +348,7 @@ function setup() {
 
   //tile close
 
-  const closeTiles = document.querySelector('.close-tiles')
+  const closeTiles = document.querySelector('.close')
 
   function collapsetile() {
     document.body.classList.remove('project-open')
