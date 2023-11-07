@@ -118,7 +118,6 @@ function setup() {
 
   var gridWrapper = document.querySelector("#grid-")
   var gridItems = document.querySelectorAll('[type="grid-item"]')
-  var modalWrapper = document.querySelector("#modal-wrapper")
   var title = document.querySelector(".title")
   var backgroundBlur = document.querySelector(".background-blur")
 
@@ -192,7 +191,7 @@ function setup() {
       })
       
       tile.addEventListener("mouseout", function(){
-        if (!modalWrapper.classList.contains('active')) {
+        if (!document.body.classList.contains('project-open')) {
           title.style.opacity = '0'
         }
       })
@@ -301,8 +300,7 @@ function setup() {
   function expandtile(indexToExpand) {
 
     randomize.classList.add('inactive')
-    modalWrapper.classList.add('active')
-    modalWrapper.style.pointerEvents = 'all'
+    document.body.classList.add('project-open')
 
     var placeholderTile = document.createElement("div")
     placeholderTile.classList.add('placeholder-tile')
@@ -353,6 +351,7 @@ function setup() {
   const closeTiles = document.querySelector('.close-tiles')
 
   function collapsetile() {
+    document.body.classList.toggle('project-open')
 
   }
 
