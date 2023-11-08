@@ -144,20 +144,6 @@ div[type='tile'].active {
   cursor: auto!important;
 }
 
-div[type='tile'].active.modal-open {
-  width: 80%!important;
-  height: 80%!important;
-  top: 50%!important;
-  left: 50%!important;
-  transform: translate(-50%,-50%)!important;
-}
-
-@media screen and (min-width: 1000px) {
-  div[type='tile'].active.modal-open {
-    width: 800px!important;
-  }
-}
-
 .close-modal {
   position: absolute;
   display: flex;
