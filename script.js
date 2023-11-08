@@ -281,15 +281,16 @@ function setup() {
       tiles[index].classList.add('active')
       tiles[index].style.width = placeholderTile.getBoundingClientRect().width + 'px'
       tiles[index].style.height = placeholderTile.getBoundingClientRect().height + 'px'
-      //      tiles[index].style.transform = 'translate(`${placeholderTile.getBoundingClientRect().left}px,${placeholderTile.getBoundingClientRect().top}px`)'
+      //tiles[index].style.transform = `translate(${placeholderTile.getBoundingClientRect().left}px,${placeholderTile.getBoundingClientRect().top}px)`
       tiles[index].style.top = placeholderTile.getBoundingClientRect().top + 'px'
       tiles[index].style.left = placeholderTile.getBoundingClientRect().left + 'px'
 
       setTimeout(function() {
-        tiles[index].style.top = sideMenuItems[index].getBoundingClientRect().top + 'px'
-        tiles[index].style.left = sideMenuItems[index].getBoundingClientRect().left + 'px'
         tiles[index].style.width = sideMenuItems[index].getBoundingClientRect().width + 'px'
         tiles[index].style.height = sideMenuItems[index].getBoundingClientRect().height + 'px'
+        //tiles[index].style.transform = `translate(${sideMenuItems[index].getBoundingClientRect().left}px,${sideMenuItems[index].getBoundingClientRect().top}px)`
+        tiles[index].style.top = sideMenuItems[index].getBoundingClientRect().top + 'px'
+        tiles[index].style.left = sideMenuItems[index].getBoundingClientRect().left + 'px'
       }, 10)
     })
   }
