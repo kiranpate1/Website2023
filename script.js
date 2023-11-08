@@ -208,10 +208,10 @@ function setup() {
         }
       }
       
-      var tileClose = document.createElement("div")
-      tileClose.classList.add('close-modal')
-      tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
-      tiles[i].appendChild(tileClose)
+      // var tileClose = document.createElement("div")
+      // tileClose.classList.add('close-modal')
+      // tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
+      // tiles[i].appendChild(tileClose)
     }
 
     const smallestTile = tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key]
@@ -350,11 +350,11 @@ function setup() {
     // }
   }      
 
-  //tile close
+  //back
 
-  const closeTiles = document.querySelector('.close')
+  const back = document.querySelector('.back')
 
-  closeTiles.onclick = function() {
+  back.onclick = function() {
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
     randomize.classList.remove('inactive')
     document.body.classList.remove('project-open')
