@@ -212,7 +212,7 @@ function setup() {
     const smallestTile = tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key]
     const largestTile = tiles[tileSizeOrdered[0].key]
     tileSizeOrdered.forEach(function(tile, index) {
-      //tiles[tile.key].style.zIndex = index
+      //tiles[tile.key].style.zIndex = (tiles.length - index)
       tiles[tile.key].querySelector('.tile-content').innerHTML = tileItems[index]
     })
 
@@ -278,7 +278,7 @@ function setup() {
       placeholderTile.classList.add('placeholder-tile')
       tiles[index].parentNode.insertBefore(placeholderTile, tiles[index])
 
-      tiles[index].classList.add('active')
+      tiles[index].classList.add('active','allow-scroll')
       tiles[index].style.width = placeholderTile.getBoundingClientRect().width + 'px'
       tiles[index].style.height = placeholderTile.getBoundingClientRect().height + 'px'
       //tiles[index].style.transform = `translate(${placeholderTile.getBoundingClientRect().left}px,${placeholderTile.getBoundingClientRect().top}px)`
@@ -303,6 +303,7 @@ function setup() {
     document.body.classList.add('project-open')
 
     tiles[indexToExpand].classList.add('active')
+    tiles[indexToExpand].classList.remove('allow-scroll')
     tiles[indexToExpand].style.width = placeholderTiles[indexToExpand].getBoundingClientRect().width + 'px'
     tiles[indexToExpand].style.height = placeholderTiles[indexToExpand].getBoundingClientRect().height + 'px'
     tiles[indexToExpand].style.top = placeholderTiles[indexToExpand].getBoundingClientRect().top + 'px'
@@ -327,7 +328,7 @@ function setup() {
     tiles.forEach(function(tile, index) {
       setTimeout(function() {
         placeholderTiles[index].remove()
-        tile.classList.remove('active')
+        tile.classList.remove('active','allow-scroll')
         tile.style.width = 'auto'
         tile.style.height = 'auto'
         tile.style.top = 'auto'
@@ -342,6 +343,12 @@ function setup() {
       tile.style.left = placeholderTiles[index].getBoundingClientRect().left + 'px'
     })
   }
+
+  //scroll tiles
+
+  sideMenu.addEventListener('wheel', function(e) {
+    console.log('test')
+  })
 
   //randomize 
   

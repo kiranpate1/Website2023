@@ -126,6 +126,10 @@ div[type='tile']:hover {
   grid-gap: var(--padding);
 }
 
+.project-open .side-menu {
+  z-index: 1;
+}
+
 .side-menu-item {
   width: 100%;
   min-height: 200px;
