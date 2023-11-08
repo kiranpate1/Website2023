@@ -70,7 +70,7 @@ div[type='tile'], .placeholder-tile {
   height: auto;
   background: rgba(255,255,255,0.08);
   border-radius: 24px;
-  transition: var(--medium), var(--short) background;
+  transition: var(--medium), var(--short) background; /*how to make transform 0s at the right time?*/
   cursor: pointer;
 }
 .placeholder-tile {
@@ -126,9 +126,9 @@ div[type='tile']:hover {
   grid-gap: var(--padding);
 }
 
-.project-open .side-menu {
+/* .project-open .side-menu {
   z-index: 1;
-}
+} */
 
 .side-menu-item {
   width: 100%;
@@ -148,36 +148,8 @@ div[type='tile'].active {
   cursor: auto!important;
 }
 
-.close-modal {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  border: 2px solid #E5E5E5;
-  top: -16px;
-  right: -16px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  opacity: 0;
-  transition: .2s ease;
-  pointer-events: none;
-  cursor: pointer;
-}
-
-.close-modal:hover {
-  background: #E5E5E5;
-}
-
-.active .close-modal {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.inactive {
-  opacity: 0;
-  pointer-events: none;
+div[type='tile'].focus {
+  transform: translateY(0px)!important;
 }
 
 .top-action {

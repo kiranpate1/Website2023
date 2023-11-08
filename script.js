@@ -278,6 +278,7 @@ function setup() {
       placeholderTile.classList.add('placeholder-tile')
       tiles[index].parentNode.insertBefore(placeholderTile, tiles[index])
 
+      tiles[index].classList.remove('focus')
       tiles[index].classList.add('active','allow-scroll')
       tiles[index].style.width = placeholderTile.getBoundingClientRect().width + 'px'
       tiles[index].style.height = placeholderTile.getBoundingClientRect().height + 'px'
@@ -299,10 +300,9 @@ function setup() {
 
   function expandtile(indexToExpand) {
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
-    randomize.classList.add('inactive')
     document.body.classList.add('project-open')
 
-    tiles[indexToExpand].classList.add('active')
+    tiles[indexToExpand].classList.add('active','focus')
     tiles[indexToExpand].classList.remove('allow-scroll')
     tiles[indexToExpand].style.width = placeholderTiles[indexToExpand].getBoundingClientRect().width + 'px'
     tiles[indexToExpand].style.height = placeholderTiles[indexToExpand].getBoundingClientRect().height + 'px'
@@ -314,6 +314,14 @@ function setup() {
       tiles[indexToExpand].style.width = caseSection.getBoundingClientRect().width + 'px'
       tiles[indexToExpand].style.height = caseSection.getBoundingClientRect().height + 'px'
     }, 10)
+
+    var scrollableTiles = document.querySelectorAll('.allow-scroll')
+
+    scrollableTiles.forEach(function(scrollableTile, index) {
+      scrollableTile.onwheel = function(e) {
+        scrollTiles(scrollableTile,e)
+      }
+    })
   }      
 
   //back
@@ -322,13 +330,12 @@ function setup() {
 
   back.onclick = function() {
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
-    randomize.classList.remove('inactive')
     document.body.classList.remove('project-open')
 
     tiles.forEach(function(tile, index) {
       setTimeout(function() {
         placeholderTiles[index].remove()
-        tile.classList.remove('active','allow-scroll')
+        tile.classList.remove('active','allow-scroll','focus')
         tile.style.width = 'auto'
         tile.style.height = 'auto'
         tile.style.top = 'auto'
@@ -345,10 +352,21 @@ function setup() {
   }
 
   //scroll tiles
+  let scrollValue = 0
 
-  sideMenu.addEventListener('wheel', function(e) {
-    console.log('test')
-  })
+  function scrollTiles(container,e) {
+    var scrollableTiles = document.querySelectorAll('.allow-scroll')
+    e.preventDefault()
+    scrollValue += e.deltaY
+    console.log(scrollValue)
+    for (let i = 0; i < scrollableTiles.length; i++) {
+      scrollableTiles[i].style.transform = `translateY(${scrollValue}px)`
+    }
+  }
+
+  sideMenu.onwheel = function(e) {
+    scrollTiles(sideMenu,e)
+  }
 
   //randomize 
   
