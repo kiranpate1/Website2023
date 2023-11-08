@@ -207,11 +207,6 @@ function setup() {
           expandtile(i)
         }
       }
-      
-      // var tileClose = document.createElement("div")
-      // tileClose.classList.add('close-modal')
-      // tileClose.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m7 7l10 10M7 17L17 7"/></svg>'
-      // tiles[i].appendChild(tileClose)
     }
 
     const smallestTile = tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key]
@@ -306,48 +301,17 @@ function setup() {
     randomize.classList.add('inactive')
     document.body.classList.add('project-open')
 
-    //var placeholderTile = document.createElement("div")
-    //placeholderTile.classList.add('placeholder-tile')
-    //tiles[indexToExpand].parentNode.insertBefore(placeholderTiles[indexToExpand], tiles[indexToExpand])
-
     tiles[indexToExpand].classList.add('active')
     tiles[indexToExpand].style.width = placeholderTiles[indexToExpand].getBoundingClientRect().width + 'px'
     tiles[indexToExpand].style.height = placeholderTiles[indexToExpand].getBoundingClientRect().height + 'px'
     tiles[indexToExpand].style.top = placeholderTiles[indexToExpand].getBoundingClientRect().top + 'px'
     tiles[indexToExpand].style.left = placeholderTiles[indexToExpand].getBoundingClientRect().left + 'px'
     setTimeout(function() {
-      //tiles[indexToExpand].classList.add('modal-open')
       tiles[indexToExpand].style.top = caseSection.getBoundingClientRect().top + 'px'
       tiles[indexToExpand].style.left = caseSection.getBoundingClientRect().left + 'px'
       tiles[indexToExpand].style.width = caseSection.getBoundingClientRect().width + 'px'
       tiles[indexToExpand].style.height = caseSection.getBoundingClientRect().height + 'px'
     }, 10)
-    //for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
-    //  document.querySelectorAll('#grid- div')[i].classList.remove('allow-hover')
-    //}
-
-    // document.getElementsByClassName('close-modal')[indexToExpand].onclick = function() {
-    //   randomize.classList.remove('inactive')
-    //   modalWrapper.classList.remove('active')
-
-    //   setTimeout(function() {
-    //   modalWrapper.style.pointerEvents = 'none'
-    //   placeholderTile.remove()
-    //   //tiles[indexToExpand].classList.remove('active')
-    //   // tiles[indexToExpand].style.width = 'auto'
-    //   // tiles[indexToExpand].style.height = 'auto'
-    //   // tiles[indexToExpand].style.top = 'auto'
-    //   // tiles[indexToExpand].style.left = 'auto'
-    //   for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
-    //     document.querySelectorAll('#grid- div')[i].classList.add('allow-hover')
-    //   }
-    //   }, 400);
-    //   tiles[indexToExpand].classList.remove('modal-open')
-    //   tiles[indexToExpand].style.width = placeholderTile.getBoundingClientRect().width + 'px'
-    //   tiles[indexToExpand].style.height = placeholderTile.getBoundingClientRect().height + 'px'
-    //   tiles[indexToExpand].style.top = placeholderTile.getBoundingClientRect().top + 'px'
-    //   tiles[indexToExpand].style.left = placeholderTile.getBoundingClientRect().left + 'px'
-    // }
   }      
 
   //back
