@@ -192,6 +192,7 @@ div[type='tile'].active.modal-open {
 
 .top-action {
   cursor: pointer;
+  display: inline-block;
 }
 
 .top-action .randomize, .project-open .top-action .back {
