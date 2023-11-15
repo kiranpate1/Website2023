@@ -285,6 +285,7 @@ function setup() {
       //tiles[index].style.transform = `translate(${placeholderTile.getBoundingClientRect().left}px,${placeholderTile.getBoundingClientRect().top}px)`
       tiles[index].style.top = placeholderTile.getBoundingClientRect().top + 'px'
       tiles[index].style.left = placeholderTile.getBoundingClientRect().left + 'px'
+      //transform 0 only for the tile that was just focused
 
       setTimeout(function() {
         tiles[index].style.width = sideMenuItems[index].getBoundingClientRect().width + 'px'
@@ -292,6 +293,7 @@ function setup() {
         //tiles[index].style.transform = `translate(${sideMenuItems[index].getBoundingClientRect().left}px,${sideMenuItems[index].getBoundingClientRect().top}px)`
         tiles[index].style.top = sideMenuItems[index].getBoundingClientRect().top + 'px'
         tiles[index].style.left = sideMenuItems[index].getBoundingClientRect().left + 'px'
+        //position from scrolltiles here
       }, 10)
     })
   }
@@ -308,6 +310,7 @@ function setup() {
     tiles[indexToExpand].style.height = placeholderTiles[indexToExpand].getBoundingClientRect().height + 'px'
     tiles[indexToExpand].style.top = placeholderTiles[indexToExpand].getBoundingClientRect().top + 'px'
     tiles[indexToExpand].style.left = placeholderTiles[indexToExpand].getBoundingClientRect().left + 'px'
+
     setTimeout(function() {
       tiles[indexToExpand].style.top = caseSection.getBoundingClientRect().top + 'px'
       tiles[indexToExpand].style.left = caseSection.getBoundingClientRect().left + 'px'
@@ -319,7 +322,7 @@ function setup() {
 
     scrollableTiles.forEach(function(scrollableTile, index) {
       scrollableTile.onwheel = function(e) {
-        scrollTiles(scrollableTile,e)
+        scrollTiles(e)
       }
     })
   }      
@@ -340,6 +343,7 @@ function setup() {
         tile.style.height = 'auto'
         tile.style.top = 'auto'
         tile.style.left = 'auto'
+        tile.style.transform = 'translate(0,0)'
         for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
           document.querySelectorAll('#grid- div')[i].classList.add('allow-hover')
         }
@@ -348,13 +352,14 @@ function setup() {
       tile.style.height = placeholderTiles[index].getBoundingClientRect().height + 'px'
       tile.style.top = placeholderTiles[index].getBoundingClientRect().top + 'px'
       tile.style.left = placeholderTiles[index].getBoundingClientRect().left + 'px'
+      //position from scrolltiles here
     })
   }
 
   //scroll tiles
   let scrollValue = 0
 
-  function scrollTiles(container,e) {
+  function scrollTiles(e) {
     var scrollableTiles = document.querySelectorAll('.allow-scroll')
     e.preventDefault()
     scrollValue += e.deltaY
@@ -365,7 +370,7 @@ function setup() {
   }
 
   sideMenu.onwheel = function(e) {
-    scrollTiles(sideMenu,e)
+    scrollTiles(e)
   }
 
   //randomize 

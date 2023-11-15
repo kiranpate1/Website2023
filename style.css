@@ -70,8 +70,13 @@ div[type='tile'], .placeholder-tile {
   height: auto;
   background: rgba(255,255,255,0.08);
   border-radius: 24px;
-  transition: var(--medium), var(--short) background; /*how to make transform 0s at the right time?*/
+  transition: var(--medium), var(--short) background, 0s transform; /*how to make transform 0s at the right time?*/
   cursor: pointer;
+}
+
+div[type='tile'].focus {
+  transition: var(--medium), var(--short) background, var(--medium) transform;
+  transform: translateY(0px)!important;
 }
 .placeholder-tile {
   background: rgba(0,0,0,0.08);
@@ -139,17 +144,12 @@ div[type='tile']:hover {
   width: 100%;
   height: 100%;
 }
-
 div[type='tile'].active {
   position: absolute;
   z-index: 1;
   background: rgba(36,36,41);
   pointer-events: all!important;
   cursor: auto!important;
-}
-
-div[type='tile'].focus {
-  transform: translateY(0px)!important;
 }
 
 .top-action {
