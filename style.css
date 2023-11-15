@@ -74,6 +74,10 @@ div[type='tile'], .placeholder-tile {
   cursor: pointer;
 }
 
+div[type='tile'].inactive {
+  transition: var(--medium), var(--short) background, var(--medium) transform;
+}
+
 div[type='tile'].focus {
   transition: var(--medium), var(--short) background, var(--medium) transform;
   transform: translateY(0px)!important;

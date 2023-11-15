@@ -285,6 +285,7 @@ function setup() {
       //tiles[index].style.transform = `translate(${placeholderTile.getBoundingClientRect().left}px,${placeholderTile.getBoundingClientRect().top}px)`
       tiles[index].style.top = placeholderTile.getBoundingClientRect().top + 'px'
       tiles[index].style.left = placeholderTile.getBoundingClientRect().left + 'px'
+      tiles[index].classList.remove('inactive')
       //transform 0 only for the tile that was just focused
 
       setTimeout(function() {
@@ -343,7 +344,6 @@ function setup() {
         tile.style.height = 'auto'
         tile.style.top = 'auto'
         tile.style.left = 'auto'
-        tile.style.transform = 'translate(0,0)'
         for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
           document.querySelectorAll('#grid- div')[i].classList.add('allow-hover')
         }
@@ -352,18 +352,22 @@ function setup() {
       tile.style.height = placeholderTiles[index].getBoundingClientRect().height + 'px'
       tile.style.top = placeholderTiles[index].getBoundingClientRect().top + 'px'
       tile.style.left = placeholderTiles[index].getBoundingClientRect().left + 'px'
+      tile.classList.add('inactive')
+      tile.style.transform = 'translate(0,0)'
       //position from scrolltiles here
     })
   }
 
   //scroll tiles
   let scrollValue = 0
+  sideMenu.setAttribute("scrollValue", 0)
 
   function scrollTiles(e) {
     var scrollableTiles = document.querySelectorAll('.allow-scroll')
     e.preventDefault()
     scrollValue += e.deltaY
     console.log(scrollValue)
+    sideMenu.setAttribute("scrollValue", scrollValue)
     for (let i = 0; i < scrollableTiles.length; i++) {
       scrollableTiles[i].style.transform = `translateY(${scrollValue}px)`
     }
