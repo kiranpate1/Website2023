@@ -285,16 +285,15 @@ function setup() {
       //tiles[index].style.transform = `translate(${placeholderTile.getBoundingClientRect().left}px,${placeholderTile.getBoundingClientRect().top}px)`
       tiles[index].style.top = placeholderTile.getBoundingClientRect().top + 'px'
       tiles[index].style.left = placeholderTile.getBoundingClientRect().left + 'px'
-      tiles[index].classList.remove('inactive')
-      //transform 0 only for the tile that was just focused
 
       setTimeout(function() {
+        tiles[index].style.transform = `translate(0,${sideMenu.getAttribute("scrollValue")}px)`
         tiles[index].style.width = sideMenuItems[index].getBoundingClientRect().width + 'px'
         tiles[index].style.height = sideMenuItems[index].getBoundingClientRect().height + 'px'
         //tiles[index].style.transform = `translate(${sideMenuItems[index].getBoundingClientRect().left}px,${sideMenuItems[index].getBoundingClientRect().top}px)`
         tiles[index].style.top = sideMenuItems[index].getBoundingClientRect().top + 'px'
         tiles[index].style.left = sideMenuItems[index].getBoundingClientRect().left + 'px'
-        //position from scrolltiles here
+        tiles[index].classList.remove('inactive')
       }, 10)
     })
   }
@@ -354,7 +353,6 @@ function setup() {
       tile.style.left = placeholderTiles[index].getBoundingClientRect().left + 'px'
       tile.classList.add('inactive')
       tile.style.transform = 'translate(0,0)'
-      //position from scrolltiles here
     })
   }
 
