@@ -201,6 +201,9 @@ function setup() {
       tiles[i].onclick = function() {
         expandtiles()
         expandtile(i)
+        const scrollInstance = new Scroll(0, true)
+  
+        requestAnimationFrame(() => scrollInstance.onScroll())
       }
     }
 
@@ -320,6 +323,8 @@ function setup() {
         scrollTiles(e)
       }
     })
+
+    
   }      
 
   //back
@@ -356,22 +361,57 @@ function setup() {
     var scrollableTiles = document.querySelectorAll('.allow-scroll')
     e.preventDefault()
     scrollValue += e.deltaY
-    var tile1Distance = tiles[0].getBoundingClientRect().top - sideMenuItems[0].offsetTop
-    if (scrollValue <= 0) {
-    } else if (scrollValue > 0) {  
-      scrollValue = tile1Distance
+    if (scrollValue >= 0) {
+    } else if (scrollValue < 0) {  
+      scrollValue = 0
     }
-    sideMenu.setAttribute("scrollValue", scrollValue)
-    for (let i = 0; i < scrollableTiles.length; i++) {
-      scrollableTiles[i].style.transform = `translateY(${scrollValue}px)`
-    }
-    console.log(tile1Distance,scrollValue)
+    // var tile1Distance = tiles[0].getBoundingClientRect().top - sideMenuItems[0].offsetTop
+    // if (scrollValue <= 0) {
+    // } else if (scrollValue > 0) {  
+    //   scrollValue = tile1Distance
+    // }
+    // sideMenu.setAttribute("scrollValue", scrollValue)
+    // for (let i = 0; i < scrollableTiles.length; i++) {
+    //   scrollableTiles[i].style.transform = `translateY(${scrollValue}px)`
+    // }
+    // console.log(tile1Distance,scrollValue)
     
   }
 
   sideMenu.onwheel = function(e) {
     scrollTiles(e)
   }
+
+  const config = {
+    ease: 0.2,
+    current: 0,
+    previous: 0,
+    rounded: 0
+  }
+  
+  class Scroll {
+    constructor(velocity) {
+      this.velocity = velocity
+    }
+  
+    onScroll() {
+      config.current = scrollValue
+      config.previous += (config.current - config.previous) * config.ease
+      config.rounded = Math.round(config.previous * 100) / 100
+  
+      for (let i = 0; i < document.querySelectorAll('.allow-scroll').length; i++) {
+        document.querySelectorAll('.allow-scroll')[i].style.transform = `translateY(-${config.rounded}px)`
+      }
+      
+      console.log(scrollValue, config.rounded)
+  
+      requestAnimationFrame(() => this.onScroll())
+    }
+  }
+  
+  window.addEventListener('load', () => {
+    
+  })
 
   //randomize 
   
