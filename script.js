@@ -346,7 +346,7 @@ function setup() {
       tile.style.top = placeholderTiles[index].getBoundingClientRect().top + 'px'
       tile.style.left = placeholderTiles[index].getBoundingClientRect().left + 'px'
       tile.classList.add('inactive')
-      // tile.style.transform = 'translate(0,0)'
+      tile.style.transform = 'translate(0,0)'
     })
   }
 
