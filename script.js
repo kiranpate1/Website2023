@@ -276,8 +276,6 @@ function setup() {
       
       tiles[index].classList.add('active','allow-scroll')
       if (tiles[index].classList.contains('focus')) {
-        console.log('is this working')
-        tiles[index].style.top = '60px'
       } else {
         tiles[index].style.width = placeholderTile.getBoundingClientRect().width + 'px'
         tiles[index].style.height = placeholderTile.getBoundingClientRect().height + 'px'
@@ -285,9 +283,13 @@ function setup() {
         tiles[index].style.top = placeholderTile.getBoundingClientRect().top + 'px'
         tiles[index].style.left = placeholderTile.getBoundingClientRect().left + 'px'
       }
-      tiles[index].classList.remove('focus')
 
       setTimeout(function() {
+        if (tiles[index].classList.contains('focus')) {
+          setTimeout(function() {
+            tiles[index].classList.remove('focus')
+          }, 10);
+        }
         tiles[index].style.width = sideMenuItems[index].getBoundingClientRect().width + 'px'
         tiles[index].style.height = sideMenuItems[index].getBoundingClientRect().height + 'px'
         //tiles[index].style.transform = `translate(${sideMenuItems[index].getBoundingClientRect().left}px,${sideMenuItems[index].getBoundingClientRect().top}px)`
@@ -304,7 +306,7 @@ function setup() {
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
     document.body.classList.add('project-open')
 
-    tiles[indexToExpand].classList.add('active','focus')
+    tiles[indexToExpand].classList.add('active')
     tiles[indexToExpand].classList.remove('allow-scroll')
     tiles[indexToExpand].style.width = placeholderTiles[indexToExpand].getBoundingClientRect().width + 'px'
     tiles[indexToExpand].style.height = placeholderTiles[indexToExpand].getBoundingClientRect().height + 'px'
@@ -312,10 +314,12 @@ function setup() {
     tiles[indexToExpand].style.left = placeholderTiles[indexToExpand].getBoundingClientRect().left + 'px'
 
     setTimeout(function() {
+      tiles[indexToExpand].classList.add('focus')
       tiles[indexToExpand].style.top = caseSection.getBoundingClientRect().top + 'px'
       tiles[indexToExpand].style.left = caseSection.getBoundingClientRect().left + 'px'
       tiles[indexToExpand].style.width = caseSection.getBoundingClientRect().width + 'px'
       tiles[indexToExpand].style.height = caseSection.getBoundingClientRect().height + 'px'
+      tiles[indexToExpand].style.transform = 'translate(0,0)'
     }, 10)
 
     var scrollableTiles = document.querySelectorAll('.allow-scroll')

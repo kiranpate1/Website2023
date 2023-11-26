@@ -80,7 +80,7 @@ div[type='tile'].inactive {
 
 div[type='tile'].focus {
   transition: var(--medium), var(--short) background, var(--medium) transform;
-  transform: translate(0,0)!important;
+  /* transform: translate(0,0)!important; */
 }
 .placeholder-tile {
   background: rgba(0,0,0,0.08);
