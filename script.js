@@ -320,7 +320,6 @@ function setup() {
         scrollTiles(e)
       }
     })
-    const scrollInstance = new Scroll(0, true)
     requestAnimationFrame(() => scrollInstance.onScroll())
   }      
 
@@ -329,7 +328,6 @@ function setup() {
   const back = document.querySelector('.back')
 
   back.onclick = function() {
-    const scrollInstance = new Scroll(0, true)
     requestAnimationFrame(() => scrollInstance.onPause())
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
     document.body.classList.remove('project-open')
@@ -414,8 +412,8 @@ function setup() {
   }
   
   window.addEventListener('load', () => {
-    
   })
+  const scrollInstance = new Scroll(0, true)
 
   //randomize 
   
