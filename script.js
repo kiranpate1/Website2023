@@ -356,11 +356,17 @@ function setup() {
     var scrollableTiles = document.querySelectorAll('.allow-scroll')
     e.preventDefault()
     scrollValue += e.deltaY
-    console.log(scrollValue)
+    var tile1Distance = tiles[0].getBoundingClientRect().top - sideMenuItems[0].offsetTop
+    if (scrollValue <= 0) {
+    } else if (scrollValue > 0) {  
+      scrollValue = tile1Distance
+    }
     sideMenu.setAttribute("scrollValue", scrollValue)
     for (let i = 0; i < scrollableTiles.length; i++) {
       scrollableTiles[i].style.transform = `translateY(${scrollValue}px)`
     }
+    console.log(tile1Distance,scrollValue)
+    
   }
 
   sideMenu.onwheel = function(e) {
