@@ -124,7 +124,6 @@ function setup() {
   tileMouseover()
   function tileMouseover() {
     for (let i = 0; i < gridItems.length; i++) {
-      gridItems[i].classList.add('allow-hover')
       if (gridItems[i].children.length == '0') {
         gridItems[i].setAttribute("type", "tile")
         var content = document.createElement("div")
@@ -165,9 +164,7 @@ function setup() {
   })
 
   function translateBlur(i) {
-    if (tiles[i].classList.contains('allow-hover')) {
-      backgroundBlur.style.opacity = '1'
-    }
+    backgroundBlur.style.opacity = '1'
     var tileRect = tiles[i].getBoundingClientRect()
     backgroundBlur.style.top = tileRect.top + 'px'
     backgroundBlur.style.left = tileRect.left + 'px'
@@ -203,9 +200,7 @@ function setup() {
       tiles[i].classList.add(tileItems[i])
       tiles[i].onclick = function() {
         expandtiles()
-        if (tiles[i].classList.contains('allow-hover')) {
-          expandtile(i)
-        }
+        expandtile(i)
       }
     }
 
@@ -343,9 +338,6 @@ function setup() {
         tile.style.height = 'auto'
         tile.style.top = 'auto'
         tile.style.left = 'auto'
-        for (let i = 0; i < document.querySelectorAll('#grid- div').length; i++) {
-          document.querySelectorAll('#grid- div')[i].classList.add('allow-hover')
-        }
       }, 400);
       tile.style.width = placeholderTiles[index].getBoundingClientRect().width + 'px'
       tile.style.height = placeholderTiles[index].getBoundingClientRect().height + 'px'
