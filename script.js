@@ -201,8 +201,6 @@ function setup() {
       tiles[i].onclick = function() {
         expandtiles()
         expandtile(i)
-        const scrollInstance = new Scroll(0, true)
-        requestAnimationFrame(() => scrollInstance.onScroll())
       }
     }
 
@@ -322,6 +320,8 @@ function setup() {
         scrollTiles(e)
       }
     })
+    const scrollInstance = new Scroll(0, true)
+    requestAnimationFrame(() => scrollInstance.onScroll())
   }      
 
   //back
@@ -398,21 +398,17 @@ function setup() {
       config.rounded = Math.round(config.previous * 100) / 100
 
       var scrollableTiles = document.querySelectorAll('.allow-scroll')
-  
       for (let i = 0; i < scrollableTiles.length; i++) {
         scrollableTiles[i].style.transform = `translate(0,-${config.rounded}px)`
       }
-  
       requestAnimationFrame(() => this.onScroll())
     }
 
     onPause() {
       var scrollableTiles = document.querySelectorAll('.allow-scroll')
-  
       for (let i = 0; i < scrollableTiles.length; i++) {
         scrollableTiles[i].style.transform = 'translate(0,0)'
       }
-  
       requestAnimationFrame(() => this.onPause())
     }
   }
