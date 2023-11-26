@@ -337,8 +337,8 @@ function setup() {
 
     tiles.forEach(function(tile, index) {
       setTimeout(function() {
-        placeholderTiles[index].remove()
         tile.classList.remove('active','allow-scroll','focus')
+        placeholderTiles[index].remove()
         tile.style.width = 'auto'
         tile.style.height = 'auto'
         tile.style.top = 'auto'
