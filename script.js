@@ -346,7 +346,7 @@ function setup() {
       tile.style.top = placeholderTiles[index].getBoundingClientRect().top + 'px'
       tile.style.left = placeholderTiles[index].getBoundingClientRect().left + 'px'
       tile.classList.add('inactive')
-      tile.style.transform = 'translate(0,0)'
+      // tile.style.transform = 'translate(0,0)'
     })
   }
 
@@ -361,17 +361,6 @@ function setup() {
     } else if (scrollValue < 0) {  
       scrollValue = 0
     }
-    // var tile1Distance = tiles[0].getBoundingClientRect().top - sideMenuItems[0].offsetTop
-    // if (scrollValue <= 0) {
-    // } else if (scrollValue > 0) {  
-    //   scrollValue = tile1Distance
-    // }
-    // sideMenu.setAttribute("scrollValue", scrollValue)
-    // for (let i = 0; i < scrollableTiles.length; i++) {
-    //   scrollableTiles[i].style.transform = `translateY(${scrollValue}px)`
-    // }
-    // console.log(tile1Distance,scrollValue)
-    
   }
 
   sideMenu.onwheel = function(e) {
@@ -410,9 +399,6 @@ function setup() {
       requestAnimationFrame(() => this.onPause())
     }
   }
-  
-  window.addEventListener('load', () => {
-  })
   const scrollInstance = new Scroll(0, true)
 
   //randomize 
