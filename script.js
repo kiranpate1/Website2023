@@ -273,16 +273,21 @@ function setup() {
       placeholderTile.classList.add('placeholder-tile')
       tiles[index].parentNode.insertBefore(placeholderTile, tiles[index])
 
-      tiles[index].classList.remove('focus')
+      
       tiles[index].classList.add('active','allow-scroll')
-      tiles[index].style.width = placeholderTile.getBoundingClientRect().width + 'px'
-      tiles[index].style.height = placeholderTile.getBoundingClientRect().height + 'px'
-      //tiles[index].style.transform = `translate(${placeholderTile.getBoundingClientRect().left}px,${placeholderTile.getBoundingClientRect().top}px)`
-      tiles[index].style.top = placeholderTile.getBoundingClientRect().top + 'px'
-      tiles[index].style.left = placeholderTile.getBoundingClientRect().left + 'px'
+      if (tiles[index].classList.contains('focus')) {
+        console.log('is this working')
+        tiles[index].style.top = '60px'
+      } else {
+        tiles[index].style.width = placeholderTile.getBoundingClientRect().width + 'px'
+        tiles[index].style.height = placeholderTile.getBoundingClientRect().height + 'px'
+        //tiles[index].style.transform = `translate(${placeholderTile.getBoundingClientRect().left}px,${placeholderTile.getBoundingClientRect().top}px)`
+        tiles[index].style.top = placeholderTile.getBoundingClientRect().top + 'px'
+        tiles[index].style.left = placeholderTile.getBoundingClientRect().left + 'px'
+      }
+      tiles[index].classList.remove('focus')
 
       setTimeout(function() {
-        tiles[index].style.transform = `translate(0,${sideMenu.getAttribute("scrollValue")}px)`
         tiles[index].style.width = sideMenuItems[index].getBoundingClientRect().width + 'px'
         tiles[index].style.height = sideMenuItems[index].getBoundingClientRect().height + 'px'
         //tiles[index].style.transform = `translate(${sideMenuItems[index].getBoundingClientRect().left}px,${sideMenuItems[index].getBoundingClientRect().top}px)`
