@@ -202,7 +202,6 @@ function setup() {
         expandtiles()
         expandtile(i)
         const scrollInstance = new Scroll(0, true)
-  
         requestAnimationFrame(() => scrollInstance.onScroll())
       }
     }
@@ -323,8 +322,6 @@ function setup() {
         scrollTiles(e)
       }
     })
-
-    
   }      
 
   //back
@@ -332,6 +329,8 @@ function setup() {
   const back = document.querySelector('.back')
 
   back.onclick = function() {
+    const scrollInstance = new Scroll(0, true)
+    requestAnimationFrame(() => scrollInstance.onPause())
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
     document.body.classList.remove('project-open')
 
@@ -355,7 +354,6 @@ function setup() {
 
   //scroll tiles
   let scrollValue = 0
-  sideMenu.setAttribute("scrollValue", 0)
 
   function scrollTiles(e) {
     var scrollableTiles = document.querySelectorAll('.allow-scroll')
@@ -398,14 +396,24 @@ function setup() {
       config.current = scrollValue
       config.previous += (config.current - config.previous) * config.ease
       config.rounded = Math.round(config.previous * 100) / 100
+
+      var scrollableTiles = document.querySelectorAll('.allow-scroll')
   
-      for (let i = 0; i < document.querySelectorAll('.allow-scroll').length; i++) {
-        document.querySelectorAll('.allow-scroll')[i].style.transform = `translateY(-${config.rounded}px)`
+      for (let i = 0; i < scrollableTiles.length; i++) {
+        scrollableTiles[i].style.transform = `translate(0,-${config.rounded}px)`
       }
-      
-      console.log(scrollValue, config.rounded)
   
       requestAnimationFrame(() => this.onScroll())
+    }
+
+    onPause() {
+      var scrollableTiles = document.querySelectorAll('.allow-scroll')
+  
+      for (let i = 0; i < scrollableTiles.length; i++) {
+        scrollableTiles[i].style.transform = 'translate(0,0)'
+      }
+  
+      requestAnimationFrame(() => this.onPause())
     }
   }
   
