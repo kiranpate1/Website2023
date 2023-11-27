@@ -183,6 +183,7 @@ div[type='tile'].active {
   -moz-backface-visibility: hidden;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
+  /* mix-blend-mode: hard-light; */
 }
 .background-blur img {
   position: absolute;
@@ -190,7 +191,7 @@ div[type='tile'].active {
   height: 150%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%)
+  transform: translate(-50%,-50%);
 }
 
 
