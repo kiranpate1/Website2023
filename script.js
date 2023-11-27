@@ -149,7 +149,9 @@ function setup() {
     }, index * 50)
     tile.addEventListener("mouseover", function(){
       setTimeout(function() {
-        translateBlur(index)
+        if (!document.body.classList.contains('project-open')) {
+          translateBlur(index)
+        }
       }, 200)
     })
     tile.addEventListener("mouseout", function(){
