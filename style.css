@@ -1,5 +1,13 @@
+:root {
+  --background: #111116;
+  --short: 0.2s cubic-bezier(0.5,0,0.5,1);
+  --medium: 0.4s cubic-bezier(0.5,0,0.5,1);
+  --padding: 12px;
+  --top-gap: 60px;
+}
+
 html {
-  background: #111116;
+  background: var(--background);
 }
 * {
   box-sizing: border-box;
@@ -20,13 +28,6 @@ p {
   width: 100%;
 }
 
-:root {
-  --short: 0.2s cubic-bezier(0.5,0,0.5,1);
-  --medium: 0.4s cubic-bezier(0.5,0,0.5,1);
-  --padding: 12px;
-  --top-gap: 60px;
-}
-
 .content {
   position: absolute;
   padding: var(--top-gap) var(--padding) var(--padding) var(--padding);
@@ -35,18 +36,38 @@ p {
   overflow: hidden;
 }
 .nav {
-  width:100%;
+  background-color: var(--background);
+  height: var(--top-gap);
   position: absolute;
-  top: 20px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
   padding: 0 var(--padding);
-  z-index: 1;
+  z-index: 99;
+}
+.top-action {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.top-action .randomize, .project-open .top-action .back {
+  display: block;
+}
+
+.project-open .top-action .randomize, .top-action .back {
+  display: none;
+}
+
+.project-open .content {
+  padding: 0;
 }
 .title {
-  position: absolute;
+  position: relative;
   color: #fff;
-  top:50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
   transition: var(--short);
 }
 #grid- {
@@ -122,7 +143,7 @@ div[type='tile']:hover {
 }
 .project-open #modal-wrapper {
   pointer-events: all;
-  background: rgba(0,0,0,1);
+  /* background: rgba(0,0,0,1); */
   /*backdrop-filter: blur(16px);*/
 }
 
@@ -154,23 +175,6 @@ div[type='tile'].active {
   background: rgba(36,36,41);
   pointer-events: all!important;
   cursor: auto!important;
-}
-
-.top-action {
-  cursor: pointer;
-  display: inline-block;
-}
-
-.top-action .randomize, .project-open .top-action .back {
-  display: block;
-}
-
-.project-open .top-action .randomize, .top-action .back {
-  display: none;
-}
-
-.project-open .content {
-  padding: 0;
 }
 
 .background-blur {
