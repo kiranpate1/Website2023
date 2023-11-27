@@ -290,7 +290,7 @@ function setup() {
         if (tiles[index].classList.contains('focus')) {
           setTimeout(function() {
             tiles[index].classList.remove('focus')
-          }, 10);
+          }, 30);
         }
         tiles[index].style.width = sideMenuItems[index].getBoundingClientRect().width + 'px'
         tiles[index].style.height = sideMenuItems[index].getBoundingClientRect().height + 'px'
@@ -298,7 +298,7 @@ function setup() {
         tiles[index].style.top = sideMenuItems[index].getBoundingClientRect().top + 'px'
         tiles[index].style.left = sideMenuItems[index].getBoundingClientRect().left + 'px'
         tiles[index].classList.remove('inactive')
-      }, 10)
+      }, 30)
     })
   }
 
@@ -322,7 +322,7 @@ function setup() {
       tiles[indexToExpand].style.width = caseSection.getBoundingClientRect().width + 'px'
       tiles[indexToExpand].style.height = caseSection.getBoundingClientRect().height + 'px'
       tiles[indexToExpand].style.transform = 'translate(0,0)'
-    }, 10)
+    }, 30)
 
     var scrollableTiles = document.querySelectorAll('.allow-scroll')
 
