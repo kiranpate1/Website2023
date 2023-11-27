@@ -396,6 +396,10 @@ function setup() {
       var scrollableTiles = document.querySelectorAll('.allow-scroll')
       for (let i = 0; i < scrollableTiles.length; i++) {
         scrollableTiles[i].style.transform = `translate(0,-${config.rounded}px)`
+        scrollableTiles[i].style.msTransform = `translate(0,-${config.rounded}px)`
+        scrollableTiles[i].style.webkitTransform = `translate(0,-${config.rounded}px)`
+        scrollableTiles[i].style.MozTransform = `translate(0,-${config.rounded}px)`
+        scrollableTiles[i].style.OTransform = `translate(0,-${config.rounded}px)`
       }
       requestAnimationFrame(() => this.onScroll())
     }
@@ -404,6 +408,10 @@ function setup() {
       var scrollableTiles = document.querySelectorAll('.allow-scroll')
       for (let i = 0; i < scrollableTiles.length; i++) {
         scrollableTiles[i].style.transform = 'translate(0,0)'
+        scrollableTiles[i].style.msTransform = 'translate(0,0)'
+        scrollableTiles[i].style.webkitTransform = 'translate(0,0)'
+        scrollableTiles[i].style.MozTransform = 'translate(0,0)'
+        scrollableTiles[i].style.OTransform = 'translate(0,0)'
       }
       requestAnimationFrame(() => this.onPause())
     }
