@@ -34,7 +34,7 @@ p {
   height: 100%;
   overflow: hidden;
 }
-.bottom-bar {
+.nav {
   width:100%;
   position: absolute;
   top: 20px;
