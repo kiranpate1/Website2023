@@ -364,12 +364,18 @@ function setup() {
 
   function scrollTiles(e) {
     var scrollableTiles = document.querySelectorAll('.allow-scroll')
+    var lastTile = scrollableTiles[scrollableTiles.length - 1]
+    var bodyPadding = Number(getComputedStyle(document.body).getPropertyValue('--padding').slice(0, -2))
+    var maxScroll = lastTile.offsetTop - window.innerHeight + lastTile.offsetHeight + bodyPadding
     e.preventDefault()
     scrollValue += e.deltaY
-    if (scrollValue >= 0) {
+    if ((scrollValue >= 0) && (scrollValue < maxScroll)) {
     } else if (scrollValue < 0) {  
       scrollValue = 0
+    } else if (scrollValue >= maxScroll) {
+      scrollValue = maxScroll
     }
+
   }
 
   sideMenu.onwheel = function(e) {
