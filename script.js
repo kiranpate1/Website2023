@@ -238,6 +238,9 @@ function setup() {
 
     //about me
     largestTile.querySelector('.tile-content').innerHTML = "hello my name is kiran"
+    const testBlur = document.createElement("div")
+    testBlur.classList.add('test-blur')
+    largestTile.querySelector('.tile-content').appendChild(testBlur)
     largestTile.addEventListener("mouseover", function(){ title.innerHTML = "about me" })
       
   }
