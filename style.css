@@ -44,6 +44,7 @@ nav {
   width: 100%;
   top: 0;
   left: 0;
+  background: linear-gradient(180deg, #111116 70%, rgba(17, 17, 22, 0.00) 100%);
   padding: 0 var(--padding);
   z-index: 99;
 }
