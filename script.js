@@ -92,7 +92,7 @@ function setup() {
     var gridItem = document.createElement("div")
     gridItem.setAttribute("type", "grid-item")
     gridItem.id = 'grid-'+parentName
-    gridItem.setAttribute("test", `${child0Input},${child1Input}`)
+    gridItem.setAttribute("test", `${parentDirection},${child0Input},${child1Input}`)
     gridItem.style.display = 'grid'
     if (((parentName.slice(-1) == "0") && (parentDirection == 'column')) || ((parentName.slice(-1) == "0") && (parentDirection == 'row'))) {
       gridItem.style.gridArea = "1 / 1 / auto / auto"
