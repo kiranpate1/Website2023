@@ -325,15 +325,14 @@ function setup() {
       tiles[indexToExpand].style.width = caseSection.getBoundingClientRect().width + 'px'
       tiles[indexToExpand].style.height = caseSection.getBoundingClientRect().height + 'px'
       tiles[indexToExpand].style.transform = 'translate(0,0)'
-
-      var scrollableTiles = document.querySelectorAll('.allow-scroll')
-      scrollableTiles.forEach(function(scrollableTile, index) {
-        scrollableTile.onwheel = function(e) {
-          scrollTiles(e)
-        }
-      })
-      requestAnimationFrame(() => scrollInstance.onScroll())
     }, 20)
+    let scrollableTiles = document.querySelectorAll('.allow-scroll')
+    scrollableTiles.forEach(function(scrollableTile, index) {
+      scrollableTile.onwheel = function(e) {
+        scrollTiles(e)
+      }
+    })
+    requestAnimationFrame(() => scrollInstance.onScroll())
   }      
 
   //back
