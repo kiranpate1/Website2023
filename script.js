@@ -112,6 +112,11 @@ function setup() {
       document.documentElement.style.setProperty('--hover-'+child1Name, [Number(parentTemplate[0])-Number(0.1)] + 'fr ' + parentTemplate[1] + 'fr / 1fr')
       gridItem.style.gridTemplate = parentTemplate[0] + "fr " + parentTemplate[1] + "fr" + " / 1fr"
     }
+    if ((parentDirection == 'row') && (window.innerWidth > window.innerHeight) && (${child0Input} == '1')) {
+      document.documentElement.style.setProperty('--hover-'+child0Name, '1fr / ' + [Number(parentTemplate[0])+Number(0.1)] + 'fr ' + parentTemplate[1] + 'fr')
+      document.documentElement.style.setProperty('--hover-'+child1Name, '1fr / ' + [Number(parentTemplate[0])-Number(0.1)] + 'fr ' + parentTemplate[1] + 'fr')
+      gridItem.style.gridTemplate = "1fr / " + parentTemplate[0] + "fr " + parentTemplate[1] + "fr"
+    }
     document.getElementById('grid-'+parentName.slice(0,-2)).appendChild(gridItem)
   }
 
