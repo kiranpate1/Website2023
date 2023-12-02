@@ -139,7 +139,7 @@ function setup() {
     }
   }
 
-  //tile load in
+  //background blur
 
   var tiles = document.querySelectorAll('[type="tile"]')
 
@@ -165,10 +165,6 @@ function setup() {
       setTimeout(function() {
         backgroundBlur.style.opacity = '0'
       }, 200)
-      // backgroundBlur.style.top = 'auto'
-      // backgroundBlur.style.left = 'auto'
-      // backgroundBlur.style.width = 'auto'
-      // backgroundBlur.style.height = 'auto'
     })
   })
 
