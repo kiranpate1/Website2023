@@ -72,7 +72,7 @@ function setup() {
   }
 
   function configureLayout(parentName,parentDirection,child0Name,child0Input,child1Name,child1Input) {
-    var template = (Math.floor(Math.random() * 4) + 6)
+    var template = (Math.floor(Math.random() * 4) + 5)
     if (child0Input > child1Input) {
       appendTiles(parentName,parentDirection,["1", (template/10)],child0Name,child0Input,child1Name,child1Input)
     } else if (child0Input < child1Input) {
