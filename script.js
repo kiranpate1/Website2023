@@ -130,12 +130,12 @@ function setup() {
         content.classList.add('tile-content')
         gridItems[i].appendChild(content)
       }
-      gridItems[i].onmouseover = function() {
+      gridItems[i].addEventListener("mousemove", (event) => {
         gridItems[i].parentElement.classList.add('hover-'+gridItems[i].id)
-      }
-      gridItems[i].onmouseout = function() {
+      })
+      gridItems[i].addEventListener("mouseout", (event) => {
         gridItems[i].parentElement.classList.remove('hover-'+gridItems[i].id)
-      } 
+      })
     }
   }
 
@@ -153,6 +153,13 @@ function setup() {
           translateBlur(index)
         }
       }, 200)
+    })
+    tile.addEventListener("mousemove", (event) => {
+      const rect = tile.getBoundingClientRect()
+      const x = event.clientX - rect.left
+      const y = event.clientY - rect.top
+      
+      backgroundBlur.style.transform = `translate3d(${x}px,${y}px,0)`
     })
     tile.addEventListener("mouseout", function(){
       setTimeout(function() {

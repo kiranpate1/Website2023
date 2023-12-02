@@ -204,7 +204,7 @@ div[type='tile'].active {
   border-radius: 24px;
   opacity: 0;
   z-index: -1;
-  transition: 1.5s cubic-bezier(0,1.4,.5,1);
+  transition: 1.5s cubic-bezier(0,1.4,.5,1), 0.7s ease-out transform;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -webkit-transform: translate3d(0, 0, 0);
@@ -215,8 +215,8 @@ div[type='tile'].active {
   position: absolute;
   width: 150%;
   height: 150%;
-  top: 50%;
-  left: 50%;
+  top: 0%;
+  left: 0%;
   transform: translate(-50%,-50%);
 }
 
