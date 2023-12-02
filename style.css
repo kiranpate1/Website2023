@@ -110,7 +110,7 @@ div[type='tile'], .placeholder-tile {
   /*justify-content: center;*/
   width: auto;
   height: auto;
-  background: rgba(255,255,255,0.08);
+  background: #242429;
   border-radius: 24px;
   transition: var(--medium), var(--short) background, 0s transform; /*how to make transform 0s at the right time?*/
   cursor: pointer;
@@ -125,7 +125,7 @@ div[type='tile'].focus {
   /* transform: translate(0,0)!important; */
 }
 .placeholder-tile {
-  background: rgba(0,0,0,0.08);
+  background: #242429;
   box-shadow: none;
 }
 div[type='tile']:hover {
