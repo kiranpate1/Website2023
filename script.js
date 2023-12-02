@@ -148,6 +148,7 @@ function setup() {
       tile.style.opacity = '1'
     }, index * 50)
     tile.addEventListener("mouseover", function(){
+      tile.classList.add('hover')
       setTimeout(function() {
         if (!document.body.classList.contains('project-open')) {
           translateBlur(index)
@@ -162,6 +163,7 @@ function setup() {
       backgroundBlur.style.transform = `translate3d(${x}px,${y}px,0)`
     })
     tile.addEventListener("mouseout", function(){
+      tile.classList.remove('hover')
       setTimeout(function() {
         backgroundBlur.style.opacity = '0'
       }, 200)

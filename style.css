@@ -108,6 +108,7 @@ div[type='tile'], .placeholder-tile {
   position: relative;
   opacity: 0;
   display: flex;
+  overflow: hidden;
   /*justify-content: center;*/
   width: auto;
   height: auto;
@@ -224,7 +225,8 @@ div[type='tile'].active {
 .test-blur {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translate(-50%,0);
 }
 
 
