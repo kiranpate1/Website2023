@@ -52,7 +52,7 @@ nav {
   width: 0%;
   transition: var(--medium);
 }
-.nav {
+.navbar {
   width: 100%;
   height: 100%;
   display: grid;
@@ -68,7 +68,7 @@ nav {
 .project-open .fsdsdfsfd {
   width: 20%;
 }
-.project-open .nav {
+.project-open .navbar {
   width: 80%;
 }
 .top-action {
