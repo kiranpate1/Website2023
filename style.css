@@ -221,6 +221,12 @@ div[type='tile'].active {
   transform: translate(-50%,-50%);
 }
 
+.test-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 
 /*set following in js:*/
 

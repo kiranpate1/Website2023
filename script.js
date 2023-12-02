@@ -187,16 +187,6 @@ function setup() {
     tiles.forEach(function(tile, index) {
       var size = tile.getBoundingClientRect().width * tile.getBoundingClientRect().height
       tileSize.push({index, size})
-      tile.addEventListener("mouseover", function(){
-        title.style.opacity = '1'
-        title.innerHTML = tileItems[index]
-      })
-      
-      tile.addEventListener("mouseout", function(){
-        if (!document.body.classList.contains('project-open')) {
-          title.style.opacity = '0'
-        }
-      })
     })
     var tileSizeOrdered = group(tileSize)
 
@@ -214,6 +204,17 @@ function setup() {
     tileSizeOrdered.forEach(function(tile, index) {
       //tiles[tile.key].style.zIndex = (tiles.length - index)
       tiles[tile.key].querySelector('.tile-content').innerHTML = tileItems[index]
+      tiles[tile.key].addEventListener("mouseover", function(){
+        title.style.opacity = '1'
+        if (!document.body.classList.contains('project-open')) {
+          title.innerHTML = tileItems[index]
+        }
+      })
+      tiles[tile.key].addEventListener("mouseout", function(){
+        if (!document.body.classList.contains('project-open')) {
+          title.style.opacity = '0'
+        }
+      })
     })
 
     //party mode
@@ -238,8 +239,9 @@ function setup() {
 
     //about me
     largestTile.querySelector('.tile-content').innerHTML = "hello my name is kiran"
-    const testBlur = document.createElement("div")
+    const testBlur = document.createElement("img")
     testBlur.classList.add('test-blur')
+    testBlur.src = "/assets/test-blur.webp"
     largestTile.querySelector('.tile-content').appendChild(testBlur)
     largestTile.addEventListener("mouseover", function(){ title.innerHTML = "about me" })
       
@@ -313,6 +315,7 @@ function setup() {
   function expandtile(indexToExpand) {
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
     document.body.classList.add('project-open')
+    title.innerHTML = tileItems[indexToExpand]
 
     tiles[indexToExpand].classList.add('active')
     tiles[indexToExpand].classList.remove('allow-scroll')
