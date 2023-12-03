@@ -186,8 +186,10 @@ function setup() {
   tileClick()
   function tileClick() {
     tiles.forEach(function(tile, index) {
-      var size = tile.getBoundingClientRect().width * tile.getBoundingClientRect().height
-      tileSize.push({index, size})
+      var width = tile.getBoundingClientRect().width
+      var height = tile.getBoundingClientRect().height
+      var size = width * height
+      tileSize.push({index, size, width, height})
     })
     var tileSizeOrdered = group(tileSize)
 
@@ -204,6 +206,11 @@ function setup() {
     tileSizeOrdered.forEach(function(tile, index) {
       //tiles[tile.key].style.zIndex = (tiles.length - index)
       const tiletitle = document.createElement("h1")
+      if ((tile.width / 1.5) > tile.height) {
+        tiletitle.classList.add('horizontal')
+      } else {
+        tiletitle.classList.add('vertical')
+      }
       tiletitle.innerHTML = tileItems[index]
       tiles[tile.key].querySelector('.tile-content').appendChild(tiletitle)
     })
@@ -238,7 +245,7 @@ function setup() {
   function group(type) {
     var reducedArray = Object.values(type.reduce((hash, item) => {
       if (!hash[item.index]) {
-        hash[item.index] = { key: item.index, size: 0 }
+        hash[item.index] = { key: item.index, size: 0, width: item.width, height: item.height }
       }
       hash[item.index].size += item.size
       
