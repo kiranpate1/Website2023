@@ -290,7 +290,6 @@ function setup() {
       } else {
         tiles[index].style.width = placeholderTile.getBoundingClientRect().width + 'px'
         tiles[index].style.height = placeholderTile.getBoundingClientRect().height + 'px'
-        //tiles[index].style.transform = `translate(${placeholderTile.getBoundingClientRect().left}px,${placeholderTile.getBoundingClientRect().top}px)`
         tiles[index].style.top = placeholderTile.getBoundingClientRect().top + 'px'
         tiles[index].style.left = placeholderTile.getBoundingClientRect().left + 'px'
       }
@@ -303,7 +302,6 @@ function setup() {
         }
         tiles[index].style.width = sideMenuItems[index].getBoundingClientRect().width + 'px'
         tiles[index].style.height = sideMenuItems[index].getBoundingClientRect().height + 'px'
-        //tiles[index].style.transform = `translate(${sideMenuItems[index].getBoundingClientRect().left}px,${sideMenuItems[index].getBoundingClientRect().top}px)`
         tiles[index].style.top = sideMenuItems[index].getBoundingClientRect().top + 'px'
         tiles[index].style.left = sideMenuItems[index].getBoundingClientRect().left + 'px'
         tiles[index].classList.remove('inactive')
@@ -312,7 +310,6 @@ function setup() {
   }
 
   const caseSection = document.querySelector('.case-section')
-  const placeholderSideTiles = document.querySelector('.placeholder-side-tiles')
 
   function expandtile(indexToExpand) {
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
@@ -334,6 +331,15 @@ function setup() {
       tiles[indexToExpand].style.height = caseSection.getBoundingClientRect().height + 'px'
       tiles[indexToExpand].style.transform = 'translate(0,0)'
     }, 20)
+
+    const placeholderSideTile = document.createElement("div")
+    placeholderSideTile.classList.add('allow-scroll','placeholder-side-tile')
+    placeholderSideTile.style.width = sideMenuItems[indexToExpand].getBoundingClientRect().width + 'px'
+    placeholderSideTile.style.height = sideMenuItems[indexToExpand].getBoundingClientRect().height + 'px'
+    placeholderSideTile.style.top = sideMenuItems[indexToExpand].getBoundingClientRect().top + 'px'
+    placeholderSideTile.style.left = sideMenuItems[indexToExpand].getBoundingClientRect().left + 'px'
+    tiles[indexToExpand].parentNode.insertBefore(placeholderSideTile, tiles[indexToExpand])
+
 
     let scrollableTiles = document.querySelectorAll('.allow-scroll')
     scrollableTiles.forEach(function(scrollableTile, index) {
