@@ -118,7 +118,6 @@ function setup() {
 
   var gridWrapper = document.querySelector("#grid-")
   var gridItems = document.querySelectorAll('[type="grid-item"]')
-  var title = document.querySelector(".title")
   var backgroundBlur = document.querySelector(".background-blur")
 
   tileMouseover()
@@ -207,23 +206,10 @@ function setup() {
       const tiletitle = document.createElement("h1")
       tiletitle.innerHTML = tileItems[index]
       tiles[tile.key].querySelector('.tile-content').appendChild(tiletitle)
-
-      tiles[tile.key].addEventListener("mouseover", function(){
-        title.style.opacity = '1'
-        if (!document.body.classList.contains('project-open')) {
-          title.innerHTML = tileItems[index]
-        }
-      })
-      tiles[tile.key].addEventListener("mouseout", function(){
-        if (!document.body.classList.contains('project-open')) {
-          title.style.opacity = '0'
-        }
-      })
     })
 
     //party mode
     smallestTile.querySelector(".tile-content h1").innerHTML = "???"
-    smallestTile.addEventListener("mouseover", function(){ title.innerHTML = "???" })
     smallestTile.onclick = function() {
       toggleParty('on')
       setTimeout(function() {toggleParty('off')}, 2000)
@@ -243,7 +229,6 @@ function setup() {
 
     //about me
     largestTile.querySelector(".tile-content h1").innerHTML = "About Me"
-    largestTile.addEventListener("mouseover", function(){ title.innerHTML = "about me" })
     const testBlur = document.createElement("img")
     testBlur.classList.add('test-blur')
     testBlur.src = "/assets/test-blur.webp"
@@ -322,7 +307,6 @@ function setup() {
   function expandtile(indexToExpand) {
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
     document.body.classList.add('project-open')
-    title.innerHTML = tileItems[indexToExpand]
 
     tiles[indexToExpand].classList.add('active')
     tiles[indexToExpand].classList.remove('allow-scroll')
