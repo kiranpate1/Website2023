@@ -335,16 +335,6 @@ function setup() {
       tiles[indexToExpand].style.transform = 'translate(0,0)'
     }, 20)
 
-    placeholderSideTiles.innerHTML = ''
-    const placeholderSideTile = document.createElement("div")
-    placeholderSideTile.classList.add('allow-scroll')
-    placeholderSideTile.style.width = sideMenuItems[indexToExpand].getBoundingClientRect().width + 'px'
-    placeholderSideTile.style.height = sideMenuItems[indexToExpand].getBoundingClientRect().height + 'px'
-    //placeholderSideTile.style.transform = `translate(${sideMenuItems[index].getBoundingClientRect().left}px,${sideMenuItems[index].getBoundingClientRect().top}px)`
-    placeholderSideTile.style.top = sideMenuItems[indexToExpand].getBoundingClientRect().top + 'px'
-    placeholderSideTile.style.left = sideMenuItems[indexToExpand].getBoundingClientRect().left + 'px'
-    placeholderSideTiles.appendChild(placeholderSideTile)
-
     let scrollableTiles = document.querySelectorAll('.allow-scroll')
     scrollableTiles.forEach(function(scrollableTile, index) {
       scrollableTile.onwheel = function(e) {

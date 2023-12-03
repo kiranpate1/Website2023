@@ -179,6 +179,16 @@ div[type='tile']:hover {
 .side-menu-item {
   width: 100%;
   min-height: 200px;
+  background: #1e1e22;
+  opacity: 0;
+  border-radius: var(--border-radius);
+  transition: 0.2s var(--short) opacity;
+}
+.project-open .side-menu {
+  z-index: 1;
+}
+.project-open .side-menu-item {
+  opacity: 1;
 }
 
 .case-section {
@@ -196,7 +206,6 @@ div[type='tile'].active {
 .background-blur {
   position: absolute;
   opacity: 0;
-  z-index: -1;
   transition: 1.5s cubic-bezier(0,1.4,.5,1), 0.7s ease-out transform;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -224,18 +233,6 @@ div[type='tile'].active {
 }
 .hover .test-blur {
   opacity: 0.75;
-}
-.placeholder-side-tiles div {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-  width: auto;
-  height: auto;
-  border-radius: var(--border-radius);
-  background: #1e1e22;
-}
-.project-open .placeholder-side-tiles div {
-  opacity: 1;
 }
 
 
