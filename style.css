@@ -233,6 +233,7 @@ div[type='tile'].active {
   height: auto;
   border-radius: var(--border-radius);
   background: #1e1e22;
+  transition: var(--short) opacity;
 }
 .project-open .placeholder-side-tile {
   opacity: 1;

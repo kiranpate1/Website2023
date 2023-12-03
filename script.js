@@ -275,17 +275,23 @@ function setup() {
 
   function expandtiles() {
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
+    const placeholderSideTiles = document.querySelectorAll('.placeholder-side-tile')
     for (let i = 0; i < placeholderTiles.length; i++) {
       placeholderTiles[i].remove()
     }
-    tiles.forEach(function(tile, index) {
+    setTimeout(function() {
+      for (let i = 0; i < placeholderSideTiles.length; i++) {
+        placeholderSideTiles[i].remove()
+      }
+    }, 400)
 
+    tiles.forEach(function(tile, index) {
       var placeholderTile = document.createElement("div")
       placeholderTile.classList.add('placeholder-tile')
-      tiles[index].parentNode.insertBefore(placeholderTile, tiles[index])
 
-      
+      tiles[index].parentNode.insertBefore(placeholderTile, tiles[index])
       tiles[index].classList.add('active','allow-scroll')
+
       if (tiles[index].classList.contains('focus')) {
       } else {
         tiles[index].style.width = placeholderTile.getBoundingClientRect().width + 'px'
@@ -340,7 +346,6 @@ function setup() {
     placeholderSideTile.style.left = sideMenuItems[indexToExpand].getBoundingClientRect().left + 'px'
     tiles[indexToExpand].parentNode.insertBefore(placeholderSideTile, tiles[indexToExpand])
 
-
     let scrollableTiles = document.querySelectorAll('.allow-scroll')
     scrollableTiles.forEach(function(scrollableTile, index) {
       scrollableTile.onwheel = function(e) {
@@ -357,6 +362,7 @@ function setup() {
   back.onclick = function() {
     requestAnimationFrame(() => scrollInstance.onPause())
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
+    const placeholderSideTiles = document.querySelectorAll('.placeholder-side-tile')
     document.body.classList.remove('project-open')
 
     tiles.forEach(function(tile, index) {
@@ -367,7 +373,7 @@ function setup() {
         tile.style.height = 'auto'
         tile.style.top = 'auto'
         tile.style.left = 'auto'
-      }, 400);
+      }, 400)
       tile.style.width = placeholderTiles[index].getBoundingClientRect().width + 'px'
       tile.style.height = placeholderTiles[index].getBoundingClientRect().height + 'px'
       tile.style.top = placeholderTiles[index].getBoundingClientRect().top + 'px'
@@ -375,6 +381,11 @@ function setup() {
       tile.classList.add('inactive')
       tile.style.transform = 'translate(0,0)'
     })
+    setTimeout(function() {
+      for (let i = 0; i < placeholderSideTiles.length; i++) {
+        placeholderSideTiles[i].remove()
+      }
+    }, 400)
   }
 
   //scroll tiles
@@ -395,7 +406,6 @@ function setup() {
     } else if (scrollValue >= maxScroll) {
       scrollValue = maxScroll
     }
-
   }
 
   sideMenu.onwheel = function(e) {
