@@ -130,7 +130,7 @@ function setup() {
         content.classList.add('tile-content')
         gridItems[i].appendChild(content)
       }
-      gridItems[i].addEventListener("mousemove", (event) => {
+      gridItems[i].addEventListener("mouseover", function(){
         gridItems[i].parentElement.classList.add('hover-'+gridItems[i].id)
       })
       gridItems[i].addEventListener("mouseout", (event) => {
@@ -222,7 +222,6 @@ function setup() {
     })
 
     //party mode
-
     smallestTile.querySelector(".tile-content h1").innerHTML = "???"
     smallestTile.addEventListener("mouseover", function(){ title.innerHTML = "???" })
     smallestTile.onclick = function() {
