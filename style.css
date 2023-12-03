@@ -138,15 +138,23 @@ div[type='tile']:hover {
   height: 100%;
   padding: 24px;
   font-family: 'Manrope', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 600;
+  /* font-size: 16px;
   line-height: 24px;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
   color: rgba(255,255,255,0.8);
   width: 100%;
   overflow: hidden;
   cursor: pointer;
+}
+.tile-content h1 {
+  text-align: center;
+  opacity: 0;
+  transition: 0.6s ease opacity;
+}
+.hover .tile-content h1 {
+  opacity: 1;
 }
 
 #modal-wrapper {

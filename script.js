@@ -204,7 +204,10 @@ function setup() {
     const largestTile = tiles[tileSizeOrdered[0].key]
     tileSizeOrdered.forEach(function(tile, index) {
       //tiles[tile.key].style.zIndex = (tiles.length - index)
-      tiles[tile.key].querySelector('.tile-content').innerHTML = tileItems[index]
+      const tiletitle = document.createElement("h1")
+      tiletitle.innerHTML = tileItems[index]
+      tiles[tile.key].querySelector('.tile-content').appendChild(tiletitle)
+
       tiles[tile.key].addEventListener("mouseover", function(){
         title.style.opacity = '1'
         if (!document.body.classList.contains('project-open')) {
@@ -219,7 +222,8 @@ function setup() {
     })
 
     //party mode
-    smallestTile.querySelector('.tile-content').innerHTML = "what's this?"
+
+    smallestTile.querySelector(".tile-content h1").innerHTML = "???"
     smallestTile.addEventListener("mouseover", function(){ title.innerHTML = "???" })
     smallestTile.onclick = function() {
       toggleParty('on')
@@ -239,13 +243,12 @@ function setup() {
     }
 
     //about me
-    largestTile.querySelector('.tile-content').innerHTML = "hello my name is kiran"
+    largestTile.querySelector(".tile-content h1").innerHTML = "About Me"
+    largestTile.addEventListener("mouseover", function(){ title.innerHTML = "about me" })
     const testBlur = document.createElement("img")
     testBlur.classList.add('test-blur')
     testBlur.src = "/assets/test-blur.webp"
     largestTile.querySelector('.tile-content').appendChild(testBlur)
-    largestTile.addEventListener("mouseover", function(){ title.innerHTML = "about me" })
-      
   }
 
   function group(type) {
