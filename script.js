@@ -94,12 +94,12 @@ function setup() {
     gridItem.id = 'grid-'+parentName
     gridItem.style.display = 'grid'
     if (((parentName.slice(-1) == "0") && (parentDirection == 'column')) || ((parentName.slice(-1) == "0") && (parentDirection == 'row'))) {
-     gridItem.style.gridArea = "1 / 1 / auto / auto"
+      gridItem.style.gridArea = "1 / 1 / auto / auto"
     }
     if (((parentName.slice(-1) == "1") && (parentDirection == 'column') && (window.innerWidth < window.innerHeight)) || ((parentName.slice(-1) == "1") && (parentDirection == 'row') && (window.innerWidth > window.innerHeight))) {
-     gridItem.style.gridArea = "1 / 2 / auto / auto"
+      gridItem.style.gridArea = "1 / 2 / auto / auto"
     } else if (((parentName.slice(-1) == "1") && (parentDirection == 'row') && (window.innerWidth < window.innerHeight)) || ((parentName.slice(-1) == "1") && (parentDirection == 'column') && (window.innerWidth > window.innerHeight))) {
-     gridItem.style.gridArea = "2 / 1 / auto / auto"
+      gridItem.style.gridArea = "2 / 1 / auto / auto"
     }
     if ((parentDirection == 'row') && (window.innerWidth < window.innerHeight) || (parentDirection == 'column') && (window.innerWidth > window.innerHeight)) {
       document.documentElement.style.setProperty('--hover-'+child0Name, '1fr / ' + [Number(parentTemplate[0])+Number(0.1)] + 'fr ' + parentTemplate[1] + 'fr')
