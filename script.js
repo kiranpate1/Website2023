@@ -193,7 +193,6 @@ function setup() {
     var tileSizeOrdered = group(tileSize)
 
     for (let i = 0; i < tileSizeOrdered.length; i++) {
-      // tiles[i].querySelector('.tile-content').innerHTML = tileItems[i]
       tiles[i].classList.add(tileItems[i])
       tiles[i].onclick = function() {
         expandtiles()
