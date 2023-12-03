@@ -2,7 +2,7 @@
   --background: #111116;
   --short: 0.2s cubic-bezier(0.5,0,0.5,1);
   --medium: 0.4s cubic-bezier(0.5,0,0.5,1);
-  --padding: 8px;
+  --padding: 10px;
   --top-gap: 60px;
   --border-radius: 32px;
 }
