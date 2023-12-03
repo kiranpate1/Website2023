@@ -217,6 +217,8 @@ div[type='tile'].active {
   position: absolute;
   bottom: 0;
   left: 50%;
+  max-width: 200%;
+  max-height: 200%;
   transform: translate(-50%,50%);
   opacity: 0;
   transition: 1s ease;
