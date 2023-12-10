@@ -329,7 +329,7 @@ function setup() {
       tiles[indexToExpand].style.left = caseSection.getBoundingClientRect().left + 'px'
       tiles[indexToExpand].style.width = caseSection.getBoundingClientRect().width + 'px'
       tiles[indexToExpand].style.height = caseSection.getBoundingClientRect().height + 'px'
-      tiles[indexToExpand].style.transform = 'translate(0,0)'
+      tiles[indexToExpand].style.transform = 'translate3d(0,0,0)'
     }, 20)
 
     const placeholderSideTile = document.createElement("div")
@@ -373,7 +373,7 @@ function setup() {
       tile.style.top = placeholderTiles[index].getBoundingClientRect().top + 'px'
       tile.style.left = placeholderTiles[index].getBoundingClientRect().left + 'px'
       tile.classList.add('inactive')
-      tile.style.transform = 'translate(0,0)'
+      tile.style.transform = 'translate3d(0,0,0)'
     })
     setTimeout(function() {
       for (let i = 0; i < placeholderSideTiles.length; i++) {
@@ -407,7 +407,7 @@ function setup() {
   }
 
   const config = {
-    ease: 0.1,
+    ease: 0.2,
     current: 0,
     previous: 0,
     rounded: 0
@@ -425,11 +425,11 @@ function setup() {
 
       var scrollableTiles = document.querySelectorAll('.allow-scroll')
       for (let i = 0; i < scrollableTiles.length; i++) {
-        scrollableTiles[i].style.transform = `translate(0,-${config.rounded}px)`
-        scrollableTiles[i].style.msTransform = `translate(0,-${config.rounded}px)`
-        scrollableTiles[i].style.webkitTransform = `translate(0,-${config.rounded}px)`
-        scrollableTiles[i].style.MozTransform = `translate(0,-${config.rounded}px)`
-        scrollableTiles[i].style.OTransform = `translate(0,-${config.rounded}px)`
+        scrollableTiles[i].style.transform = `translate3d(0,-${config.rounded}px,0)`
+        scrollableTiles[i].style.msTransform = `translate3d(0,-${config.rounded}px,0)`
+        scrollableTiles[i].style.webkitTransform = `translate3d(0,-${config.rounded}px,0)`
+        scrollableTiles[i].style.MozTransform = `translate3d(0,-${config.rounded}px,0)`
+        scrollableTiles[i].style.OTransform = `translate3d(0,-${config.rounded}px,0)`
       }
       requestAnimationFrame(() => this.onScroll())
     }
@@ -437,11 +437,11 @@ function setup() {
     onPause() {
       var scrollableTiles = document.querySelectorAll('.allow-scroll')
       for (let i = 0; i < scrollableTiles.length; i++) {
-        scrollableTiles[i].style.transform = 'translate(0,0)'
-        scrollableTiles[i].style.msTransform = 'translate(0,0)'
-        scrollableTiles[i].style.webkitTransform = 'translate(0,0)'
-        scrollableTiles[i].style.MozTransform = 'translate(0,0)'
-        scrollableTiles[i].style.OTransform = 'translate(0,0)'
+        scrollableTiles[i].style.transform = 'translate3d(0,0,0)'
+        scrollableTiles[i].style.msTransform = 'translate3d(0,0,0)'
+        scrollableTiles[i].style.webkitTransform = 'translate3d(0,0,0)'
+        scrollableTiles[i].style.MozTransform = 'translate3d(0,0,0)'
+        scrollableTiles[i].style.OTransform = 'translate3d(0,0,0)'
       }
       requestAnimationFrame(() => this.onPause())
     }
