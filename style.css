@@ -155,12 +155,12 @@ div[type='tile']:hover {
   transition: var(--medium), var(--short) opacity;
   /* will-change: transform, opacity, left, top; */
 }
-.tile-content h1.vertical {
+.tile-content.vertical h1 {
   left: 50%;
   top: 24px;
   transform: translate3d(-50%,0,0);
 }
-.tile-content h1.horizontal {
+.tile-content.horizontal h1 {
   left: 24px;
   top: 50%;
   transform: translate3d(0,-55%,0);
@@ -181,6 +181,45 @@ div[type='tile']:hover {
   top: 24px!important;
   transform: translate3d(0,0,0)!important;
   opacity: 0.6!important;
+}
+
+.tile-cards-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: var(--medium);
+}
+
+.tile-cards {
+  position: relative;
+  display: grid;
+  width: 50%;
+  height: 50%;
+  background: #c40;
+  transition: var(--medium), var(--short) opacity;
+}
+.vertical .tile-cards-wrapper {
+  transform: translate3d(50%,50%,0);
+}
+.vertical .tile-cards {
+  transform: translate3d(-50%,0,0);
+}
+.horizontal .tile-cards-wrapper {
+  transform: translate3d(75%,50%,0);
+}
+.project-open .horizontal .tile-cards-wrapper {
+  transform: translate3d(50%,0,0);
+}
+.horizontal .tile-cards {
+  transform: translate3d(-50%,-50%,0);
+}
+.project-open .horizontal .tile-cards {
+  left: 0!important;
+  top: 50%!important;
+  bottom: auto!important;
+  transform: translate3d(-50%,-50%,0)!important;
 }
 
 #modal-wrapper {

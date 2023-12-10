@@ -207,13 +207,26 @@ function setup() {
       //tiles[tile.key].style.zIndex = (tiles.length - index)
       const tiletitle = document.createElement("h1")
       if ((tile.width / 1.5) > tile.height) {
-        tiletitle.classList.add('horizontal')
+        tiles[tile.key].querySelector('.tile-content').classList.add('horizontal')
       } else {
-        tiletitle.classList.add('vertical')
+        tiles[tile.key].querySelector('.tile-content').classList.add('vertical')
       }
       tiletitle.textContent = tileItems[index]
       tiletitle.style.fontSize = `min(${(tile.height / 5)}px,${(tile.width / 10)}px)`
       tiles[tile.key].querySelector('.tile-content').appendChild(tiletitle)
+
+      const tileCardsWrapper = document.createElement("div")
+      tileCardsWrapper.classList.add('tile-cards-wrapper')
+      tiles[tile.key].querySelector('.tile-content').appendChild(tileCardsWrapper)
+
+      const tileCards = document.createElement("div")
+      tileCards.classList.add('tile-cards')
+      if (tile.width > window.innerWidth / 3) {
+        tileCards.style.gridTemplateColumns = '1fr 1fr 1fr'
+      } else {
+        tileCards.style.gridTemplateColumns = '1fr 1fr'
+      }
+      tileCardsWrapper.appendChild(tileCards)
     })
 
     //party mode
