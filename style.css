@@ -185,41 +185,33 @@ div[type='tile']:hover {
 
 .tile-cards-wrapper {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  right: 0;
   transition: var(--medium);
 }
-
+.vertical .tile-cards-wrapper {
+  width: 100%;
+  height: 50%;
+}
+.horizontal .tile-cards-wrapper {
+  width: 50%;
+  height: 100%;
+}
+.project-open .tile-cards-wrapper {
+  width: 100%;
+  height: 50%;
+}
 .tile-cards {
   position: relative;
   display: grid;
   width: 50%;
   height: 50%;
   background: #c40;
+  will-change: transform;
   transition: var(--medium), var(--short) opacity;
-}
-.vertical .tile-cards-wrapper {
-  transform: translate3d(50%,50%,0);
-}
-.vertical .tile-cards {
-  transform: translate3d(-50%,0,0);
-}
-.horizontal .tile-cards-wrapper {
-  transform: translate3d(75%,50%,0);
-}
-.project-open .horizontal .tile-cards-wrapper {
-  transform: translate3d(50%,0,0);
-}
-.horizontal .tile-cards {
-  transform: translate3d(-50%,-50%,0);
-}
-.project-open .horizontal .tile-cards {
-  left: 0!important;
-  top: 50%!important;
-  bottom: auto!important;
-  transform: translate3d(-50%,-50%,0)!important;
 }
 
 #modal-wrapper {
