@@ -246,9 +246,17 @@ function setup() {
           const tileCard = document.createElement("div")
           tileCard.classList.add('tile-card')
           tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg)`
-          tileCard.style.width = `${tile.width / 3}px`
+          tileCard.style.width = `${tile.width / 2}px`
           tileCard.style.height = `${tile.height / 2}px`
           tileCards.appendChild(tileCard)
+          tiles[tile.key].addEventListener("mouseover", function(){
+            rotateAngle = 10
+            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg)`
+          })
+          tiles[tile.key].addEventListener("mouseout", function(){
+            rotateAngle = 2
+            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg)`
+          })
         }
       }
       tileCardsWrapper.appendChild(tileCards)
