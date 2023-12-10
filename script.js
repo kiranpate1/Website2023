@@ -232,11 +232,11 @@ function setup() {
           tileCard.style.height = `${tile.height / 2}px`
           tileCards.appendChild(tileCard)
           tiles[tile.key].addEventListener("mouseover", function(){
-            rotateAngle = 7
+            rotateAngle = 10
             tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg)`
           })
           tiles[tile.key].addEventListener("mouseout", function(){
-            rotateAngle = 3
+            rotateAngle = 2
             tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg)`
           })
         }

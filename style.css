@@ -207,9 +207,12 @@ div[type='tile']:hover {
 .tile-cards {
   position: relative;
   display: grid;
-  width: 50%;
+  width: 25%;
   height: 70%;
-  transition: var(--medium), var(--short) opacity;
+  transition: var(--medium), var(--short) width;
+}
+.hover .tile-cards {
+  width: 40%;
 }
 .tile-card {
   position: relative;
