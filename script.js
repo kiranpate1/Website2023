@@ -222,17 +222,23 @@ function setup() {
       const tileCards = document.createElement("div")
       tileCards.classList.add('tile-cards')
       if (tile.width > window.innerWidth / 3) {
-        tileCards.style.gridTemplateColumns = '1fr 1fr 1fr'
+        tileCards.style.gridTemplateColumns = '33% 33% 33%'
         for (let i = 0; i < 3; i++) {
           const tileCard = document.createElement("div")
           tileCard.classList.add('tile-card')
+          tileCard.style.transform = `rotate(${Math.floor(Math.random() * 10) - 5}deg)`
+          tileCard.style.width = `${tile.width / 3}px`
+          tileCard.style.height = `${tile.height / 2}px`
           tileCards.appendChild(tileCard)
         }
       } else {
-        tileCards.style.gridTemplateColumns = '1fr 1fr'
+        tileCards.style.gridTemplateColumns = '50% 50%'
         for (let i = 0; i < 2; i++) {
           const tileCard = document.createElement("div")
           tileCard.classList.add('tile-card')
+          tileCard.style.transform = `rotate(${Math.floor(Math.random() * 10) - 5}deg)`
+          tileCard.style.width = `${tile.width / 3}px`
+          tileCard.style.height = `${tile.height / 2}px`
           tileCards.appendChild(tileCard)
         }
       }
