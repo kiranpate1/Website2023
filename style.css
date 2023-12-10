@@ -214,6 +214,9 @@ div[type='tile']:hover {
 .hover .tile-cards {
   width: 40%;
 }
+.focus .tile-cards {
+  width: 100%;
+}
 .tile-card {
   position: relative;
   background: #b1b1b1;
@@ -224,6 +227,10 @@ div[type='tile']:hover {
 }
 .horizontal .tile-card {
   min-height: 100%;
+}
+.focus .tile-card {
+  width: 100%!important;
+  transform: rotate(0deg)!important;
 }
 
 #modal-wrapper {
