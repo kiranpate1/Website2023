@@ -130,7 +130,7 @@ div[type='tile'].focus {
   box-shadow: none;
 }
 div[type='tile']:hover {
-  background: rgba(255,255,255,0.09);
+  background: rgba(255,255,255,0.11);
 }
 .tile-content {
   position: absolute;
@@ -294,7 +294,7 @@ div[type='tile'].active {
   -moz-backface-visibility: hidden;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
-  /* mix-blend-mode: hard-light; */
+  /* mix-blend-mode: luminosity; */
 }
 .background-blur img {
   position: absolute;
