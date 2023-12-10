@@ -208,14 +208,17 @@ div[type='tile']:hover {
   position: relative;
   display: grid;
   grid-gap: 0px;
+  opacity: 0.4;
   width: 25%;
   height: 70%;
   transition: var(--medium), var(--short) width;
 }
 .hover .tile-cards {
+  opacity: 1;
   width: 40%;
 }
 .focus .tile-cards {
+  opacity: 1;
   width: 90%;
   grid-gap: 8px;
 }
