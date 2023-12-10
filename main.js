@@ -4,9 +4,6 @@ var tileItems = ["About", "Daybreak", "Freelance", "Superpower", "Workmade", "Mu
 
 setup()
 function setup() {
-
-  // console.log("=================================================================================================================================")
-
   generate()
 
   function generate() {
@@ -194,7 +191,7 @@ function setup() {
     var tileSizeOrdered = group(tileSize)
 
     for (let i = 0; i < tileSizeOrdered.length; i++) {
-      tiles[i].classList.add(tileItems[i])
+      // tiles[i].classList.add(tileItems[i])
       tiles[i].onclick = function() {
         expandtiles()
         expandtile(i)
@@ -367,6 +364,7 @@ function setup() {
   }
 
   const caseSection = document.querySelector('.case-section')
+  var scrollableTiles
 
   function expandtile(indexToExpand) {
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
@@ -396,7 +394,7 @@ function setup() {
     placeholderSideTile.style.left = sideMenuItems[indexToExpand].getBoundingClientRect().left + 'px'
     tiles[indexToExpand].parentNode.insertBefore(placeholderSideTile, tiles[indexToExpand])
 
-    let scrollableTiles = document.querySelectorAll('.allow-scroll')
+    scrollableTiles = document.querySelectorAll('.allow-scroll')
     scrollableTiles.forEach(function(scrollableTile, index) {
       scrollableTile.onwheel = function(e) {
         scrollTiles(e)
@@ -518,4 +516,3 @@ function setup() {
     }, tiles.length * 50 + 200);
   }
 }
-
