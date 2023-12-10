@@ -221,22 +221,31 @@ function setup() {
 
       const tileCards = document.createElement("div")
       tileCards.classList.add('tile-cards')
+      var rotateAngle = 3
       if (tile.width > window.innerWidth / 3) {
         tileCards.style.gridTemplateColumns = '33% 33% 33%'
         for (let i = 0; i < 3; i++) {
           const tileCard = document.createElement("div")
           tileCard.classList.add('tile-card')
-          tileCard.style.transform = `rotate(${Math.floor(Math.random() * 10) - 5}deg)`
+          tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg)`
           tileCard.style.width = `${tile.width / 3}px`
           tileCard.style.height = `${tile.height / 2}px`
           tileCards.appendChild(tileCard)
+          tiles[tile.key].addEventListener("mouseover", function(){
+            rotateAngle = 7
+            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg)`
+          })
+          tiles[tile.key].addEventListener("mouseout", function(){
+            rotateAngle = 3
+            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg)`
+          })
         }
       } else {
         tileCards.style.gridTemplateColumns = '50% 50%'
         for (let i = 0; i < 2; i++) {
           const tileCard = document.createElement("div")
           tileCard.classList.add('tile-card')
-          tileCard.style.transform = `rotate(${Math.floor(Math.random() * 10) - 5}deg)`
+          tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg)`
           tileCard.style.width = `${tile.width / 3}px`
           tileCard.style.height = `${tile.height / 2}px`
           tileCards.appendChild(tileCard)
