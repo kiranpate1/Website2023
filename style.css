@@ -149,6 +149,7 @@ div[type='tile']:hover {
   cursor: pointer;
 }
 .tile-content h1 {
+  visibility: visible;
   position: relative;
   opacity: 0;
   letter-spacing: -0.03em;
@@ -171,6 +172,7 @@ div[type='tile']:hover {
   opacity: 0.6;
 }
 .project-open .tile-content h1 {
+  visibility: hidden;
   font-size: 24px!important;
 }
 
