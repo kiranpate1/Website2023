@@ -407,7 +407,7 @@ function setup() {
   }
 
   const config = {
-    ease: 0.2,
+    ease: 0.3,
     current: 0,
     previous: 0,
     rounded: 0
