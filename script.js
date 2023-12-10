@@ -223,8 +223,18 @@ function setup() {
       tileCards.classList.add('tile-cards')
       if (tile.width > window.innerWidth / 3) {
         tileCards.style.gridTemplateColumns = '1fr 1fr 1fr'
+        for (let i = 0; i < 3; i++) {
+          const tileCard = document.createElement("div")
+          tileCard.classList.add('tile-card')
+          tileCards.appendChild(tileCard)
+        }
       } else {
         tileCards.style.gridTemplateColumns = '1fr 1fr'
+        for (let i = 0; i < 2; i++) {
+          const tileCard = document.createElement("div")
+          tileCard.classList.add('tile-card')
+          tileCards.appendChild(tileCard)
+        }
       }
       tileCardsWrapper.appendChild(tileCards)
     })
