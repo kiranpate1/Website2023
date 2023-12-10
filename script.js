@@ -261,6 +261,7 @@ function setup() {
       }
       tileCardsWrapper.appendChild(tileCards)
     })
+    
     tiles.forEach(function(tile, index) {
       document.querySelectorAll('.tile-cards')[index].style.opacity = '0'
       setTimeout(function() {
