@@ -207,6 +207,7 @@ div[type='tile']:hover {
 .tile-cards {
   position: relative;
   display: grid;
+  grid-gap: 0px;
   width: 25%;
   height: 70%;
   transition: var(--medium), var(--short) width;
@@ -215,14 +216,15 @@ div[type='tile']:hover {
   width: 40%;
 }
 .focus .tile-cards {
-  width: 100%;
+  width: 90%;
+  grid-gap: 8px;
 }
 .tile-card {
   position: relative;
   background: #b1b1b1;
   box-shadow: 0px 4px 16px rgba(0,0,0,0.25);
   border-radius: 16px;
-  transition: var(--short);
+  transition: var(--medium), var(--short) transform;
   transform-origin: bottom center;
 }
 .horizontal .tile-card {
@@ -230,6 +232,7 @@ div[type='tile']:hover {
 }
 .focus .tile-card {
   width: 100%!important;
+  height: 90%!important;
   transform: rotate(0deg)!important;
 }
 
