@@ -1,6 +1,6 @@
 //grid generator 
 
-var tileItems = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten"]
+var tileItems = ["About", "Daybreak", "Freelance", "Superpower", "Workmade", "Music", "Pursuit", "Art", "Idek","???"]
 
 setup()
 function setup() {
