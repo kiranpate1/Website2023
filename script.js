@@ -221,23 +221,23 @@ function setup() {
 
       const tileCards = document.createElement("div")
       tileCards.classList.add('tile-cards')
-      var rotateAngle = 3
+      var rotateAngle = 4
       if (tile.width > window.innerWidth / 3) {
         tileCards.style.gridTemplateColumns = '33% 33% 33%'
         for (let i = 0; i < 3; i++) {
           const tileCard = document.createElement("div")
           tileCard.classList.add('tile-card')
-          tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg)`
+          tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg) translateY(25%)`
           tileCard.style.width = `${tile.width / 3}px`
           tileCard.style.height = `${tile.height / 2}px`
           tileCards.appendChild(tileCard)
           tiles[tile.key].addEventListener("mouseover", function(){
             rotateAngle = 10
-            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg)`
+            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg) translateY(0)`
           })
           tiles[tile.key].addEventListener("mouseout", function(){
-            rotateAngle = 2
-            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg)`
+            rotateAngle = 4
+            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg) translateY(25%)`
           })
         }
       } else {
@@ -245,17 +245,17 @@ function setup() {
         for (let i = 0; i < 2; i++) {
           const tileCard = document.createElement("div")
           tileCard.classList.add('tile-card')
-          tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg)`
+          tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg) translateY(25%)`
           tileCard.style.width = `${tile.width / 2}px`
           tileCard.style.height = `${tile.height / 2}px`
           tileCards.appendChild(tileCard)
           tiles[tile.key].addEventListener("mouseover", function(){
             rotateAngle = 10
-            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg)`
+            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg) translateY(0)`
           })
           tiles[tile.key].addEventListener("mouseout", function(){
-            rotateAngle = 2
-            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg)`
+            rotateAngle = 4
+            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg) translateY(25%)`
           })
         }
       }

@@ -208,8 +208,8 @@ div[type='tile']:hover {
   position: relative;
   display: grid;
   grid-gap: 0px;
-  opacity: 0.2;
-  width: 25%;
+  opacity: 0.1;
+  width: 20%;
   height: 70%;
   transition: var(--medium), var(--short) width;
 }
