@@ -152,7 +152,7 @@ div[type='tile']:hover {
   position: absolute;
   opacity: 0;
   letter-spacing: -0.03em;
-  transition: var(--short) opacity, var(--medium) transform, var(--medium) left, var(--medium) top;
+  transition: var(--medium), var(--short) opacity;
   /* will-change: transform, opacity, left, top; */
 }
 .tile-content h1.vertical {
@@ -168,11 +168,13 @@ div[type='tile']:hover {
 .hover .tile-content h1 {
   opacity: 0.6;
 }
+.project-open .tile-content h1 {
+  font-size: 24px!important;
+}
 .project-open .allow-scroll .tile-content h1 {
   left: 50%!important;
   top: 24px!important;
   transform: translate3d(-50%,0,0)!important;
-  font-size: 24px!important;
 }
 .project-open .focus .tile-content h1 {
   left: 24px!important;
