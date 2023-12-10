@@ -154,13 +154,18 @@ div[type='tile']:hover {
   letter-spacing: -0.03em;
   transition: 0.6s ease opacity;
 }
+.tile-content h1.vertical {
+  text-align: center;
+}
 .tile-content h1.horizontal {
   text-align: left;
   top: 50%;
   transform: translateY(-55%);
 }
-.tile-content h1.vertical {
-  text-align: center;
+.project-open .tile-content h1.horizontal {
+  text-align: center!important;
+  top: 0!important;
+  transform: translateY(0)!important;
 }
 .hover .tile-content h1 {
   opacity: 0.6;
