@@ -149,31 +149,36 @@ div[type='tile']:hover {
   cursor: pointer;
 }
 .tile-content h1 {
-  visibility: visible;
-  position: relative;
+  position: absolute;
   opacity: 0;
   letter-spacing: -0.03em;
-  transition: 0.6s ease opacity;
+  transition: var(--short) opacity, var(--medium) transform, var(--medium) left, var(--medium) top;
+  /* will-change: transform, opacity, left, top; */
 }
 .tile-content h1.vertical {
-  text-align: center;
+  left: 50%;
+  top: 24px;
+  transform: translate3d(-50%,0,0);
 }
 .tile-content h1.horizontal {
-  text-align: left;
+  left: 24px;
   top: 50%;
-  transform: translateY(-55%);
-}
-.project-open .tile-content h1.horizontal {
-  text-align: center!important;
-  top: 0!important;
-  transform: translateY(0)!important;
+  transform: translate3d(0,-55%,0);
 }
 .hover .tile-content h1 {
   opacity: 0.6;
 }
-.project-open .tile-content h1 {
-  visibility: hidden;
+.project-open .allow-scroll .tile-content h1 {
+  left: 50%!important;
+  top: 24px!important;
+  transform: translate3d(-50%,0,0)!important;
   font-size: 24px!important;
+}
+.project-open .focus .tile-content h1 {
+  left: 24px!important;
+  top: 24px!important;
+  transform: translate3d(0,0,0)!important;
+  opacity: 0.6!important;
 }
 
 #modal-wrapper {
