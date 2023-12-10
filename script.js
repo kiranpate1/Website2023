@@ -223,7 +223,7 @@ function setup() {
       tileCards.classList.add('tile-cards')
       var rotateAngle = 4
       if (tile.width > window.innerWidth / 3) {
-        tileCards.style.gridTemplateColumns = '33% 33% 33%'
+        tileCards.style.gridTemplateColumns = '33.3% 33.3% 33.3%'
         for (let i = 0; i < 3; i++) {
           const tileCard = document.createElement("div")
           tileCard.classList.add('tile-card')
@@ -261,7 +261,7 @@ function setup() {
       }
       tileCardsWrapper.appendChild(tileCards)
     })
-    
+
     tiles.forEach(function(tile, index) {
       document.querySelectorAll('.tile-cards')[index].style.opacity = '0'
       setTimeout(function() {
