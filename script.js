@@ -211,7 +211,7 @@ function setup() {
       } else {
         tiletitle.classList.add('vertical')
       }
-      tiletitle.innerHTML = tileItems[index]
+      tiletitle.textContent = tileItems[index]
       tiles[tile.key].querySelector('.tile-content').appendChild(tiletitle)
     })
 
