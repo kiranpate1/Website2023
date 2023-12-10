@@ -266,10 +266,10 @@ function setup() {
       document.querySelectorAll('.tile-cards')[index].style.opacity = '0'
       setTimeout(function() {
         document.querySelectorAll('.tile-cards')[index].style.opacity = '1'
-      }, index * 50 + 500)
+      }, index * 50 + 400)
       setTimeout(function() {
         document.querySelectorAll('.tile-cards')[index].style.opacity = '0.1'
-      }, index * 50 + 800)
+      }, index * 50 + 700)
     })
 
     //party mode
