@@ -212,6 +212,7 @@ function setup() {
         tiletitle.classList.add('vertical')
       }
       tiletitle.textContent = tileItems[index]
+      tiletitle.style.fontSize = `min(${(tile.height / 5)}px,${(tile.width / 10)}px)`
       tiles[tile.key].querySelector('.tile-content').appendChild(tiletitle)
     })
 
