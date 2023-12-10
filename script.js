@@ -138,7 +138,7 @@ function setup() {
     }
   }
 
-  //background blur
+  //load in tiles/blur
 
   var tiles = document.querySelectorAll('[type="tile"]')
 
@@ -260,6 +260,14 @@ function setup() {
         }
       }
       tileCardsWrapper.appendChild(tileCards)
+    })
+    tiles.forEach(function(tile, index) {
+      setTimeout(function() {
+        document.querySelectorAll('.tile-cards')[index].style.opacity = '1'
+      }, index * 50 + 300)
+      setTimeout(function() {
+        document.querySelectorAll('.tile-cards')[index].style.opacity = '0.1'
+      }, index * 50 + 800)
     })
 
     //party mode

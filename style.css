@@ -214,11 +214,11 @@ div[type='tile']:hover {
   transition: var(--medium), var(--short) width;
 }
 .hover .tile-cards {
-  opacity: 1;
+  opacity: 1!important;
   width: 40%;
 }
 .focus .tile-cards {
-  opacity: 1;
+  opacity: 1!important;
   width: 90%;
   grid-gap: 8px;
 }
