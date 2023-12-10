@@ -77,11 +77,11 @@ nav {
   align-items: start;
 }
 
-.top-action .randomize, .project-open .top-action .back {
+.top-action .shuffle, .project-open .top-action .back {
   display: block;
 }
 
-.project-open .top-action .randomize, .top-action .back {
+.project-open .top-action .shuffle, .top-action .back {
   display: none;
 }
 

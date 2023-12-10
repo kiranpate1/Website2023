@@ -181,7 +181,7 @@ function setup() {
   //tile onclick
 
   var tileSize = []
-  var randomize = document.querySelector(".randomize")  
+  var shuffle = document.querySelector(".shuffle")  
 
   tileClick()
   function tileClick() {
@@ -494,9 +494,9 @@ function setup() {
   }
   const scrollInstance = new Scroll(0, true)
 
-  //randomize 
+  //shuffle 
   
-  randomize.onclick = function() {
+  shuffle.onclick = function() {
     tiles.forEach(function(tile, index) {
       setTimeout(function() {
         tile.style.opacity = '0'
