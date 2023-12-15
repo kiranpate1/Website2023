@@ -404,6 +404,7 @@ function setup() {
   }      
 
   //back
+
   const back = document.querySelector('.back')
 
   back.onclick = function() {
@@ -436,6 +437,7 @@ function setup() {
   }
 
   //scroll tiles
+  
   let scrollValue = 0
 
   function scrollTiles(e) {
