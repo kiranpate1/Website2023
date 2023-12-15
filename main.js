@@ -404,7 +404,6 @@ function setup() {
   }      
 
   //back
-
   const back = document.querySelector('.back')
 
   back.onclick = function() {
