@@ -155,7 +155,6 @@ div[type='tile']:hover {
   opacity: 0;
   letter-spacing: -0.03em;
   transition: var(--medium), var(--short) opacity;
-  /* will-change: transform, opacity, left, top; */
 }
 .tile-content.vertical h1 {
   left: 50%;
