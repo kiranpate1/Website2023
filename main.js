@@ -3,6 +3,7 @@
 var tileItems = ["About", "Daybreak", "Freelance", "Superpower", "Workmade", "Music", "Pursuit", "Art", "Idek","???"]
 
 setup()
+
 function setup() {
   generate()
 
@@ -437,7 +438,7 @@ function setup() {
   }
 
   //scroll tiles
-  
+
   let scrollValue = 0
 
   function scrollTiles(e) {
