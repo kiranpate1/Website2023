@@ -7,6 +7,8 @@ setup()
 function setup() {
   generate()
 
+  // randomized layout
+  
   function generate() {
     var grid_0_0 = Math.floor(Math.random() * (tileItems.length - 6)) + 3
     var grid_0_1 = tileItems.length - grid_0_0
