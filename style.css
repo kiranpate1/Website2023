@@ -108,6 +108,7 @@ div[type='grid-item'] {
 div[type='tile'], .placeholder-tile {
   position: relative;
   opacity: 0;
+  z-index: 0;
   display: flex;
   overflow: hidden;
   width: auto;
@@ -126,6 +127,7 @@ div[type='tile'].inactive {
 }
 
 div[type='tile'].focus {
+  z-index: 99!important;
   transition: var(--medium), var(--short) background, var(--medium) transform;
 }
 .placeholder-tile {
@@ -237,10 +239,10 @@ div[type='tile']:hover {
   grid-gap: 8px;
 }
 .tile-content.horizontal .tile-cards {
-  grid-template: auto / 1fr 1fr 1fr;
+  grid-template: auto / 0.7fr 0.85fr 1fr;
 }
 .tile-content.vertical .tile-cards {
-  grid-template: 1fr 1fr 1fr / auto;
+  grid-template: 0.7fr 0.85fr 1fr / auto;
 }
 
 .tile-card {
