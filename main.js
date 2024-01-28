@@ -222,43 +222,23 @@ function setup() {
       const tileCards = document.createElement("div")
       tileCards.classList.add('tile-cards')
       var rotateAngle = 4
-      if (tile.width > window.innerWidth / 3) {
-        tileCards.style.gridTemplateColumns = '33.3% 33.3% 33.3%'
         for (let i = 0; i < 3; i++) {
           const tileCard = document.createElement("div")
           tileCard.classList.add('tile-card')
-          tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg) translateY(25%)`
-          tileCard.style.width = `${tile.width / 3}px`
-          tileCard.style.height = `${tile.height / 2}px`
+          // tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg) translateY(25%)`
+          tileCard.style.transform = `scale(${(8+i)/10})`
           tileCards.appendChild(tileCard)
           tiles[tile.key].addEventListener("mouseover", function(){
             rotateAngle = 10
-            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg) translateY(0)`
+            // tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg) translateY(0)`
+            tileCard.style.transform = `scale(${(i*0.1) + 1})`
           })
           tiles[tile.key].addEventListener("mouseout", function(){
             rotateAngle = 4
-            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg) translateY(25%)`
+            // tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg) translateY(25%)`
+            tileCard.style.transform = `scale(${(i*0.1) + 0.9})`
           })
         }
-      } else {
-        tileCards.style.gridTemplateColumns = '50% 50%'
-        for (let i = 0; i < 2; i++) {
-          const tileCard = document.createElement("div")
-          tileCard.classList.add('tile-card')
-          tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg) translateY(25%)`
-          tileCard.style.width = `${tile.width / 2}px`
-          tileCard.style.height = `${tile.height / 2}px`
-          tileCards.appendChild(tileCard)
-          tiles[tile.key].addEventListener("mouseover", function(){
-            rotateAngle = 10
-            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg) translateY(0)`
-          })
-          tiles[tile.key].addEventListener("mouseout", function(){
-            rotateAngle = 4
-            tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle/2}deg) translateY(25%)`
-          })
-        }
-      }
       tileCardsWrapper.appendChild(tileCards)
     })
 
@@ -268,7 +248,7 @@ function setup() {
         document.querySelectorAll('.tile-cards')[index].style.opacity = '1'
       }, index * 50 + 400)
       setTimeout(function() {
-        document.querySelectorAll('.tile-cards')[index].style.opacity = '0'
+        document.querySelectorAll('.tile-cards')[index].style.opacity = '1'
       }, index * 50 + 700)
     })
 
