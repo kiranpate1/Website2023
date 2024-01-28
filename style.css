@@ -218,15 +218,17 @@ div[type='tile']:hover {
 .horizontal .tile-cards {
   width: 10%;
   height: 60%;
+  min-height: 120px;
 }
 .vertical .tile-cards {
   width: 60%;
+  min-width: 120px;
   height: 10%;
 }
-.hover .horizontal .tile-cards {
+.hover .horizontal .tile-cards:not(.focus.hover .horizontal .tile-cards) {
   width: 20%;
 }
-.hover .vertical .tile-cards {
+.hover .vertical .tile-cards:not(.focus.hover .vertical .tile-cards) {
   height: 20%;
 }
 .focus .tile-cards {
@@ -257,9 +259,7 @@ div[type='tile']:hover {
   transform-origin: top center;
 }
 .focus .tile-card {
-  width: 100%!important;
-  height: 90%!important;
-  transform: rotate(0deg)!important;
+  transform: scale(1)!important;
 }
 
 #modal-wrapper {

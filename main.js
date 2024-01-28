@@ -221,22 +221,16 @@ function setup() {
 
       const tileCards = document.createElement("div")
       tileCards.classList.add('tile-cards')
-      var rotateAngle = 4
         for (let i = 0; i < 3; i++) {
           const tileCard = document.createElement("div")
           tileCard.classList.add('tile-card')
-          // tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg) translateY(25%)`
           tileCard.style.transform = `scale(${(8+i)/10})`
           tileCards.appendChild(tileCard)
           tiles[tile.key].addEventListener("mouseover", function(){
-            rotateAngle = 10
-            // tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg) translateY(0)`
-            tileCard.style.transform = `scale(${(i*0.1) + 1})`
+            tileCard.style.transform = `scale(${(i*0.1) + 0.9})`
           })
           tiles[tile.key].addEventListener("mouseout", function(){
-            rotateAngle = 4
-            // tileCard.style.transform = `rotate(${(i*rotateAngle) - rotateAngle}deg) translateY(25%)`
-            tileCard.style.transform = `scale(${(i*0.1) + 0.9})`
+            tileCard.style.transform = `scale(${(8+i)/10})`
           })
         }
       tileCardsWrapper.appendChild(tileCards)
@@ -248,7 +242,7 @@ function setup() {
         document.querySelectorAll('.tile-cards')[index].style.opacity = '1'
       }, index * 50 + 400)
       setTimeout(function() {
-        document.querySelectorAll('.tile-cards')[index].style.opacity = '1'
+        document.querySelectorAll('.tile-cards')[index].style.opacity = '0'
       }, index * 50 + 700)
     })
 
