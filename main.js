@@ -268,7 +268,7 @@ function setup() {
         document.querySelectorAll('.tile-cards')[index].style.opacity = '1'
       }, index * 50 + 400)
       setTimeout(function() {
-        document.querySelectorAll('.tile-cards')[index].style.opacity = '0.1'
+        document.querySelectorAll('.tile-cards')[index].style.opacity = '0'
       }, index * 50 + 700)
     })
 
