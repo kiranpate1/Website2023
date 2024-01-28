@@ -113,6 +113,9 @@ div[type='tile'], .placeholder-tile {
   width: auto;
   height: auto;
   background: #242429;
+  background-position: center!important; 
+  background-repeat: no-repeat!important; 
+  background-size: cover!important;
   border-radius: var(--border-radius);
   transition: var(--medium), var(--short) background, 0s transform; /*how to make transform 0s at the right time?*/
   cursor: pointer;

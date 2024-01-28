@@ -279,11 +279,21 @@ function setup() {
       setTimeout(function() {toggleParty('off')}, 2000)
     }
     function toggleParty(toggle) {
+      var uniqueNumbers = new Set();
+
+      while (uniqueNumbers.size < tiles.length) {
+        var randomNumber = Math.floor(Math.random() * 36); 
+        uniqueNumbers.add(randomNumber);
+      }
+
+      uniqueNumbers = Array.from(uniqueNumbers);
+      console.log(uniqueNumbers)
       tiles.forEach(function(tile, index) {
         setTimeout(function() {
           tile.classList.toggle('party')
           if (tile.classList.contains('party')) {
-            tile.style.backgroundColor = `rgba(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`
+            //tile.style.backgroundColor = `rgba(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`
+            tile.style.backgroundImage = `url(/assets/party/kiran-${uniqueNumbers[index]}.webp)`
           } else {
             tile.style.backgroundColor = ''
           }
