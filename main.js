@@ -220,6 +220,7 @@ function setup() {
       tiles[tile.key].querySelector('.tile-content').appendChild(tileCardsWrapper)
 
       const tileCards = document.createElement("div")
+      // tileCards.style.minWidth = `${tile.width / 5}px`
       tileCards.classList.add('tile-cards')
         for (let i = 0; i < 3; i++) {
           const tileCard = document.createElement("div")
