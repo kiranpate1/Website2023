@@ -349,6 +349,11 @@ function setup() {
         tiles[index].style.left = sideMenuItems[index].getBoundingClientRect().left + 'px'
         tiles[index].classList.remove('inactive')
       }, 20)
+
+      tiles[index].onwheel = function(e) {
+        scrollTiles(e)
+      }
+      requestAnimationFrame(() => scrollInstance.onScroll())
     })
   }
 
@@ -383,13 +388,6 @@ function setup() {
     placeholderSideTile.style.left = sideMenuItems[indexToExpand].getBoundingClientRect().left + 'px'
     tiles[indexToExpand].parentNode.insertBefore(placeholderSideTile, tiles[indexToExpand])
 
-    scrollableTiles = document.querySelectorAll('.allow-scroll')
-    scrollableTiles.forEach(function(scrollableTile, index) {
-      scrollableTile.onwheel = function(e) {
-        scrollTiles(e)
-      }
-    })
-    requestAnimationFrame(() => scrollInstance.onScroll())
     tiles[indexToExpand].onwheel = function(e) {
     }
   }      
