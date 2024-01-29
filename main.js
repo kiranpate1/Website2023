@@ -390,6 +390,8 @@ function setup() {
       }
     })
     requestAnimationFrame(() => scrollInstance.onScroll())
+    tiles[indexToExpand].onwheel = function(e) {
+    }
   }      
 
   //back
