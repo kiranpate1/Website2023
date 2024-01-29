@@ -403,6 +403,7 @@ function setup() {
     document.body.classList.remove('project-open')
 
     tiles.forEach(function(tile, index) {
+      tile.scroll(0,0)
       setTimeout(function() {
         tile.classList.remove('active','allow-scroll','focus')
         placeholderTiles[index].remove()
