@@ -255,6 +255,9 @@ function setup() {
       setTimeout(function() {toggleParty('off')}, 2000)
     }
     function toggleParty(toggle) {
+      var fs = require('fs');
+      var files = fs.readdirSync('/assets/photos/');
+      console.log(files)
       var uniqueNumbers = new Set();
 
       while (uniqueNumbers.size < tiles.length) {
