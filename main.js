@@ -217,7 +217,7 @@ function setup() {
       const tileCards = document.createElement("div")
       if ((tile.width / 1.5) > tile.height) {
         tiles[tile.key].querySelector('.tile-content').classList.add('horizontal')
-        tileCards.style.minHeight = `${tile.height * 0.7}px`
+        // tileCards.style.minHeight = `${tile.height * 0.7}px`
       } else {
         tiles[tile.key].querySelector('.tile-content').classList.add('vertical')
         tileCards.style.minWidth = `${tile.width * 0.7}px`
