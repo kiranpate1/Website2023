@@ -220,11 +220,11 @@ div[type='tile']:hover {
 .horizontal .tile-cards {
   width: 10%;
   height: 60%;
-  min-height: 120px;
+  min-height: 160px;
 }
 .vertical .tile-cards {
   width: 60%;
-  min-width: 120px;
+  min-width: 160px;
   height: 10%;
 }
 .hover .horizontal .tile-cards:not(.focus.hover .horizontal .tile-cards) {

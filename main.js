@@ -206,11 +206,6 @@ function setup() {
     tileSizeOrdered.forEach(function(tile, index) {
       //tiles[tile.key].style.zIndex = (tiles.length - index)
       const tiletitle = document.createElement("h1")
-      if ((tile.width / 1.5) > tile.height) {
-        tiles[tile.key].querySelector('.tile-content').classList.add('horizontal')
-      } else {
-        tiles[tile.key].querySelector('.tile-content').classList.add('vertical')
-      }
       tiletitle.textContent = tileItems[index]
       tiletitle.style.fontSize = `min(${(tile.height / 5)}px,${(tile.width / 10)}px)`
       tiles[tile.key].querySelector('.tile-content').appendChild(tiletitle)
@@ -220,7 +215,13 @@ function setup() {
       tiles[tile.key].querySelector('.tile-content').appendChild(tileCardsWrapper)
 
       const tileCards = document.createElement("div")
-      // tileCards.style.minWidth = `${tile.width / 5}px`
+      if ((tile.width / 1.5) > tile.height) {
+        tiles[tile.key].querySelector('.tile-content').classList.add('horizontal')
+        tileCards.style.minHeight = `${tile.height * 0.7}px`
+      } else {
+        tiles[tile.key].querySelector('.tile-content').classList.add('vertical')
+        tileCards.style.minWidth = `${tile.width * 0.7}px`
+      }
       tileCards.classList.add('tile-cards')
         for (let i = 0; i < 3; i++) {
           const tileCard = document.createElement("div")
@@ -228,7 +229,7 @@ function setup() {
           tileCard.style.transform = `scale(${(8+i)/10})`
           tileCards.appendChild(tileCard)
           tiles[tile.key].addEventListener("mouseover", function(){
-            tileCard.style.transform = `scale(${(i*0.1) + 0.9})`
+            tileCard.style.transform = `scale(${(i*0.1) + 1.3})`
           })
           tiles[tile.key].addEventListener("mouseout", function(){
             tileCard.style.transform = `scale(${(8+i)/10})`
