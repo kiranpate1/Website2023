@@ -200,13 +200,18 @@ div[type='tile']:hover {
   padding: 0;
   transition: var(--medium);
 }
-.vertical .tile-cards-wrapper {
-  width: 100%;
-  height: 50%;
-}
 .horizontal .tile-cards-wrapper {
   width: 50%;
   height: 100%;
+}
+.vertical .tile-cards-wrapper, .active .tile-cards-wrapper {
+  width: 100%;
+  height: 50%;
+}
+.focus .tile-cards-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 76px 8px 8px 8px;
 }
 
 .tile-cards {
@@ -224,22 +229,18 @@ div[type='tile']:hover {
   min-width: 160px;
   height: 10%;
 }
+.active .tile-cards {
+  min-width: 0!important;
+}
 .hover .tile-cards:not(.focus.hover .tile-cards) {
   height: 20%;
 }
-.focus .tile-cards-wrapper {
-  width: 100%;
-  height: 100%;
-  padding: 76px 8px 8px 8px;
-}
 .focus .tile-cards {
+  opacity: 1!important;
   grid-template: 40vw 40vw 40vw / auto!important;
   height: 100%;
   width: 100%;
   grid-gap: 8px;
-}
-.focus .tile-cards {
-  opacity: 1!important;
 }
 .tile-cards {
   grid-template: 0.7fr 0.85fr 1fr / auto;
