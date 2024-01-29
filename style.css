@@ -120,7 +120,6 @@ div[type='tile'], .placeholder-tile {
   border-radius: var(--border-radius);
   transition: var(--medium), var(--short) background, 0s transform; /*how to make transform 0s at the right time?*/
   cursor: pointer;
-  scroll-behavior: smooth;
 }
 
 div[type='tile'].inactive {
