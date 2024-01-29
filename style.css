@@ -233,11 +233,13 @@ div[type='tile']:hover {
   padding: 76px 8px 8px 8px;
 }
 .focus .tile-cards {
-  opacity: 1!important;
   grid-template: 40vw 40vw 40vw / auto!important;
   height: 100%;
   width: 100%;
   grid-gap: 8px;
+}
+.active .tile-cards {
+  opacity: 1!important;
 }
 .tile-cards {
   grid-template: 0.7fr 0.85fr 1fr / auto;

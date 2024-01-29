@@ -223,28 +223,28 @@ function setup() {
         tileCards.style.minWidth = `${tile.width * 0.7}px`
       }
       tileCards.classList.add('tile-cards')
-        for (let i = 0; i < 3; i++) {
-          const tileCard = document.createElement("div")
-          tileCard.classList.add('tile-card')
+      for (let i = 0; i < 3; i++) {
+        const tileCard = document.createElement("div")
+        tileCard.classList.add('tile-card')
+        tileCard.style.transform = `scale(${(8+i)/10})`
+        tileCards.appendChild(tileCard)
+        tiles[tile.key].addEventListener("mouseover", function(){
+          tileCard.style.transform = `scale(${(i*0.1) + 1.3})`
+        })
+        tiles[tile.key].addEventListener("mouseout", function(){
           tileCard.style.transform = `scale(${(8+i)/10})`
-          tileCards.appendChild(tileCard)
-          tiles[tile.key].addEventListener("mouseover", function(){
-            tileCard.style.transform = `scale(${(i*0.1) + 1.3})`
-          })
-          tiles[tile.key].addEventListener("mouseout", function(){
-            tileCard.style.transform = `scale(${(8+i)/10})`
-          })
-        }
+        })
+      }
       tileCardsWrapper.appendChild(tileCards)
     })
 
     tiles.forEach(function(tile, index) {
-      document.querySelectorAll('.tile-cards')[index].style.opacity = '0'
+      tile.querySelector('.tile-cards').style.opacity = '0'
       setTimeout(function() {
-        document.querySelectorAll('.tile-cards')[index].style.opacity = '1'
+        tile.querySelector('.tile-cards').style.opacity = '1'
       }, index * 50 + 400)
       setTimeout(function() {
-        document.querySelectorAll('.tile-cards')[index].style.opacity = '0'
+        tile.querySelector('.tile-cards').style.opacity = '0'
       }, index * 50 + 700)
     })
 
@@ -403,8 +403,10 @@ function setup() {
     document.body.classList.remove('project-open')
 
     tiles.forEach(function(tile, index) {
-      tile.scroll(0,0)
+      // tile.classList.remove('focus')
+      tile.querySelector('.tile-cards-wrapper').style.opacity = '0'
       setTimeout(function() {
+        tile.scroll(0,0)
         tile.classList.remove('active','allow-scroll','focus')
         placeholderTiles[index].remove()
         tile.style.width = 'auto'
@@ -412,6 +414,9 @@ function setup() {
         tile.style.top = 'auto'
         tile.style.left = 'auto'
       }, 400)
+      setTimeout(function() {
+        tile.querySelector('.tile-cards-wrapper').style.opacity = '1'
+      }, 800)
       tile.style.width = placeholderTiles[index].getBoundingClientRect().width + 'px'
       tile.style.height = placeholderTiles[index].getBoundingClientRect().height + 'px'
       tile.style.top = placeholderTiles[index].getBoundingClientRect().top + 'px'
