@@ -11,7 +11,7 @@ var tileDescriptions = [
   "I'm in pursuit of happiness. And tacos.", 
   "Sometimes I pretend I'm an artist. But I'm not.", 
   "Vote for me. I'm the best candidate. I promise.",
-  "Hmmm I wonder what this does... Fuck around and find out?"
+  "Don't click this trust me"
 ]
 
 setup()
@@ -250,6 +250,7 @@ function setup() {
         const tileCard = document.createElement("div")
         tileCard.classList.add('tile-card')
         tileCard.style.transform = `scale(${(8+i)/10})`
+        tileCard.style.filter = `brightness(${(8+i)/10})`
         tileCards.appendChild(tileCard)
         tiles[tile.key].addEventListener("mouseover", function(){
           tileCard.style.transform = `scale(${(i*0.1) + 1.3})`
