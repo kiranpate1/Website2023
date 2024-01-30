@@ -206,7 +206,6 @@ function setup() {
     var tileSizeOrdered = group(tileSize)
 
     for (let i = 0; i < tileSizeOrdered.length; i++) {
-      // tiles[i].classList.add(tileItems[i])
       tiles[i].onclick = function() {
         expandtiles()
         expandtile(i)
@@ -216,7 +215,6 @@ function setup() {
     const smallestTile = tiles[tileSizeOrdered[tileSizeOrdered.length - 1].key]
     const largestTile = tiles[tileSizeOrdered[0].key]
     tileSizeOrdered.forEach(function(tile, index) {
-      //tiles[tile.key].style.zIndex = (tiles.length - index)
       const tileInfo = document.createElement("div")
       tileInfo.classList.add('tile-info')
       tiles[tile.key].querySelector('.tile-content').appendChild(tileInfo)
@@ -291,10 +289,8 @@ function setup() {
         setTimeout(function() {
           tile.classList.toggle('party')
           if (tile.classList.contains('party')) {
-            //tile.style.backgroundColor = `rgba(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`
             tile.style.backgroundImage = `url(/assets/party/kiran-${uniqueNumbers[index]}.webp)`
           } else {
-            //tile.style.backgroundColor = ''
             tile.style.backgroundImage = ''
           }
         }, index * 200)
