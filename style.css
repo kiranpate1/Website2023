@@ -201,6 +201,7 @@ div[type='tile']:hover {
   font-size: 24px!important;
 }
 .project-open .allow-scroll .tile-info {
+  width: auto!important;
   left: 50%!important;
   top: 24px!important;
   transform: translate3d(-50%,0,0)!important;

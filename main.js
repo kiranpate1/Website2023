@@ -356,6 +356,7 @@ function setup() {
         tiles[index].style.top = placeholderTile.getBoundingClientRect().top + 'px'
         tiles[index].style.left = placeholderTile.getBoundingClientRect().left + 'px'
       }
+      tiles[index].scroll(0,0)
 
       setTimeout(function() {
         if (tiles[index].classList.contains('focus')) {
