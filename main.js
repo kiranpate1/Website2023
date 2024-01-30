@@ -1,6 +1,6 @@
 //grid generator 
 
-var tileItems = ["About", "Daybreak", "Freelance", "Superpower", "Workmade", "Music", "Pursuit", "Art", "Elections","???"]
+var tileItems = ["About", "Daybreak", "Freelance", "Superpower", "Workmade", "Music", "Pursuit", "Artwork", "Elections","??????"]
 var tileDescriptions = [
   "Who am I? How am I? Why am I?", 
   "I guess it's where I work. But it's also where I play.", 
@@ -219,7 +219,6 @@ function setup() {
       //tiles[tile.key].style.zIndex = (tiles.length - index)
       const tileInfo = document.createElement("div")
       tileInfo.classList.add('tile-info')
-      tileInfo.style.gridGap = `${tile.height * 0.05}px`
       tiles[tile.key].querySelector('.tile-content').appendChild(tileInfo)
       
       const tiletitle = document.createElement("h1")
@@ -230,6 +229,8 @@ function setup() {
       const tileDescription = document.createElement("p")
       tileDescription.textContent = tileDescriptions[index]
       tileDescription.style.width = `${tile.width * 0.7}px`
+      tileDescription.style.top = `min(${(tile.height / 5)}px,${(tile.width / 10)}px)`
+      tileDescription.style.marginTop = `${tile.width * 0.05}px`
       tileInfo.appendChild(tileDescription)
 
       const tileCardsWrapper = document.createElement("div")
@@ -271,7 +272,7 @@ function setup() {
     })
 
     //party mode
-    smallestTile.querySelector(".tile-content h1").innerHTML = "???"
+    smallestTile.querySelector(".tile-content h1").innerHTML = "??????"
     smallestTile.onclick = function() {
       toggleParty('on')
       setTimeout(function() {toggleParty('off')}, 2000)

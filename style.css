@@ -156,57 +156,73 @@ div[type='tile']:hover {
   transform: translateZ(0);
   cursor: pointer;
 }
-.tile-content .tile-info {
+.tile-info {
   position: absolute;
   display: flex;
   flex-direction: column;
   transition: var(--short);
 }
-.tile-content .tile-info h1 {
+.tile-info h1 {
   letter-spacing: -0.03em;
   opacity: 0.2;
   transition: var(--short), var(--short) opacity;
 }
-.tile-content .tile-info p {
+.tile-info p {
+  position: absolute;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.03em;
   opacity: 0;
   transition: var(--short), var(--short) opacity;
 }
-.tile-content.vertical .tile-info {
+.vertical .tile-info {
   left: 50%;
   top: 24px;
   transform: translate3d(-50%,0,0);
 }
-.tile-content.vertical .tile-info p {
-  min-width: 80%;
+.vertical .tile-info p {
   text-align: center;
+  left: 50%;
+  transform: translate3d(-50%,0,0);
 }
-.tile-content.horizontal .tile-info {
+.horizontal .tile-info {
   left: 24px;
   top: 16px;
 }
-.tile-content.horizontal .tile-info p {
-  max-width: 50%;
+.horizontal .tile-info p {
+  max-width: 100%;
   text-align: left;
 }
-.hover .tile-content .tile-info * {
+.hover .tile-info * {
   opacity: 0.6;
 }
-.project-open .tile-content h1 {
+.project-open h1 {
   font-size: 24px!important;
 }
-.project-open .allow-scroll .tile-content .tile-info {
+.project-open .allow-scroll .tile-info {
   left: 50%!important;
   top: 24px!important;
   transform: translate3d(-50%,0,0)!important;
 }
-.project-open .focus .tile-content .tile-info {
+.project-open .tile-info p {
+  width: 150px!important;
+  max-width: none!important;
+  left: 50%!important;
+  top: 44px!important;
+  margin-top: 0!important;
+  text-align: center!important;
+  transform: translate3d(-50%,0,0)!important;
+}
+.project-open .focus .tile-info {
   left: 24px!important;
   top: 24px!important;
   transform: translate3d(0,0,0)!important;
+}
+.project-open .focus .tile-info h1 {
   opacity: 0.6!important;
+}
+.project-open .focus .tile-info p {
+  opacity: 0!important;
 }
 
 .tile-cards-wrapper {
