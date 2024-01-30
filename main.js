@@ -217,10 +217,14 @@ function setup() {
     const largestTile = tiles[tileSizeOrdered[0].key]
     tileSizeOrdered.forEach(function(tile, index) {
       //tiles[tile.key].style.zIndex = (tiles.length - index)
+      const tileInfo = document.createElement("div")
+      tileInfo.classList.add('tile-info')
+      tiles[tile.key].querySelector('.tile-content').appendChild(tileInfo)
+      
       const tiletitle = document.createElement("h1")
       tiletitle.textContent = tileItems[index]
       tiletitle.style.fontSize = `min(${(tile.height / 5)}px,${(tile.width / 10)}px)`
-      tiles[tile.key].querySelector('.tile-content').appendChild(tiletitle)
+      tileInfo.appendChild(tiletitle)
 
       const tileCardsWrapper = document.createElement("div")
       tileCardsWrapper.classList.add('tile-cards-wrapper')

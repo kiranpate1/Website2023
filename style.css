@@ -156,26 +156,28 @@ div[type='tile']:hover {
   transform: translateZ(0);
   cursor: pointer;
 }
-.tile-content h1 {
+.tile-content .tile-info {
   position: absolute;
   opacity: 0.2;
-  letter-spacing: -0.03em;
   transition: var(--medium), var(--short) opacity;
 }
-.tile-content.vertical h1 {
+.tile-content .tile-info h1 {
+  letter-spacing: -0.03em;
+}
+.tile-content.vertical .tile-info {
   left: 50%;
   top: 24px;
   transform: translate3d(-50%,0,0);
 }
-.tile-content.horizontal h1 {
+.tile-content.horizontal .tile-info {
   left: 24px;
   top: 16px;
   /* transform: translate3d(0,-55%,0); */
 }
-.hover .tile-content h1 {
+.hover .tile-content .tile-info {
   opacity: 0.6;
 }
-.project-open .tile-content h1 {
+.project-open .tile-content .tile-info {
   font-size: 24px!important;
 }
 .project-open .allow-scroll .tile-content h1 {
