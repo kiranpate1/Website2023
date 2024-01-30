@@ -282,7 +282,7 @@ function setup() {
       var uniqueNumbers = new Set();
 
       while (uniqueNumbers.size < tiles.length) {
-        var randomNumber = Math.floor(Math.random() * 43); 
+        var randomNumber = Math.floor(Math.random() * 47); 
         uniqueNumbers.add(randomNumber);
       }
 
