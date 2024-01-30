@@ -219,12 +219,18 @@ function setup() {
       //tiles[tile.key].style.zIndex = (tiles.length - index)
       const tileInfo = document.createElement("div")
       tileInfo.classList.add('tile-info')
+      tileInfo.style.gridGap = `${tile.height * 0.05}px`
       tiles[tile.key].querySelector('.tile-content').appendChild(tileInfo)
       
       const tiletitle = document.createElement("h1")
       tiletitle.textContent = tileItems[index]
       tiletitle.style.fontSize = `min(${(tile.height / 5)}px,${(tile.width / 10)}px)`
       tileInfo.appendChild(tiletitle)
+
+      const tileDescription = document.createElement("p")
+      tileDescription.textContent = tileDescriptions[index]
+      tileDescription.style.width = `${tile.width * 0.7}px`
+      tileInfo.appendChild(tileDescription)
 
       const tileCardsWrapper = document.createElement("div")
       tileCardsWrapper.classList.add('tile-cards-wrapper')

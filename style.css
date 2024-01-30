@@ -28,7 +28,7 @@ p {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   text-overflow: ellipsis;
   color: rgba(255,255,255,0.8);
 }
@@ -158,24 +158,40 @@ div[type='tile']:hover {
 }
 .tile-content .tile-info {
   position: absolute;
-  opacity: 0.2;
+  display: flex;
+  flex-direction: column;
   transition: var(--short);
 }
 .tile-content .tile-info h1 {
   letter-spacing: -0.03em;
-  transition: var(--medium);
+  opacity: 0.2;
+  transition: var(--short), var(--short) opacity;
+}
+.tile-content .tile-info p {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.03em;
+  opacity: 0;
+  transition: var(--short), var(--short) opacity;
 }
 .tile-content.vertical .tile-info {
   left: 50%;
   top: 24px;
   transform: translate3d(-50%,0,0);
 }
+.tile-content.vertical .tile-info p {
+  min-width: 80%;
+  text-align: center;
+}
 .tile-content.horizontal .tile-info {
   left: 24px;
   top: 16px;
-  /* transform: translate3d(0,-55%,0); */
 }
-.hover .tile-content .tile-info {
+.tile-content.horizontal .tile-info p {
+  max-width: 50%;
+  text-align: left;
+}
+.hover .tile-content .tile-info * {
   opacity: 0.6;
 }
 .project-open .tile-content h1 {
