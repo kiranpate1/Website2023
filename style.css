@@ -285,7 +285,7 @@ div[type='tile']:hover {
 
 .tile-card {
   position: relative;
-  background: #7e7e85;
+  background: #6a6a75;
   height: 2000%;
   /* box-shadow: 0px 0px 28px rgba(0,0,0,0.25); */
   border-radius: 16px;
