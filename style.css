@@ -159,10 +159,11 @@ div[type='tile']:hover {
 .tile-content .tile-info {
   position: absolute;
   opacity: 0.2;
-  transition: var(--medium), var(--short) opacity;
+  transition: var(--short);
 }
 .tile-content .tile-info h1 {
   letter-spacing: -0.03em;
+  transition: var(--medium);
 }
 .tile-content.vertical .tile-info {
   left: 50%;
@@ -177,15 +178,15 @@ div[type='tile']:hover {
 .hover .tile-content .tile-info {
   opacity: 0.6;
 }
-.project-open .tile-content .tile-info {
+.project-open .tile-content h1 {
   font-size: 24px!important;
 }
-.project-open .allow-scroll .tile-content h1 {
+.project-open .allow-scroll .tile-content .tile-info {
   left: 50%!important;
   top: 24px!important;
   transform: translate3d(-50%,0,0)!important;
 }
-.project-open .focus .tile-content h1 {
+.project-open .focus .tile-content .tile-info {
   left: 24px!important;
   top: 24px!important;
   transform: translate3d(0,0,0)!important;
