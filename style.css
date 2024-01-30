@@ -169,8 +169,8 @@ div[type='tile']:hover {
 }
 .tile-content.horizontal h1 {
   left: 24px;
-  top: 50%;
-  transform: translate3d(0,-55%,0);
+  top: 16px;
+  /* transform: translate3d(0,-55%,0); */
 }
 .hover .tile-content h1 {
   opacity: 0.6;
