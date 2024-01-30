@@ -6,7 +6,7 @@ var tileDescriptions = [
   "I guess it's where I work. But it's also where I play.", 
   "Clients are annoying, pls stop contacting me y'all.", 
   "I wish I could fly. Or teleport. Or both.", 
-  "Workm... Wait, don't we do enough work around here?", 
+  "As if we don't do enough work around here.", 
   "Yeah, it's a bit of a mess. But it's my mess.", 
   "I'm in pursuit of happiness. And tacos.", 
   "Sometimes I pretend I'm an artist. But I'm not.", 
