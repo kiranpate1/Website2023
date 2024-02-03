@@ -249,8 +249,8 @@ function setup() {
       for (let i = 0; i < 3; i++) {
         const tileCard = document.createElement("div")
         tileCard.classList.add('tile-card')
-        tileCard.style.transform = `scale(${(8+i)/10})`
-        tileCard.style.filter = `brightness(${(8+i)/10})`
+        tileCard.style.transform = `scale(${(7+(1.5*i))/10})`
+        tileCard.style.filter = `brightness(${(7+(1.5*i))/10})`
         tileCards.appendChild(tileCard)
         tiles[tile.key].addEventListener("mouseover", function(){
           tileCard.style.transform = `scale(${(i*0.1) + 1.3})`
