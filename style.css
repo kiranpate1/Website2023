@@ -126,6 +126,9 @@ div[type='tile'], .placeholder-tile {
   transition: var(--medium), var(--short) background, 0s transform; /*how to make transform 0s at the right time?*/
   cursor: pointer;
 }
+div[type='tile'].focus {
+  cursor: auto!important;
+}
 
 div[type='tile'].inactive {
   transition: var(--medium), var(--short) background, var(--medium) transform;
@@ -154,7 +157,6 @@ div[type='tile']:hover {
   width: 100%;
   border-radius: var(--border-radius);
   transform: translateZ(0);
-  cursor: pointer;
 }
 .tile-info {
   position: absolute;
@@ -342,7 +344,7 @@ div[type='tile'].active {
   z-index: 1;
   background: rgba(36,36,41);
   pointer-events: all!important;
-  cursor: auto!important;
+  cursor: pointer;
 }
 
 .background-blur {
