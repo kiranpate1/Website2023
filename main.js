@@ -300,7 +300,7 @@ function setup() {
     }
 
     //about me
-    largestTile.querySelector(".tile-content h1").innerHTML = "About Me"
+    largestTile.querySelector(".tile-content h1").innerHTML = "About"
     const testBlur = document.createElement("img")
     testBlur.classList.add('test-blur')
     testBlur.src = "/assets/test-blur.webp"
