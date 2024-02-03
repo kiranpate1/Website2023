@@ -207,8 +207,10 @@ function setup() {
 
     for (let i = 0; i < tileSizeOrdered.length; i++) {
       tiles[i].onclick = function() {
-        expandtiles()
-        expandtile(i)
+        if (!tiles[i].classList.contains('focus')) {
+          expandtiles()
+          expandtile(i)
+        }
       }
     }
 
