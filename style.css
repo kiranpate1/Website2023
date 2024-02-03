@@ -164,6 +164,7 @@ div[type='tile']:hover {
 }
 .tile-info h1 {
   letter-spacing: -0.03em;
+  white-space: nowrap;
   opacity: 0.2;
   transition: var(--short), var(--short) opacity;
 }
