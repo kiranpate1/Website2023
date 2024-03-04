@@ -534,4 +534,4 @@ function setup() {
       setup()
     }, tiles.length * 50 + 200);
   }
-}
+} //test
