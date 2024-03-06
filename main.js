@@ -337,7 +337,7 @@ function setup() {
     const placeholderSideTiles = document.querySelectorAll('.placeholder-side-tile')
     for (let i = 0; i < placeholderTiles.length; i++) {
       placeholderTiles[i].remove()
-    }
+    } 
     setTimeout(function() {
       for (let i = 0; i < placeholderSideTiles.length; i++) {
         placeholderSideTiles[i].remove()
