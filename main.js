@@ -1,16 +1,16 @@
 //grid generator 
 
-var tileItems = ["About", "Daybreak", "Freelance", "Superpower", "Workmade", "DTF", "TTW", "Pursuit", "Artwork","??????"]
+var tileItems = ["About", "Daybreak", "Down to File", "TTW", "Pursuit", "Artwork", "Workmade", "Superpower", "Freelance","??????"]
 var tileDescriptions = [
   "Who am I? How am I? Why am I?", 
   "I guess it's where I work. But it's also where I play.", 
-  "Clients are annoying, pls stop contacting me y'all.", 
-  "I wish I could fly. Or teleport. Or both.", 
-  "As if we don't do enough work around here.", 
-  "It's not what you think it means.", 
+  "It's tax season baby!", 
   "Toronto Tech Week. It's a thing.",
   "I'm in pursuit of happiness. And tacos.", 
   "Sometimes I pretend I'm an artist. But I'm not.", 
+  "As if we don't do enough work around here.", 
+  "I wish I could fly. Or teleport. Or both.", 
+  "Clients are annoying, pls stop contacting me y'all.", 
   "Don't click this trust me"
 ]
 
