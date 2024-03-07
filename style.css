@@ -118,7 +118,7 @@ div[type='tile'], .placeholder-tile {
   overflow: hidden;
   width: auto;
   height: auto;
-  background: #1F1F24;
+  background: #242429;
   background-position: center!important; 
   background-repeat: no-repeat!important; 
   background-size: cover!important;
@@ -140,11 +140,11 @@ div[type='tile'].focus {
   transition: var(--medium), var(--short) background, var(--medium) transform;
 }
 .placeholder-tile {
-  background: #1F1F24;
+  background: #242429;
   box-shadow: none;
 }
 div[type='tile']:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.11);
 }
 .tile-content {
   position: absolute;
@@ -342,7 +342,7 @@ div[type='tile']:hover {
 div[type='tile'].active {
   position: absolute;
   z-index: 1;
-  background: rgba(31,31,36);
+  background: rgba(36,36,41);
   pointer-events: all!important;
   cursor: pointer;
 }
