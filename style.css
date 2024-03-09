@@ -23,13 +23,26 @@ html {
   scrollbar-width: none;  /* Firefox */
 }
 
-p {
+h1, p, a {
   font-family: 'Manrope', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  line-height: 150%;
   /* white-space: nowrap; */
   text-overflow: ellipsis;
+}
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: rgba(255,255,255,1);
+}
+p {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+}
+a {
+  font-size: 16px;
+  font-weight: 500;
   color: rgba(255,255,255,0.5);
 }
 
@@ -98,6 +111,9 @@ nav {
   place-self: center;
   color: #fff;
   transition: var(--short);
+}
+.socials {
+  justify-self: end;
 }
 #grid- {
   height:100%;
