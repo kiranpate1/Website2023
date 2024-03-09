@@ -297,15 +297,15 @@ div[type='tile']:hover {
 .hover .tile-cards:not(.focus.hover .tile-cards) {
   height: 20%;
 }
+.tile-cards {
+  grid-template: 0.7fr 0.85fr 1fr / auto;
+}
 .focus .tile-cards {
   opacity: 1!important;
-  grid-template: 43vw 40vw 40vw / auto!important;
+  grid-template: 42vw 42vw 42vw / auto!important;
   height: 100%;
   width: 100%;
   grid-gap: 8px;
-}
-.tile-cards {
-  grid-template: 0.7fr 0.85fr 1fr / auto;
 }
 
 .tile-card {
