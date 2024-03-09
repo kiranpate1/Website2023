@@ -299,7 +299,7 @@ div[type='tile']:hover {
 }
 .focus .tile-cards {
   opacity: 1!important;
-  grid-template: 40vw 40vw 40vw / auto!important;
+  grid-template: 43vw 40vw 40vw / auto!important;
   height: 100%;
   width: 100%;
   grid-gap: 8px;
