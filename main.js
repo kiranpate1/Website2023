@@ -250,7 +250,7 @@ function setup() {
         const tileCard = document.createElement("div")
         const tileImage = document.createElement("img")
         //tileImage.src = `/assets/${tileItems[index].toLowerCase()}/${tileItems[index].toLowerCase()}-${i}.webp`
-        tileImage.src = '/assets/projects/testimage.webp'
+        tileImage.src = '/assets/projects/freelance/testimage.webp'
         tileCard.appendChild(tileImage)
         tileCard.classList.add('tile-card')
         tileCard.style.transform = `scale(${(7+(1.5*i))/10})`
