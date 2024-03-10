@@ -14,6 +14,19 @@ var tileDescriptions = [
   "Don't click this trust me"
 ]
 
+var tileCredits = [
+  "I am a 24 year old design-developer who loves dabbling in creative developement and ux. I also need to learn how to write better bios/make a proper about so yeah... stay tuned.", 
+  "Role: Designer, Developer, Motion | Credits: Taha Hossain, Alvin Leung | Year: 2022/23", 
+  "Role: Designer, Developer | Credits: Taha Hossain, Josh Warner | Year: 2024", 
+  "Role: Developer | Credits: Taha Hossain, Alvin Leung | Year: 2024",
+  "Role: Designer, Motion | Credits: Ben Giannis | Year: 2023", 
+  "Role: I mean it's kinda obvious", 
+  "Role: Designer, Developer | Credits: Taha Hossain, Tony Zhao | Year: 2023", 
+  "Role: Developer, Designer | Credits: Taha Hossain, Zilin Deng | Year: 2023", 
+  "Role: Developer | Client: Natalie Almosa, Vanessa Bahk, etc. | Year: 2022/23", 
+  ""
+]
+
 setup()
 
 function setup() {
@@ -204,12 +217,12 @@ function setup() {
       tileSize.push({index, size, width, height})
     })
     var tileSizeOrdered = group(tileSize)
-
     for (let i = 0; i < tileSizeOrdered.length; i++) {
       tiles[i].onclick = function() {
         if (!tiles[i].classList.contains('focus')) {
           expandtiles()
-          expandtile(i)
+          expandtile(i,tileSizeOrdered[i].key)
+          console.log(tileSizeOrdered[i].key)
         }
       }
     }
@@ -385,7 +398,7 @@ function setup() {
   const caseSection = document.querySelector('.case-section')
   var scrollableTiles
 
-  function expandtile(indexToExpand) {
+  function expandtile(indexToExpand, keyToExpand) {
     const placeholderTiles = document.querySelectorAll('.placeholder-tile')
     document.body.classList.add('project-open')
 
@@ -403,6 +416,7 @@ function setup() {
       tiles[indexToExpand].style.width = caseSection.getBoundingClientRect().width + 'px'
       tiles[indexToExpand].style.height = caseSection.getBoundingClientRect().height + 'px'
       tiles[indexToExpand].style.transform = 'translate3d(0,0,0)'
+      document.querySelector('.focus .tile-info p').innerHTML = tileCredits[keyToExpand]
     }, 20)
 
     const placeholderSideTile = document.createElement("div")
