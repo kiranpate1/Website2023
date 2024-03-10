@@ -251,7 +251,8 @@ function setup() {
         //tileCard.src = `/assets/${tileItems[index].toLowerCase()}/${tileItems[index].toLowerCase()}-${i}.webp`
         tileCard.src = `/assets/projects/freelance/testimage-${i}.webp`
         tileCard.classList.add('tile-card')
-        tileCard.style.transform = `scale(${(7+(1.5*i))/10})`
+        // tileCard.style.transform = `translateY(${-100*i}%) scale(${(7+(1.5*i))/10})`
+        tileCard.style.transform = `scale(${(8+i)/10})`
         tileCard.style.filter = `brightness(${(7+(1.5*i))/10})`
         tileCards.appendChild(tileCard)
         tiles[tile.key].addEventListener("mouseover", function(){
