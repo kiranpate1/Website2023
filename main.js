@@ -248,10 +248,8 @@ function setup() {
       tileCards.classList.add('tile-cards')
       for (let i = 0; i < 3; i++) {
         const tileCard = document.createElement("img")
-        //const tileImage = document.createElement("img")
-        //tileImage.src = `/assets/${tileItems[index].toLowerCase()}/${tileItems[index].toLowerCase()}-${i}.webp`
+        //tileCard.src = `/assets/${tileItems[index].toLowerCase()}/${tileItems[index].toLowerCase()}-${i}.webp`
         tileCard.src = `/assets/projects/freelance/testimage-${i}.webp`
-        //tileCard.appendChild(tileImage)
         tileCard.classList.add('tile-card')
         tileCard.style.transform = `scale(${(7+(1.5*i))/10})`
         tileCard.style.filter = `brightness(${(7+(1.5*i))/10})`

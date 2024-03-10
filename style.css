@@ -297,9 +297,9 @@ div[type='tile']:hover {
 .hover .tile-cards:not(.focus.hover .tile-cards) {
   height: 20%;
 }
-.tile-cards {
+/* .tile-cards {
   grid-template: 0.7fr 0.85fr 1fr / auto;
-}
+} */
 .focus .tile-cards {
   opacity: 1!important;
   grid-template: auto auto auto / auto!important;
