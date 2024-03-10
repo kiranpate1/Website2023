@@ -232,15 +232,16 @@ div[type='tile']:hover {
   transform: translate3d(-50%,0,0)!important;
 }
 .project-open .tile-info p {
-  width: 150px!important;
+  width: 100%!important;
   max-width: none!important;
-  left: 50%!important;
+  /* left: 50%!important; */
   top: 44px!important;
   margin-top: 0!important;
-  text-align: center!important;
-  transform: translate3d(-50%,0,0)!important;
+  text-align: left!important;
+  /* transform: translate3d(-50%,0,0)!important; */
 }
 .project-open .focus .tile-info {
+  width: 100%!important;
   left: 24px!important;
   top: 24px!important;
   transform: translate3d(0,0,0)!important;
@@ -249,7 +250,7 @@ div[type='tile']:hover {
   opacity: 0.6!important;
 }
 .project-open .focus .tile-info p {
-  opacity: 0!important;
+  opacity: 1!important;
 }
 
 .tile-cards-wrapper {
@@ -260,6 +261,7 @@ div[type='tile']:hover {
   bottom: 0;
   right: 0;
   padding: 0;
+  pointer-events: none;
   transition: var(--medium);
 }
 .horizontal .tile-cards-wrapper {
@@ -273,7 +275,7 @@ div[type='tile']:hover {
 .focus .tile-cards-wrapper {
   width: 100%;
   height: 100%;
-  padding: 76px 8px 8px 8px;
+  padding: 108px 8px 8px 8px;
 }
 
 .tile-cards {

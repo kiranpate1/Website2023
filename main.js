@@ -278,7 +278,7 @@ function setup() {
     smallestTile.querySelector(".tile-content h1").innerHTML = "??????"
     smallestTile.onclick = function() {
       toggleParty('on')
-      setTimeout(function() {toggleParty('off')}, 2000)
+      setTimeout(function() {toggleParty('off')}, 1000)
     }
     function toggleParty(toggle) {
       var uniqueNumbers = new Set();
@@ -297,7 +297,7 @@ function setup() {
           } else {
             tile.style.backgroundImage = ''
           }
-        }, index * 200)
+        }, index * 100)
       })
     }
 
