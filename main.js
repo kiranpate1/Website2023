@@ -246,12 +246,11 @@ function setup() {
         tileCards.style.minWidth = `${tile.width * 0.7}px`
       }
       tileCards.classList.add('tile-cards')
+      var name = (tileItems[index].split(" ").join("")).toLowerCase()
       for (let i = 0; i < 3; i++) {
         const tileCard = document.createElement("img")
-        //tileCard.src = `/assets/${tileItems[index].toLowerCase()}/${tileItems[index].toLowerCase()}-${i}.webp`
-        tileCard.src = `/assets/projects/freelance/testimage-${i}.webp`
+        tileCard.src = `/assets/projects/${name}/${name}-${i}.webp`
         tileCard.classList.add('tile-card')
-        // tileCard.style.transform = `translateY(${-100*i}%) scale(${(7+(1.5*i))/10})`
         tileCard.style.transform = `scale(${(8+i)/10})`
         tileCard.style.filter = `brightness(${(4+(3*i))/10})`
         tileCards.appendChild(tileCard)
