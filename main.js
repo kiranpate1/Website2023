@@ -271,6 +271,10 @@ function setup() {
       for (let i = 0; i < 3; i++) {
         const tileCard = document.createElement("img")
         tileCard.src = `/assets/projects/${name}/${name}-${i}.webp`
+        if (index == (tileSizeOrdered.length - 1)) {
+          //tileCard.src = `/assets/party/kiran-${i}.webp`
+          tileCard.src = `/assets/bg-blur.webp`
+        }
         tileCard.classList.add('tile-card')
         tileCard.style.transform = `scale(${(8+i)/10})`
         tileCard.style.filter = `brightness(${(4+(3*i))/10})`
@@ -323,7 +327,7 @@ function setup() {
     }
 
     //about me
-    
+
     //largestTile.querySelector(".tile-content h1").innerHTML = "About"
     //const testBlur = document.createElement("img")
     //testBlur.classList.add('test-blur')
