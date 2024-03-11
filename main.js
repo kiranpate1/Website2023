@@ -1,8 +1,8 @@
 //grid generator 
 
-var tileItems = ["About", "Daybreak", "Down to File", "TTW", "Pursuit", "Artwork", "Workmade", "Superpower", "Freelance","??????"]
+var tileItems = ["Daybreak", "Down to File", "TTW", "Pursuit", "Artwork", "Workmade", "Superpower", "Freelance","??????"]
 var tileDescriptions = [
-  "Who am I? How am I? Why am I?", 
+  //"Who am I? How am I? Why am I?", 
   "I guess it's where I work. But it's also where I play.", 
   "It's tax season baby!", 
   "Toronto Tech Week. It's a thing.",
@@ -15,7 +15,7 @@ var tileDescriptions = [
 ]
 
 var tileCredits = [
-  "I am a 24 year old design-developer who loves dabbling in creative developement and ux. I also need to learn how to write better bios/make a proper about so yeah... stay tuned.", 
+  //"I am a 24 year old design-developer who loves dabbling in creative developement and ux. I also need to learn how to write better bios/make a proper about so yeah... stay tuned.", 
   "Role: Designer, Developer, Motion | Credits: Taha Hossain, Alvin Leung | Year: 2022/23", 
   "Role: Designer, Developer | Credits: Taha Hossain, Josh Warner | Year: 2024", 
   "Role: Developer | Credits: Taha Hossain, Alvin Leung | Year: 2024",
@@ -323,7 +323,8 @@ function setup() {
     }
 
     //about me
-    largestTile.querySelector(".tile-content h1").innerHTML = "About"
+    
+    //largestTile.querySelector(".tile-content h1").innerHTML = "About"
     //const testBlur = document.createElement("img")
     //testBlur.classList.add('test-blur')
     //testBlur.src = "/assets/test-blur.webp"
