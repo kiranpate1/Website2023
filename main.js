@@ -221,8 +221,7 @@ function setup() {
       tiles[i].onclick = function() {
         if (!tiles[i].classList.contains('focus')) {
           expandtiles()
-          expandtile(i,tileSizeOrdered[i].key)
-          console.log(tileSizeOrdered[i].key)
+          expandtile(i)
         }
       }
     }
@@ -240,10 +239,19 @@ function setup() {
       tileInfo.appendChild(tiletitle)
 
       const tileDescription = document.createElement("p")
-      tileDescription.textContent = tileDescriptions[index]
+
       tileDescription.style.width = `${tile.width * 0.7}px`
       tileDescription.style.top = `min(${(tile.height / 5)}px,${(tile.width / 10)}px)`
       tileDescription.style.marginTop = `${tile.width * 0.05}px`
+
+      const tileDesc = document.createElement("span")
+      tileDesc.textContent = tileDescriptions[index]
+      tileDescription.appendChild(tileDesc)
+
+      const tileCredit = document.createElement("span")
+      tileCredit.textContent = tileCredits[index]
+      tileDescription.appendChild(tileCredit)
+
       tileInfo.appendChild(tileDescription)
 
       const tileCardsWrapper = document.createElement("div")
@@ -416,7 +424,6 @@ function setup() {
       tiles[indexToExpand].style.width = caseSection.getBoundingClientRect().width + 'px'
       tiles[indexToExpand].style.height = caseSection.getBoundingClientRect().height + 'px'
       tiles[indexToExpand].style.transform = 'translate3d(0,0,0)'
-      document.querySelector('.focus .tile-info p').innerHTML = tileCredits[keyToExpand]
     }, 20)
 
     const placeholderSideTile = document.createElement("div")
