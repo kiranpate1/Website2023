@@ -436,7 +436,7 @@ function setup() {
 
     tiles[indexToExpand].onwheel = function(e) {
     }
-  }      
+  }
 
   //back
 
